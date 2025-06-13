@@ -1,14 +1,10 @@
+import { div } from 'framer-motion/client'
 import React from 'react'
 
 const Home = () => {
   return (
     <div>
-        hello
-        hello
-        hello
-        hello
-        hello
-        hello
+      
     </div>
   )
 }

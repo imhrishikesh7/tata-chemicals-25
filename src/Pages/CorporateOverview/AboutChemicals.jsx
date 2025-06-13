@@ -10,22 +10,22 @@ const BOD = () => {
     const data = [
         {
             title: 'mission',
-            img: 'CorporateOverview/AboutChemicals/06-icon-img-1.png',
+            img: 'CorporateOverview/AboutChemicals/06-icon-img-1.webp',
             desc: 'Serving Society through Science',
         },
         {
             title: 'vision',
-            img: 'CorporateOverview/AboutChemicals/06-icon-img-2.png',
+            img: 'CorporateOverview/AboutChemicals/06-icon-img-2.webp',
             desc: 'Be a leading sustainable chemistrysolutions company',
         },
         {
             title: 'leadership',
-            img: 'CorporateOverview/AboutChemicals/06-icon-img-3.png',
+            img: 'CorporateOverview/AboutChemicals/06-icon-img-3.webp',
             desc: 'We have become the preferred choice for customers seeking sustainable chemistry solutions worldwide',
         },
         {
             title: 'values',
-            img: 'CorporateOverview/AboutChemicals/06-icon-img-4.png',
+            img: 'CorporateOverview/AboutChemicals/06-icon-img-4.webp',
             desc: 'S.P.I.C.E.',
         },
     ];
@@ -214,7 +214,7 @@ const BOD = () => {
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold ">
                 Performance Review
                 </h1>
-                <img src="CorporateOverview/AboutChemicals/07-Page-IMG.png" alt=""/>
+                <img src="CorporateOverview/AboutChemicals/07-Page-IMG.webp" alt=""/>
             </div>
             <div>
             <h1 className="text-[#1368b4] text-3xl font-bold mb-6 mt-10 text-center">Awards and Recognitions</h1>

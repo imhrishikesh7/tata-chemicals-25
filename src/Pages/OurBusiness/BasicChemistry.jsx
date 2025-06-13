@@ -40,7 +40,7 @@ const BasicChemistry = () => {
                     {/* Image Column */}
                     <div className="w-full md:w-2/4 p-4 flex justify-center items-center order-1">
                         <img
-                            src="OurBusiness/BasicChemistry/10-Page-IMG-1.png"
+                            src="OurBusiness/BasicChemistry/10-Page-IMG-1.webp"
                             alt="Descriptive Alt"
                             className="max-w-full h-auto object-contain rounded-br-4xl"
                         />
@@ -58,7 +58,7 @@ const BasicChemistry = () => {
                 </div>
             </div>
             <div className="mt-10">
-                <img src="OurBusiness/BasicChemistry/11-Page-IMG.png" alt="" />
+                <img src="OurBusiness/BasicChemistry/11-Page-IMG.webp" alt="" />
 
                 <div className="flex flex-col md:flex-row text-[#4d4d4f] gap-10">
 
@@ -183,7 +183,7 @@ const BasicChemistry = () => {
                 </div>
             </div>
             <div className='mt-10'>
-                <img src="OurBusiness/BasicChemistry/12-Page-IMG.png" alt="" />
+                <img src="OurBusiness/BasicChemistry/12-Page-IMG.webp" alt="" />
 
                 {/* Responsive flex column for mobile, row for larger screens */}
                 <div className='flex flex-col lg:flex-row text-[#4d4d4f] gap-10'>

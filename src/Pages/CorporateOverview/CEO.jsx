@@ -8,7 +8,7 @@ const CEO = () => {
             </h1>
             <div className=' flex border-b-4 border-red-500'>
                 <div className=''>
-                    <img src="CorporateOverview/CEO/CEO.png" alt=""
+                    <img src="CorporateOverview/CEO/CEO.webp" alt=""
                         className='w-[30%]'
                     />
                 </div>

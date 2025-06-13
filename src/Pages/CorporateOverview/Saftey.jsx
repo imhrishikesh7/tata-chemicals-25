@@ -25,7 +25,7 @@ const Saftey = () => {
                     </div>
                     <div className='w-2/4'>
                         <h1 className="text-[#1368b4] text-3xl font-bold mb-6 text-center">EHS Governance Framework</h1>
-                        <img src="CorporateOverview/Saftey/09-Page-IMG.png" alt="" />
+                        <img src="CorporateOverview/Saftey/09-Page-IMG.webp" alt="" />
                     </div>
                 </div>
                 <div className='flex gap-3 mt-5'>
@@ -59,12 +59,12 @@ const Saftey = () => {
                             <h1 className="text-[#1368b4] text-3xl font-bold text-center">Safety Performance (Consolidated)</h1>
                             <div className='flex h-full flex-row items-center gap-4'>
                                 <div className='md:w-1/2'>
-                                    <img src="CorporateOverview/Saftey/09-Page-IMG-1.png" alt=""
+                                    <img src="CorporateOverview/Saftey/09-Page-IMG-1.webp" alt=""
                                         className='mt-[2.5px] '
                                     />
                                 </div>
                                 <div className='md:w-1/2'>
-                                    <img src="CorporateOverview/Saftey/09-Page-IMG-2.png" alt="" />
+                                    <img src="CorporateOverview/Saftey/09-Page-IMG-2.webp" alt="" />
                                 </div>
                             </div>
                         </div>

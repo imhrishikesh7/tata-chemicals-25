@@ -6,14 +6,14 @@ import Title from '../Title';
 import KnowMore from '../KnowMore';
 
 const bod = [
-    '/home/b1.png',
-    '/home/b2.png',
-    '/home/b3.png',
-    '/home/b4.png',
-    '/home/b5.png',
-    '/home/b6.png',
-    '/home/b7.png',
-    '/home/b8.png',
+    '/home/b1.webp',
+    '/home/b2.webp',
+    '/home/b3.webp',
+    '/home/b4.webp',
+    '/home/b5.webp',
+    '/home/b6.webp',
+    '/home/b7.webp',
+    '/home/b8.webp',
 ];
 
 const CustomPrevArrow = (props) => {

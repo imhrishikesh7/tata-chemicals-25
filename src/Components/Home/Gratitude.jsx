@@ -82,7 +82,7 @@ const Gratitude = () => {
             <p className="text-base">March 03, 1839 to May 19, 1904</p>
           </div>
           <div className="md:w-1/3">
-            <img src="/home/founder.png" className="w-full h-auto object-contain" alt="Founder" />
+            <img src="/home/founder.webp" className="w-full h-auto object-contain" alt="Founder" />
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ const Gratitude = () => {
             <p className="text-base">Born: December 28, 1937</p>
           </div>
           <div className="md:w-1/3">
-            <img src="/home/rnt.png" className="w-full h-auto object-contain" alt="Mr. Tata" />
+            <img src="/home/rnt.webp" className="w-full h-auto object-contain" alt="Mr. Tata" />
           </div>
         </div>
       </div>

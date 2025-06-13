@@ -32,7 +32,7 @@ const Message = () => {
                 <Title text="CEO's Message" />
                 <div className='flex md:flex-row items-stretch flex-col md:justify-center gap-10'>
                     <div className='md:w-[30%] rounded-4xl  overflow-hidden'>
-                        <img src="/home/ceo.png" className='border' alt="" />
+                        <img src="/home/ceo.webp" className='border' alt="" />
                     </div>
                     <div
                         ref={messageRef}

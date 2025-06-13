@@ -1,6 +1,6 @@
 .marginal {
   width: 86%;
-  max-width: 1300px;
+  max-width: 1500px;
   margin: auto;
   padding: 2% 0;
 }
@@ -24,3 +24,4 @@
     transform: translateY(0);
   }
 }
+

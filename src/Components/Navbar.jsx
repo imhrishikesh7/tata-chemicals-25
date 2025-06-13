@@ -64,8 +64,8 @@ export default function Navbar() {
     };
 
     return (
-        <div className="bg-[#32568bf2] shadow-md fixed top-0 w-full z-50">
-        <header className="w-[86%] mx-auto max-w-[1300px]">
+        <div className="bg-[#32568bf2] shadow-md sticky top-0 w-full z-50">
+        <header className="w-[86%] mx-auto max-w-[1300px">
             {/* Top Row */}
             <div className="flex justify-between items-center  w-90% px-6 py-4">
                 <Link to={"/"} className="font-bold text-xl ">

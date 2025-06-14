@@ -16,7 +16,6 @@ const Home = () => {
             <Gratitude />
             <Highlights />
             <Message />
-            
             <BOD />
         </div>
     )

@@ -12,7 +12,7 @@ const Saftey = () => {
     return (
         <div>
             <div className='marginal'>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
+                <h1 className="m-bold text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
                     Safety at the Core
                 </h1>
                 <div className='flex '>
@@ -24,13 +24,13 @@ const Saftey = () => {
                         </p>
                     </div>
                     <div className='w-2/4'>
-                        <h1 className="text-[#1368b4] text-3xl font-bold mb-6 text-center">EHS Governance Framework</h1>
+                        <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold mb-6 text-center">EHS Governance Framework</h1>
                         <img src="CorporateOverview/Saftey/09-Page-IMG.webp" alt="" />
                     </div>
                 </div>
                 <div className='flex gap-3 mt-5'>
                     <div className='w-2/4'>
-                        <h1 className="text-[#1368b4] text-3xl font-bold mb-4">Ensuring Safety Every Step of the Way</h1>
+                        <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold mb-4">Ensuring Safety Every Step of the Way</h1>
                         <p className='text-xl'>
                             We have deployed the Progressive Safety
                             Index (PSI) across all our manufacturing
@@ -41,12 +41,12 @@ const Saftey = () => {
                         </p>
                         <div className='flex flex-row gap-10 items-end'>
                             <div>
-                                <h2 className='text-xl mt-5 text-[#ed1a3b] font-bold'>PSI Implementation Status</h2>
-                                <h1 className='text-3xl text-[#432c87] mt-2 font-bold border-b border-black w-fit pb-3 mb-2'>100%</h1>
+                                <h2 className='m-semi-bold text-xl mt-5 text-[#ed1a3b] font-bold'>PSI Implementation Status</h2>
+                                <h1 className='m-semi-bold text-3xl text-[#432c87] mt-2 font-bold border-b border-black w-fit pb-3 mb-2'>100%</h1>
                                 <p className='text-lg'>of manufacturing sites have adopted PSI</p>
                             </div>
                             <div>
-                                <h1 className='text-3xl text-[#432c87] mt-2 font-bold border-b border-black w-fit pb-3 mb-2'>85%</h1>
+                                <h1 className='m-semi-bold text-3xl text-[#432c87] mt-2 font-bold border-b border-black w-fit pb-3 mb-2'>85%</h1>
                                 <p className='text-lg'>of the enterprise-wide target has been achieved</p>
                             </div>
                         </div>
@@ -56,7 +56,7 @@ const Saftey = () => {
                     </div>
                     <div className='w-2/4'>
                         <div className='h-full flex-row  items-center'>
-                            <h1 className="text-[#1368b4] text-3xl font-bold text-center">Safety Performance (Consolidated)</h1>
+                            <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold text-center">Safety Performance (Consolidated)</h1>
                             <div className='flex h-full flex-row items-center gap-4'>
                                 <div className='md:w-1/2'>
                                     <img src="CorporateOverview/Saftey/09-Page-IMG-1.webp" alt=""
@@ -74,7 +74,7 @@ const Saftey = () => {
                 <div className='flex gap-3 mt-10 '>
                     <div className='w-2/4'>
                     <div className='mb-8'>
-                        <h1 className="text-[#1368b4] text-3xl font-bold mb-3">Process Safety and Risk Management</h1>
+                        <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold mb-3">Process Safety and Risk Management</h1>
                         <p className='text-xl'>
                             Process Safety and Risk Management (PSRM) has
                             been implemented at our manufacturing sites
@@ -99,7 +99,7 @@ const Saftey = () => {
                             process safety incidents in the past 5 years.
                         </p>
                         </div>
-                        <h1 className="text-[#1368b4] text-3xl font-bold mb-3">Occupational Health Measures</h1>
+                        <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold mb-3">Occupational Health Measures</h1>
                         <div className='mt-5'>
                             <p className='text-xl'>Occupational health is supported
                                 through initiatives such as regular health
@@ -114,8 +114,8 @@ const Saftey = () => {
                     </div>
                     <div className='w-2/4'>
                         <div className='h-full'>
-                            <h1 className="text-[#1368b4] text-3xl font-bold text-center">Workplace Enhancements</h1>
-                            <div className="h-full justify-center items-center flex-col flex ">
+                            <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold text-center">Workplace Enhancements</h1>
+                            <div className="m-semi-bold h-full justify-center items-center flex-col flex ">
                                 <div className='w-fit m-auto flex flex-col gap-10'>
                                 {steps.map((text, index) => (
                                     <div key={index} className="flex w-fit items-start gap-4">

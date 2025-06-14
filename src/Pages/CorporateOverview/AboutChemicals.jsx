@@ -1,5 +1,4 @@
 import React from 'react'
-import Awards from '../../Components/Awards'
 
 const formatTitle = (key) =>
     key
@@ -33,7 +32,7 @@ const BOD = () => {
         <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-10">
             {/* Heading */}
             <div className="max-w-7xl mx-auto">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
+                <h1 className="m-bold text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
                     About Tata Chemicals
                 </h1>
             </div>
@@ -42,7 +41,7 @@ const BOD = () => {
                     {data.map((item, index) => (
                         <div
                             key={index}
-                            className="flex flex-col items-center border text-center max-w-full md:w-[20%] border-[#40b2a2]  p-6 w-full"
+                            className="m-semi-bold flex flex-col items-center border text-center max-w-full md:w-[20%] border-[#40b2a2]  p-6 w-full"
                         >
                             <div className="flex items-center justify-center bg-white rounded-full mb-4 p-1 shadow-md">
                                 <img
@@ -60,7 +59,7 @@ const BOD = () => {
                     ))}
                 </div>
             </div>
-            <div className="flex w-full h-[120px] gap-2 border-b mb-10">
+            <div className=" text-lg flex w-full h-[120px] gap-2 border-b mb-10">
                 <div className="flex-1 flex items-center justify-center text-center">
                     3rd - largest Soda Ash
                     producer globally
@@ -80,10 +79,10 @@ const BOD = () => {
                     in India</div>
             </div>
             <div className="w-full px-6 py-10">
-                <h1 className='text-[#1368b4] text-3xl font-bold mb-6 text-center'>Our Presence</h1>
+                <h1 className='m-semi-bold text-[#1368b4] text-3xl  mb-6 text-center'>Our Presence</h1>
 
                 {/* Top Region Blocks */}
-                <div className="flex flex-wrap justify-between border-b-[2px] border-black pb-8 mb-8">
+                <div className="m-semi-bold text-lg flex flex-wrap justify-between border-b-[2px] border-black pb-8 mb-8">
                     {/* Region Block Reusable */}
                     {[
                         { title: 'Asia', value: '7,104 crore', employee: '3,471' },
@@ -91,7 +90,7 @@ const BOD = () => {
                         { title: 'Europe', value: '2,007 crore', employee: '377' },
                         { title: 'Africa', value: '669 crore', employee: '329' }
                     ].map((region, value, index) => (
-                        <div key={index} className="flex-1 min-w-[220px] px-2">
+                        <div key={index} className=" flex-1 min-w-[220px] px-2">
                             <h1 className='text-[#ed1a3b] text-2xl font-bold border-b-2 border-[#1368b4] pb-2 mb-3 w-full'>
                                 {region.title}
                             </h1>
@@ -104,7 +103,7 @@ const BOD = () => {
                 </div>
 
                 {/* Bottom Aligned Stats */}
-                <div className="flex flex-wrap justify-between gap-4">
+                <div className="m-semi-bold flex flex-wrap justify-between gap-4">
                     {/* Under Asia */}
                     <div className="flex flex-col items-start flex-1 min-w-[220px] px-2">
                         <h2 className='text-[#432c87] text-2xl font-bold border-b border-black w-max'>3</h2>
@@ -128,9 +127,9 @@ const BOD = () => {
                 </div>
             </div>
             <div className="w-full px-6 py-10">
-                <h1 className="text-[#1368b4] text-3xl font-bold mb-6 text-center">Highlights of FY 2025</h1>
+                <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold mb-6 text-center">Highlights of FY 2025</h1>
 
-                <div className="flex flex-wrap justify-between gap-x-8 border-black pb-8 mb-8">
+                <div className="m-semi-bold flex flex-wrap justify-between gap-x-8 border-black pb-8 mb-8">
                     {[
                         {
                             title: 'Financial',
@@ -181,9 +180,9 @@ const BOD = () => {
                                     style={{ backgroundColor: region.bgcolor }}
                                 >
                                     {region.title}
-                                    
+
                                 </div>
-                                
+
                             </div>
                             {region.heading && (
                                 <h2 className="text-[#4d4d4f] text-xl font-bold mb-4">{region.heading}</h2>
@@ -209,16 +208,6 @@ const BOD = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-            <div className="mx-auto">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold ">
-                Performance Review
-                </h1>
-                <img src="CorporateOverview/AboutChemicals/07-Page-IMG.webp" alt=""/>
-            </div>
-            <div>
-            <h1 className="text-[#1368b4] text-3xl font-bold mb-6 mt-10 text-center">Awards and Recognitions</h1>
-            <Awards />
             </div>
         </div>
     )

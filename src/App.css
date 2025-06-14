@@ -1,5 +1,30 @@
-*{
-    
+@font-face {
+  font-family: 'Myriad';
+  src: url('/myriadprofont/MYRIADPRO-REGULAR.OTF') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Myriad_Bold';
+  src: url('myriadprofont/MYRIADPRO-BOLD.OTF') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Myriad_Bold';
+  src: url('myriadprofont/MYRIADPRO-BOLD.OTF') format('truetype');
+  font-style: normal;
+}@font-face {
+  font-family: 'Myriad_Semi_Bold';
+  src: url('myriadprofont/MYRIADPRO-SEMIBOLD.OTF') format('truetype');
+  font-style: normal;
+}
+.m-semi-bold{
+  font-family: Myriad_Semi_Bold;
+}
+.m-bold{
+  font-family: Myriad_Bold;
+}
+body{
+  font-family: Myriad;
 }
 .marginal {
   width: 86%;

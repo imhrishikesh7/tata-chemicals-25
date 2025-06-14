@@ -3,7 +3,7 @@ import React from 'react'
 const CEO = () => {
     return (
         <div className='marginal'>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
+            <h1 className="m-bold text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
                 CEO’s Message
             </h1>
             <div className=' flex border-b-4 border-red-500'>
@@ -16,7 +16,7 @@ const CEO = () => {
 
                 </div>
             </div>
-            <div>
+            <div className=''>
                 <h1 className="text-[#1368b4] text-3xl font-bold mb-6 mt-10">Dear Shareholders,</h1>
                 <p className='text-xl'>
                     I hope this message finds you and your families well. Thank you for your unwavering trust and support for Tata Chemicals. <br />

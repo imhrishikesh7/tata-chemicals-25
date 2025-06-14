@@ -174,7 +174,7 @@ export default function Navbar() {
                         onMouseLeave={() => setActiveDesktop(null)}
                     >
                         <div className="flex flex-col items-start">
-                            <button className="text-white rounded-md text-sm font-semibold px-4 py-2 hover:bg-white hover:text-black transition">
+                            <button className="text-white m-semi-bold rounded-md text-sm font-semibold px-4 py-2 hover:bg-white hover:text-black transition">
                                 Annual Report 2024-25
                             </button>
                         </div>

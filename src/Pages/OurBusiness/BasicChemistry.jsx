@@ -1,5 +1,5 @@
 import React from 'react'
-import HeadingWRedCorner from '../CorporateOverview/HeadingWRedCorner';
+import HeadingWRedCorner from '../../Components/HeadingWRedCorner'
 
 const BasicChemistry = () => {
     const columns = [
@@ -23,15 +23,15 @@ const BasicChemistry = () => {
     return (
         <div className='marginal'>
             <div className="max-w-7xl mx-auto mb-8">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
+                <h1 className="m-bold text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
                     Basic Chemistry Business
                 </h1>
-                <p className='text-[#432c87] text-2xl'>Tata Chemicals’ Basic Chemistry Business focuses on the production of essential inorganic
+                <p className='m-semi-bold text-[#432c87] text-2xl'>Tata Chemicals’ Basic Chemistry Business focuses on the production of essential inorganic
                     chemicals such as soda ash, sodium bicarbonate, and salt, which are used across glass,
                     detergents, food, and industrial sectors.</p>
             </div>
             <div>
-                <h1 className="text-[#1368b4] text-3xl font-bold mb-6 text-center">Value Proposition</h1>
+                <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold mb-6 text-center">Value Proposition</h1>
 
             </div>
             <div className="bg-[#f4f9f8] p-6 md:p-10 rounded-br-4xl">
@@ -71,7 +71,7 @@ const BasicChemistry = () => {
                             sustainability requirements. The salt business contributed to portfolio stability by addressing sustained demand across salt.
                         </p>
 
-                        <h1 className="text-2xl text-[#1368b4] font-bold mt-5">Trends</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold mt-5">Trends</h1>
                         <ul className="list-disc list-inside text-xl text-[#4d4d4f] marker:text-[#40b2a2] space-y-3">
                             <li>
                                 Soda ash market faced oversupply with stable overall demand in other materials
@@ -84,7 +84,7 @@ const BasicChemistry = () => {
 
                     {/* Column 2 */}
                     <div className="w-full md:w-1/3 flex flex-col space-y-4">
-                        <h1 className="text-2xl text-[#1368b4] font-bold mt-5">Operational Highlights</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold mt-5">Operational Highlights</h1>
 
                         <div className="bg-[#ed1a3b] h-[2px] w-[20%]"></div>
                         <p className="text-xl">
@@ -109,7 +109,7 @@ const BasicChemistry = () => {
 
                     {/* Column 3 */}
                     <div className="w-full md:w-1/3 bg-[#e7f6fd] rounded-md shadow-sm px-4 py-5 space-y-6">
-                        <h1 className="text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
 
                         {[
                             "Bring sharper focus on safety management, risk control and sustainability in operations.",
@@ -135,13 +135,13 @@ const BasicChemistry = () => {
                     <div className="bg-[#ed1a3b] text-white text-sm font-semibold inline-block px-3 py-1 rounded-br-2xl mb-2">
                         Case Study
                     </div>
-                    <h1 className="text-2xl sm:text-3xl font-semibold">Elevating Technology and Sustainability</h1>
+                    <h1 className="m-semi-bold text-2xl sm:text-3xl font-semibold">Elevating Technology and Sustainability</h1>
                 </div>
 
                 {/* Main Content Box */}
                 <div className="bg-white text-black rounded-br-4xl mt-0 flex flex-col md:flex-row divide-x-[1px] divide-gray-300">
                     {/* Left: Paragraph */}
-                    <div className="w-full md:w-1/2 p-6 text-[#0057a0] text-lg font-medium leading-7">
+                    <div className="w-full md:w-1/2 p-6 text-[#0057a0] text-xl font-medium leading-7">
                         The ability to offer multimodal logistics is a major differentiator. This year presented both challenges and opportunities.
                         We acted quickly by strengthening warehousing and delivery mechanisms, keeping inventory closer to core markets to enable faster distribution.
                         We expanded loose-fill delivery options, in line with sustainability goals to reduce packaging waste.
@@ -149,8 +149,8 @@ const BasicChemistry = () => {
 
                     {/* Middle: Challenges */}
                     <div className="w-full md:w-1/4 p-6 space-y-4">
-                        <h2 className="text-[#ed1a3b] text-xl font-bold mb-2">Challenges</h2>
-                        <ul className="space-y-4 text-[#4d4d4f] text-base">
+                        <h2 className="text-[#ed1a3b] text-2xl font-bold mb-2">Challenges</h2>
+                        <ul className="space-y-4 text-[#4d4d4f] text-xl">
                             <li className="flex items-start">
                                 <span className="w-2 h-2 bg-[#00b398] rounded-full mt-2 mr-2 flex-shrink-0"></span>
                                 Managing increased supply quantities, while remaining cost efficient and ensuring timely deliveries.
@@ -164,8 +164,8 @@ const BasicChemistry = () => {
 
                     {/* Right: Actions Taken */}
                     <div className="w-full md:w-1/4 p-6 space-y-4">
-                        <h2 className="text-[#ed1a3b] text-xl font-bold mb-2">Actions Taken</h2>
-                        <ul className="space-y-4 text-[#4d4d4f] text-base">
+                        <h2 className="text-[#ed1a3b] text-2xl font-bold mb-2">Actions Taken</h2>
+                        <ul className="space-y-4 text-[#4d4d4f] text-xl">
                             <li className="flex items-start">
                                 <span className="w-2 h-2 bg-[#00b398] rounded-full mt-2 mr-2 flex-shrink-0"></span>
                                 Shifted more shipments to rail to reduce costs.
@@ -193,7 +193,7 @@ const BasicChemistry = () => {
                         <p className='text-xl mt-5'>
                             Soda ash operations in the United States operated efficiently, utilising the energy-efficient trona mining process to ensure production stability. Despite the ongoing challenges in export markets, the North American market remained stable due to strong domestic demand. We maintained operational continuity by means of effective planning and response.
                         </p>
-                        <h1 className='text-2xl text-[#1368b4] font-bold mt-5'>Trends</h1>
+                        <h1 className='m-semi-bold text-2xl text-[#1368b4] font-bold mt-5'>Trends</h1>
                         <ul className="list-disc list-inside text-xl text-[#4d4d4f] marker:text-[#40b2a2] space-y-3">
                             <li>Stable domestic demand for soda ash in North America</li>
                             <li>Export prices under stress, particularly in South East (SE) Asia</li>
@@ -202,7 +202,7 @@ const BasicChemistry = () => {
 
                     {/* Middle Column */}
                     <div className='w-full lg:w-1/3 flex flex-col space-y-4'>
-                        <h1 className='text-2xl text-[#1368b4] font-bold mt-5'>Operational Highlights</h1>
+                        <h1 className='m-semi-bold text-2xl text-[#1368b4] font-bold mt-5'>Operational Highlights</h1>
 
                         <div className='bg-[#ed1a3b] h-[2px] w-[20%]'></div>
                         <p className='text-xl'>
@@ -222,7 +222,7 @@ const BasicChemistry = () => {
 
                     {/* Right Column */}
                     <div className="w-full lg:w-1/3 bg-[#e7f6fd] rounded-md shadow-sm px-4 py-5 space-y-6 mt-5 lg:mt-0">
-                        <h1 className="text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
 
                         {[
                             "Fixed Costs optimisation and debt reduction.",
@@ -258,7 +258,7 @@ const BasicChemistry = () => {
                             operational efficiency.
                         </p>
 
-                        <h1 className="text-2xl text-[#1368b4] font-bold mt-5">Trends</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold mt-5">Trends</h1>
                         <ul className="list-disc list-inside text-xl text-[#4d4d4f] marker:text-[#40b2a2] space-y-3">
                             <li>
                                 Muted demand for soda
@@ -273,7 +273,7 @@ const BasicChemistry = () => {
 
                     {/* Column 2 */}
                     <div className="w-full md:w-1/3 flex flex-col space-y-4">
-                        <h1 className="text-2xl text-[#1368b4] font-bold mt-5">Operational Highlights</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold mt-5">Operational Highlights</h1>
 
                         <div className="bg-[#ed1a3b] h-[2px] w-[20%]"></div>
                         <p className="text-xl">
@@ -305,7 +305,7 @@ const BasicChemistry = () => {
 
                     {/* Column 3 */}
                     <div className="w-full md:w-1/3 bg-[#e7f6fd] rounded-md shadow-sm px-4 py-5 space-y-6">
-                        <h1 className="text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
 
                         {[
                             "Fixed Costs optimisation and debt reduction.",
@@ -344,7 +344,7 @@ const BasicChemistry = () => {
                             as a key exporter.
                         </p>
 
-                        <h1 className="text-2xl text-[#1368b4] font-bold mt-5">Trends</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold mt-5">Trends</h1>
                         <ul className="list-disc list-inside text-xl text-[#4d4d4f] marker:text-[#40b2a2] space-y-3">
                             <li>
                                 Growing customer preference for
@@ -358,7 +358,7 @@ const BasicChemistry = () => {
 
                     {/* Column 2 */}
                     <div className="w-full md:w-1/3 flex flex-col space-y-4">
-                        <h1 className="text-2xl text-[#1368b4] font-bold mt-5">Operational Highlights</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold mt-5">Operational Highlights</h1>
 
                         <div className="bg-[#ed1a3b] h-[2px] w-[20%]"></div>
                         <p className="text-xl">
@@ -385,7 +385,7 @@ const BasicChemistry = () => {
 
                     {/* Column 3 */}
                     <div className="w-full md:w-1/3 bg-[#e7f6fd] rounded-md shadow-sm px-4 py-5 space-y-6">
-                        <h1 className="text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
+                        <h1 className="m-semi-bold text-2xl text-[#1368b4] font-bold">Roadmap Ahead</h1>
 
                         {[
                             "Increase production of eco-friendly soda ash by rolling out the Electric Calciner and a solar Photovoltaic Thermal plant, aiming to lower CO₂ emissions per tonne by about 20%.",

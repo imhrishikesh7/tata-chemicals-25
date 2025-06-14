@@ -2,6 +2,7 @@ import Title from '../Title'
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import KnowMore from '../KnowMore';
 
 
 const Message = () => {
@@ -53,7 +54,7 @@ const Message = () => {
                                 <p className="text-lg">Managing Director & CEO</p>
                             </div>
                             <div className="text-base underline underline-offset-4 decoration-white/60 hover:decoration-white transition">
-                                Read More
+                                <KnowMore link={"/"}/>
                             </div>
                         </div>
                     </div>

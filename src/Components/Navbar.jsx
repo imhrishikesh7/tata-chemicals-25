@@ -16,7 +16,7 @@ const navItems = [
         submenu: [
             "Board of Directors",
             "About Tata Chemicals",
-            "Performance Review",
+            // "Performance Review",
             "CEO’s Message",
             "Safety at the Core",
         ],
@@ -184,7 +184,7 @@ export default function Navbar() {
                                 <div
                                     key={i}
                                     onMouseEnter={() => setActiveDesktop(i)}
-                                    className="cursor-pointer py-3 hover:text-gray-400 transition"
+                                    className="cursor-pointer py-3 md:text-[1.6vh] hover:text-gray-400 transition"
                                 >
                                     {item.label}
                                 </div>

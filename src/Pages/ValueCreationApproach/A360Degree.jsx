@@ -65,7 +65,7 @@ substantial savings of INR 50 crore.`,
                 </div>
                 <div className="flex-shrink-0">
                     <img 
-                        src="ValueCreationApproach/18-Page-IMG.png" 
+                        src="ValueCreationApproach/18-Page-IMG.webp" 
                         alt=""
                         className='w-12 h-16 sm:w-14 sm:h-18 md:w-16 md:h-20 lg:w-18 lg:h-22 object-contain'
                     />

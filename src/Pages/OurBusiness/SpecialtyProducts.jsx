@@ -35,7 +35,7 @@ const SpecialtyProducts = () => {
           international distribution. Reframing
           it as a fibre ingredient enabled wider
           acceptance across segments.</p>
-        <img src="./OurBusiness/SpecialityProducts.jsx/India12.png" alt="" className='rounded-br-[50px]' />
+        <img src="./OurBusiness/SpecialityProducts.jsx/India12.webp" alt="" className='rounded-br-[50px]' />
       </div>
       <div className='mt-10'>
         <HeadingWRedCorner title='Agri-business' />
@@ -281,7 +281,7 @@ const SpecialtyProducts = () => {
               <p className="text-xl mt-3">
                 <h1 className='m-semi-bold text-2xl text-[#1368b4] mb-3'>World-Class Quality
                   Standards</h1>
-                <img src="OurBusiness/SpecialityProducts.jsx/16-Page-IMG.png" alt="" />
+                <img src="OurBusiness/SpecialityProducts.jsx/16-Page-IMG.webp" alt="" />
               </p>
             </div>
 

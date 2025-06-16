@@ -3,11 +3,11 @@
   src: url('/myriadprofont/MYRIADPRO-REGULAR.OTF') format('truetype');
   font-style: normal;
 }
-/* @font-face {
+@font-face {
   font-family: 'Myriad_Bold';
   src: url('myriadprofont/MYRIADPRO-BOLD.OTF') format('truetype');
   font-style: normal;
-} */
+}
 /* @font-face {
   font-family: 'Myriad_Semi_Bold';
   src: url('myriadprofont/MYRIADPRO-SEMIBOLD.OTF') format('truetype');
@@ -16,9 +16,9 @@
 .m-semi-bold{
   font-family: Myriad_Semi_Bold;
 } */
-/* .m-bold{
+.m-bold{
   font-family: Myriad_Bold;
-} */
+}
 body{
   font-family: Myriad;
 }

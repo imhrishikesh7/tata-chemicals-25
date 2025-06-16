@@ -54,7 +54,7 @@ const Message = () => {
                                 <p className="text-lg">Managing Director & CEO</p>
                             </div>
                             <div className="text-base underline underline-offset-4 decoration-white/60 hover:decoration-white transition">
-                                <KnowMore link={"/"}/>
+                                <KnowMore link={"/ceos_message"}/>
                             </div>
                         </div>
                     </div>

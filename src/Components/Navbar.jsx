@@ -155,11 +155,21 @@ export default function Navbar() {
                                 alt=""
                             />
                         </Link>
-                        <div className="hidden md:flex gap-6 text-xl text-gray-200">
-                            <FiSearch className="hover:text-gray-400 cursor-pointer" />
-                            <FiUser className="hover:text-gray-400 cursor-pointer" />
-                            <FiShoppingCart className="hover:text-gray-400 cursor-pointer" />
+                        <div className="hidden md:flex gap-6 text-xl text-gray-200 items-center">
+                            <a href="http://linkedin.com/company/tata-chemicals/" target="_blank" rel="noopener noreferrer">
+                                <img src="linkedin_icon.svg" alt="LinkedIn" />
+                            </a>
+                            <a href="https://x.com/TataChemicals/" target="_blank" rel="noopener noreferrer">
+                                <img src="twitter_icon.svg" alt="Twitter" />
+                            </a>
+                            <a href="https://www.youtube.com/user/TataChemicalsLtd" target="_blank" rel="noopener noreferrer">
+                                <img src="youtube_icon.svg" alt="YouTube" />
+                            </a>
+                            <a href="https://www.tatachemicals.com/contact-us">
+                                <img src="mail_icon.svg" alt="Mail" />
+                            </a>
                         </div>
+
                         <button
                             onClick={() => setMobileOpen(!mobileOpen)}
                             className="md:hidden text-2xl"
@@ -174,10 +184,17 @@ export default function Navbar() {
                         onMouseLeave={() => setActiveDesktop(null)}
                     >
                         <div className="flex flex-col items-start">
-                            <button className="text-white m-semi-bold rounded-md text-sm font-semibold px-4 py-2 hover:bg-white hover:text-black transition">
-                                Annual Report 2024-25
-                            </button>
+                            <a
+                                href="docs/Anual_Report_24-25.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <button className="text-white m-semi-bold rounded-md text-sm font-semibold px-4 py-2 hover:bg-white hover:text-black transition">
+                                    Annual Report 2024-25
+                                </button>
+                            </a>
                         </div>
+
 
                         <div className="flex gap-8 text-gray-200">
                             {navItems.map((item, i) => (
@@ -268,10 +285,19 @@ export default function Navbar() {
                                     </div>
                                 );
                             })}
-                            <div className="mt-6 flex gap-6 text-gray-700 text-xl">
-                                <FiSearch />
-                                <FiUser />
-                                <FiShoppingCart />
+                            <div className="hidden md:flex gap-6 text-xl text-gray-200 items-center">
+                                <a href="http://linkedin.com/company/tata-chemicals/" target="_blank" rel="noopener noreferrer">
+                                    <img src="linkedin_icon.svg" alt="LinkedIn" />
+                                </a>
+                                <a href="https://x.com/TataChemicals/" target="_blank" rel="noopener noreferrer">
+                                    <img src="twitter_icon.svg" alt="Twitter" />
+                                </a>
+                                <a href="https://www.youtube.com/user/TataChemicalsLtd" target="_blank" rel="noopener noreferrer">
+                                    <img src="youtube_icon.svg" alt="YouTube" />
+                                </a>
+                                <a href="https://www.tatachemicals.com/contact-us">
+                                    <img src="mail_icon.svg" alt="Mail" />
+                                </a>
                             </div>
                         </div>
                     </div>

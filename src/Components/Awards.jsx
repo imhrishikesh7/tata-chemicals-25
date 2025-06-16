@@ -51,7 +51,7 @@ const AwardCard = ({ title, description, index }) => (
     variants={cardVariant}
     initial="hidden"
     whileInView="visible"
-    viewport={{ once: true, amount: 0.2 }} // ✅ Trigger when 20% visible
+    viewport={{ once: false, amount: 0.2 }} // ✅ Trigger when 20% visible
   >
     {/* Red top-right corner */}
     <div className="absolute top-0 right-0 w-50 h-25 bg-[#ed1c24] rounded-tr-[40px] z-0 translate-x-[4.5%] -translate-y-[8%]" />

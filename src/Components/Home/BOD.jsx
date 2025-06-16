@@ -51,7 +51,7 @@ const BOD = () => {
         dots: false,
         infinite: true,
         speed: 800,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         arrows: true,
         prevArrow: <CustomPrevArrow />,
@@ -76,11 +76,11 @@ const BOD = () => {
             <Slider {...settings}>
                 {bod.map((img, i) => (
                     <div key={i} className="px-4 pb-10">
-                        <div className="bg-white md:w-[300px] md:h-[480px] mx-auto rounded-xl overflow-hidden shadow">
+                        <div className="bg-white md:w-[300px] md:h-[480px] mx-auto rounded-xl overflow-hidden">
                             <img
                                 src={img}
                                 alt={`BOD ${i + 1}`}
-                                className="w-full h-full object-contain"
+                                className="w-full h-full object-cover"
                             />
                         </div>
                     </div>

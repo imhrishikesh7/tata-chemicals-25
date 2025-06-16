@@ -36,7 +36,7 @@ function App() {
             <Route path="/basic_chemistry_business" element={<BasicChemistry />} />
             <Route path="/speciality_product_business" element={<SpecialtyProducts />} />
             {/* Value Creation Approach */}
-            <Route path="/" element={<A360Degree />} />
+            <Route path="/a_360degree_view_of_operating_landscape" element={<A360Degree />} />
           </Routes>
         </div>
         <Footer />

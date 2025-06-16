@@ -41,9 +41,9 @@ const BOD = () => {
                     {data.map((item, index) => (
                         <div
                             key={index}
-                            className="m-semi-bold flex flex-col items-center border text-center max-w-full md:w-[20%] border-[#40b2a2]  p-6 w-full"
+                            className="m-semi-bold flex flex-col items-center border text-center max-w-full md:w-[20%] border-[#40b2a2]  p-6 w-full rounded-3xl"
                         >
-                            <div className="flex items-center justify-center bg-white rounded-full mb-4 p-1 shadow-md">
+                            <div className="flex items-center justify-center bg-white rounded-full mb-4 p-1">
                                 <img
                                     src={item.img}
                                     alt={item.title}

@@ -90,7 +90,7 @@ const BOD = () => {
         dots: false,
         infinite: true,
         speed: 800,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         arrows: true,
         prevArrow: <CustomPrevArrow />,
@@ -105,7 +105,7 @@ const BOD = () => {
         <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-10">
 
             {/* Heading */}
-            <div className="text-center mb-6">
+            <div className="m-bold text-center mb-6">
                 <Title text="Board of Directors" />
             </div>
 
@@ -113,15 +113,15 @@ const BOD = () => {
             <Slider {...sliderSettings}>
                 {bodImages.map((img, i) => (
                     <div key={i} className="px-4 pb-10">
-                        <div className="bg-white md:w-[300px] md:h-[480px] mx-auto rounded-xl overflow-hidden shadow">
-                            <img src={img} alt={`BOD ${i + 1}`} className="w-full h-full object-contain" />
+                        <div className="bg-white md:w-[300px] md:h-[480px] mx-auto rounded-xl overflow-hidden">
+                            <img src={img} alt={`BOD ${i + 1}`} className="w-full h-full object-cover" />
                         </div>
                     </div>
                 ))}
             </Slider>
-            <div className="text-center mt-4">
+            {/* <div className="text-center mt-4">
                 <KnowMore text="Explore More" />
-            </div>
+            </div> */}
 
             {/* Announcement Box */}
             <div className="bg-[#0b3f7e] rounded-br-[70px] flex p-6 text-white my-10">
@@ -185,15 +185,15 @@ const BOD = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                         {[
                             { name: "Mr. R. Mukundan", role: "Managing Director and CEO" },
-                            { name: "Mr. John Doe", role: "Chief Financial Officer" },
-                            { name: "Ms. Jane Smith", role: "Chief Operating Officer" },
-                            { name: "Mr. Arjun Mehta", role: "Chief Technology Officer" },
-                            { name: "Ms. Priya Desai", role: "Chief Marketing Officer" },
-                            { name: "Mr. Rohit Sharma", role: "Head of Strategy" },
-                            { name: "Ms. Kavita Nair", role: "Chief Legal Officer" },
-                            { name: "Mr. Amit Khanna", role: "Chief HR Officer" },
-                            { name: "Ms. Neha Patel", role: "Head of Sustainability" },
-                            { name: "Mr. Sameer Verma", role: "Chief Compliance Officer" },
+                            { name: "Mr. Nandakumar S. Tirumalai", role: "Chief Financial Officer" },
+                            { name: "Mr. Rajiv Chandan", role: "Chief General Counsel and Company Secretary" },
+                            { name: "Mr. K. R. Venkatadri", role: "Chief Commercial Officer" },
+                            { name: "Mr. Alok Chandra", role: "Chief - Health, Safety, Environment and Sustainability Office" },
+                            { name: "Mr. Subodh Srivastav", role: "Chief Marketing Officer" },
+                            { name: "Mr. Narashimha V. Kamath", role: "Chief Manufacturing Officer" },
+                            { name: "Mr. Rino Raj", role: "Vice President and Site Head – Mithapur" },
+                            { name: "Mr. Rajesh V. Kamat", role: "Vice President - Strategy and Corporate Projects" },
+                            { name: "Mr. Rahul Pinjarkar", role: "Chief Human Resources Officer" },
                         ].map((person, i) => (
                             <div key={i}>
                                 <h2 className="text-[#432c87] text-base font-bold mb-1">{person.name}</h2>

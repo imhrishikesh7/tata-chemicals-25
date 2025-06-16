@@ -53,10 +53,9 @@ const Message = () => {
                                 <p className="text-lg font-bold">R. Mukundan</p>
                                 <p className="text-lg">Managing Director & CEO</p>
                             </div>
-                            <KnowMore
-                            text="Read More"
-                            link="/ceos_message"
-                        />
+                            <div className="text-base underline underline-offset-4 decoration-white/60 hover:decoration-white transition">
+                                <KnowMore link={"/"}/>
+                            </div>
                         </div>
                     </div>
 

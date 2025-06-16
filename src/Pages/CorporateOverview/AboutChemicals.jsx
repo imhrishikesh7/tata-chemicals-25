@@ -1,216 +1,368 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-const formatTitle = (key) =>
-    key
-        .replace(/([A-Z])/g, ' $1')
-        .replace(/^./, (str) => str.toUpperCase());
+const AboutTataChemicals = () => {
+    const [scrollY, setScrollY] = useState(0);
+    const [isVisible, setIsVisible] = useState({});
 
-const BOD = () => {
     const data = [
         {
-            title: 'mission',
+            title: 'Mission',
             img: 'CorporateOverview/AboutChemicals/06-icon-img-1.webp',
             desc: 'Serving Society through Science',
         },
         {
-            title: 'vision',
+            title: 'Vision',
             img: 'CorporateOverview/AboutChemicals/06-icon-img-2.webp',
-            desc: 'Be a leading sustainable chemistrysolutions company',
+            desc: 'Be a leading sustainable chemistry solutions company',
         },
         {
-            title: 'leadership',
+            title: 'Leadership',
             img: 'CorporateOverview/AboutChemicals/06-icon-img-3.webp',
             desc: 'We have become the preferred choice for customers seeking sustainable chemistry solutions worldwide',
         },
         {
-            title: 'values',
+            title: 'Values',
             img: 'CorporateOverview/AboutChemicals/06-icon-img-4.webp',
             desc: 'S.P.I.C.E.',
         },
     ];
+
+    const achievements = [
+        '3rd largest Soda Ash producer globally (ex. China)',
+        '5th largest Sodium Bicarbonate producer globally',
+        'Leading Producer of salt in India and the UK',
+        'Zero freshwater withdrawal and zero waste to landfill at Mithapur',
+        'Pioneer in fermentation product technologies in India'
+    ];
+
+    const regions = [
+        { title: 'Asia', value: '7,104 crore', employee: '3,471' },
+        { title: 'America', value: '5,261 crore', employee: '612' },
+        { title: 'Europe', value: '2,007 crore', employee: '377' },
+        { title: 'Africa', value: '669 crore', employee: '329' }
+    ];
+
+    const highlights = [
+        {
+            title: 'Financial',
+            value1: '₹ 14,887 crore',
+            des1: 'Revenue',
+            value2: '₹ 1,953 crore',
+            des2: 'EBITDA',
+            bgcolor: '#1368b4',
+        },
+        {
+            title: 'Customer',
+            value1: '86',
+            des1: 'Customer Satisfaction Index (CSI)',
+            value2: '90',
+            des2: 'Net Promoter Score (NPS)',
+            bgcolor: '#40b2a2',
+        },
+        {
+            heading: 'Production Volume (MT)',
+            title: 'Operations',
+            value1: '36,76,780',
+            des1: 'Soda Ash',
+            value2: '16,83,320',
+            des2: 'Salt',
+            value3: '2,37,489',
+            des3: 'Bicarbonate',
+            bgcolor: '#a088ad',
+        },
+        {
+            title: 'Social',
+            value1: '72%',
+            des1: 'Employee Engagement Score',
+            value2: '34%',
+            des2: 'Increase in Renewable Energy',
+            value3: '₹ 22.54 crore',
+            des3: 'CSR Spend',
+            bgcolor: '#06aeef',
+        }
+    ];
+
+    useEffect(() => {
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        const handleScroll = () => setScrollY(window.scrollY);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            document.documentElement.style.scrollBehavior = 'auto';
+        };
+    }, []);
+
+    useEffect(() => {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setIsVisible(prev => ({
+                        ...prev,
+                        [entry.target.id]: true
+                    }));
+                }
+            });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('[data-animate]');
+        elements.forEach(el => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
     return (
-        <div className="px-4 sm:px-8 md:px-12 lg:px-20 py-10">
-            {/* Heading */}
-            <div className="max-w-7xl mx-auto">
-                <h1 className="m-bold text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
-                    About Tata Chemicals
-                </h1>
-            </div>
-            <div className="w-full md:px-6 md:py-10">
-                <div className="flex flex-wrap justify-center gap-8">
-                    {data.map((item, index) => (
-                        <div
-                            key={index}
-                            className="m-semi-bold flex flex-col items-center border text-center max-w-full md:w-[20%] border-[#40b2a2]  p-6 w-full rounded-3xl"
-                        >
-                            <div className="flex items-center justify-center bg-white rounded-full mb-4 p-1">
-                                <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className="w-20 h-20 object-contain"
-                                />
-                            </div>
-                            <h3 className="text-[#40b2a2] font-semibold text-2xl">{item.title}</h3>
-                            <p className="text-base text-gray-700 mt-2">{item.desc}</p>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
+            {/* Hero Section */}
+            <div className="relative overflow-hidden">
+                <div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
+                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+                />
+                <div className="relative container mx-auto px-6 py-20">
+                    <div
+                        id="hero-title"
+                        data-animate
+                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                            }`}
+                    >
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
+                            About Tata Chemicals
+                        </h1>
+                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
 
-                            {/* Small red line below description */}
-                            <div className="w-10 h-[3px] bg-red-600 rounded-full mt-3" />
+                        <div className="flex justify-center mt-12 space-x-4">
+                            <button
+                                onClick={() => scrollToSection('mission-vision')}
+                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                            >
+                                Mission & Vision
+                            </button>
+                            <button
+                                onClick={() => scrollToSection('global-presence')}
+                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                            >
+                                Global Presence
+                            </button>
+                            <button
+                                onClick={() => scrollToSection('highlights')}
+                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                            >
+                                FY 2025 Highlights
+                            </button>
                         </div>
-                    ))}
-                </div>
-            </div>
-            <div className=" text-lg flex w-full h-[120px] gap-2 border-b mb-10">
-                <div className="flex-1 flex items-center justify-center text-center">
-                    3rd - largest Soda Ash
-                    producer globally
-                    (ex. China)
-                </div>
-                <div className="flex-1 flex items-center justify-center text-center">5th - largest Sodium
-                    Bicarbonate
-                    producer globally</div>
-                <div className="flex-1  flex items-center justify-center text-center">Leading
-                    Producer of salt
-                    in India and the UK </div>
-                <div className="flex-1  flex items-center justify-center text-center">Zero freshwater
-                    withdrawal and zero waste
-                    to landfill at Mithapur</div>
-                <div className="flex-1  flex items-center justify-center text-center">Pioneer in fermentation
-                    product technologies
-                    in India</div>
-            </div>
-            <div className="w-full px-6 py-10">
-                <h1 className='m-semi-bold text-[#1368b4] text-3xl  mb-6 text-center'>Our Presence</h1>
-
-                {/* Top Region Blocks */}
-                <div className="m-semi-bold text-lg flex flex-wrap justify-between border-b-[2px] border-black pb-8 mb-8">
-                    {/* Region Block Reusable */}
-                    {[
-                        { title: 'Asia', value: '7,104 crore', employee: '3,471' },
-                        { title: 'America', value: '5,261  crore', employee: '612' },
-                        { title: 'Europe', value: '2,007 crore', employee: '377' },
-                        { title: 'Africa', value: '669 crore', employee: '329' }
-                    ].map((region, value, index) => (
-                        <div key={index} className=" flex-1 min-w-[220px] px-2">
-                            <h1 className='text-[#ed1a3b] text-2xl font-bold border-b-2 border-[#1368b4] pb-2 mb-3 w-full'>
-                                {region.title}
-                            </h1>
-                            <h2 className='text-[#432c87] text-2xl font-bold border-b border-black w-max'>₹ {region.value}</h2>
-                            <h3 className='text-[#4d4d4f] text-2xl mb-3'>Revenue</h3>
-                            <h2 className='text-[#432c87] text-2xl font-bold border-b border-black w-max'>{region.employee}</h2>
-                            <h3 className='text-[#4d4d4f] text-2xl mb-3'>Employees</h3>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Bottom Aligned Stats */}
-                <div className="m-semi-bold flex flex-wrap justify-between gap-4">
-                    {/* Under Asia */}
-                    <div className="flex flex-col items-start flex-1 min-w-[220px] px-2">
-                        <h2 className='text-[#432c87] text-2xl font-bold border-b border-black w-max'>3</h2>
-                        <h3 className='text-[#4d4d4f] text-2xl mb-3'>R&D Centers</h3>
-                    </div>
-
-                    {/* Under America */}
-                    <div className="flex flex-col items-start flex-1 min-w-[220px] px-2">
-                        <h2 className='text-[#432c87] text-2xl font-bold border-b border-black w-max'>15</h2>
-                        <h3 className='text-[#4d4d4f] text-2xl mb-3'>Plants</h3>
-                    </div>
-
-                    {/* Under Europe */}
-                    <div className="flex flex-col items-start flex-1 min-w-[220px] px-2">
-                        <h2 className='text-[#432c87] text-2xl font-bold border-b border-black w-max'>Mumbai, India</h2>
-                        <h3 className='text-[#4d4d4f] text-2xl mb-3'>Head Office</h3>
-                    </div>
-                    <div className="flex flex-col items-start flex-1 min-w-[220px] px-2">
-
                     </div>
                 </div>
             </div>
-            <div className="w-full px-6 py-10">
-                <h1 className="m-semi-bold text-[#1368b4] text-3xl font-bold mb-6 text-center">Highlights of FY 2025</h1>
 
-                <div className="m-semi-bold flex flex-wrap justify-between gap-x-8 border-black pb-8 mb-8">
-                    {[
-                        {
-                            title: 'Financial',
-                            value1: '₹ 14,887 crore',
-                            des1: 'Revenue',
-                            value2: '₹ 1,953 crore ',
-                            des2: 'EBITDA',
-                            bgcolor: '#1368b4',
-                        },
-                        {
-                            title: 'Customer',
-                            value1: '86',
-                            des1: 'Customer Satisfaction Index (CSI)',
-                            value2: '90',
-                            des2: 'Net Promoter Score (NPS)',
-                            bgcolor: '#40b2a2',
-                        },
-                        {
-                            heading: 'Production Volume (MT)',
-                            title: 'Operations',
-                            value1: '36,76,780',
-                            des1: 'Soda Ash',
-                            value2: '16,83,320',
-                            des2: 'Salt',
-                            value3: '2,37,489',
-                            des3: 'Bicarbonate',
-                            bgcolor: '#a088ad',
-                        },
-                        {
-                            title: 'Social',
-                            value1: '72%',
-                            des1: 'Employee Engagement Score',
-                            value2: '34%',
-                            des2: 'Increase in Renewable Energy',
-                            value3: '₹ 22.54 crore',
-                            des3: 'CSR Spend',
-                            bgcolor: '#06aeef',
-                        }
-                    ].map((region, index) => (
-                        <div
-                            key={index}
-                            className={`flex-1 min-w-[220px] px-2 ${index < 3 ? 'border-r border-black' : ''}`}
-                        >
-                            {/* Title with dynamic background */}
-                            <div className="border-b mb-10">
-                                <div
-                                    className="text-white text-3xl font-bold w-[97%] rounded-tr-3xl px-2 py-1"
-                                    style={{ backgroundColor: region.bgcolor }}
-                                >
-                                    {region.title}
+            <div className="container mx-auto px-6 space-y-20">
 
+                {/* Mission, Vision, Leadership, Values */}
+                <div
+                    id="mission-vision"
+                    data-animate
+                    className={`transition-all duration-1000 delay-200 transform ${isVisible['mission-vision'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {data.map((item, index) => (
+                            <div
+                                key={index}
+                                className={`transform transition-all duration-700 delay-${(index + 1) * 100} ${isVisible['mission-vision'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                    }`}
+                            >
+                                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 text-center h-full flex flex-col hover:transform hover:scale-105 transition-all duration-300">
+                                    <div className="relative mb-6">
+                                        <div className="absolute -inset-2 bg-gradient-to-r from-[#40b2a2]/20 to-[#40b2a2]/10 rounded-full blur-lg"></div>
+                                        <div className="relative w-20 h-20 mx-auto bg-white rounded-full p-2 shadow-lg">
+                                            <img
+                                                src={item.img}
+                                                alt={item.title}
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-[#40b2a2] mb-4">{item.title}</h3>
+                                    <p className="text-gray-700 leading-relaxed flex-1">{item.desc}</p>
+                                    <div className="w-10 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full mt-4"></div>
                                 </div>
-
                             </div>
-                            {region.heading && (
-                                <h2 className="text-[#4d4d4f] text-xl font-bold mb-4">{region.heading}</h2>
-                            )}
+                        ))}
+                    </div>
+                </div>
 
-                            {/* Values and Descriptions */}
-                            {['value1', 'value2', 'value3'].map((valKey, i) =>
-                                region[valKey] ? (
-                                    <div key={i} className="mb-6">
-                                        <h2
-                                            className="font-bold text-4xl"
-                                            style={{ color: region.bgcolor }}
-                                        >
-                                            {region[valKey]}
-                                        </h2>
-                                        <div className="border-b border-black w-[80%] my-1" />
-                                        <p className="text-[#4d4d4f] text-xl font-medium mt-3">
-                                            {region[`des${i + 1}`]}
+                {/* Achievements */}
+                <div
+                    id="achievements"
+                    data-animate
+                    className={`transition-all duration-1000 delay-300 transform ${isVisible['achievements'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
+                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#1368b4] text-center mb-12">
+                            Our Global Leadership
+                        </h2>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                            {achievements.map((achievement, index) => (
+                                <div
+                                    key={index}
+                                    className={`transform transition-all duration-700 delay-${(index + 1) * 150} ${isVisible['achievements'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                        }`}
+                                >
+                                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200/50 text-center h-full flex items-center justify-center hover:shadow-lg transition-all duration-300">
+                                        <p className="text-gray-700 font-medium leading-relaxed">
+                                            {achievement}
                                         </p>
                                     </div>
-                                ) : null
-                            )}
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
+                </div>
+
+                {/* Global Presence */}
+                <div
+                    id="global-presence"
+                    data-animate
+                    className={`transition-all duration-1000 delay-400 transform ${isVisible['global-presence'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
+                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#1368b4] text-center mb-12">
+                            Our Global Presence
+                        </h2>
+
+                        {/* Regions */}
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                            {regions.map((region, index) => (
+                                <div
+                                    key={index}
+                                    className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-6 border border-slate-200/50"
+                                >
+                                    <h3 className="text-2xl font-bold text-[#ed1a3b] mb-4 pb-2 border-b-2 border-[#1368b4]">
+                                        {region.title}
+                                    </h3>
+                                    <div className="space-y-4">
+                                        <div>
+                                            <div className="text-2xl font-bold text-[#432c87] border-b border-gray-400 inline-block">
+                                                ₹ {region.value}
+                                            </div>
+                                            <p className="text-gray-600 font-medium">Revenue</p>
+                                        </div>
+                                        <div>
+                                            <div className="text-2xl font-bold text-[#432c87] border-b border-gray-400 inline-block">
+                                                {region.employee}
+                                            </div>
+                                            <p className="text-gray-600 font-medium">Employees</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Additional Stats */}
+                        <div className="grid md:grid-cols-3 gap-8">
+                            <div className="text-center">
+                                <div className="text-4xl font-bold text-[#432c87] mb-2">3</div>
+                                <p className="text-xl text-gray-600 font-medium">R&D Centers</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="text-4xl font-bold text-[#432c87] mb-2">15</div>
+                                <p className="text-xl text-gray-600 font-medium">Plants</p>
+                            </div>
+                            <div className="text-center">
+                                <div className="text-2xl font-bold text-[#432c87] mb-2">Mumbai, India</div>
+                                <p className="text-xl text-gray-600 font-medium">Head Office</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FY 2025 Highlights */}
+                <div
+                    id="highlights"
+                    data-animate
+                    className={`transition-all duration-1000 delay-500 transform ${isVisible['highlights'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
+                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#1368b4] text-center mb-12">
+                            Highlights of FY 2025
+                        </h2>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {highlights.map((highlight, index) => (
+                                <div
+                                    key={index}
+                                    className={`transform transition-all duration-700 delay-${(index + 1) * 100} ${isVisible['highlights'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                        }`}
+                                >
+                                    <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl overflow-hidden shadow-lg border border-slate-200/50 h-full">
+                                        {/* Header */}
+                                        <div
+                                            className="text-white text-2xl font-bold px-6 py-4 rounded-tr-2xl"
+                                            style={{ backgroundColor: highlight.bgcolor }}
+                                        >
+                                            {highlight.title}
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="p-6 space-y-6">
+                                            {highlight.heading && (
+                                                <h4 className="text-gray-600 text-lg font-bold mb-4">
+                                                    {highlight.heading}
+                                                </h4>
+                                            )}
+
+                                            {['value1', 'value2', 'value3'].map((valKey, i) =>
+                                                highlight[valKey] ? (
+                                                    <div key={i}>
+                                                        <div
+                                                            className="text-3xl font-bold mb-2"
+                                                            style={{ color: highlight.bgcolor }}
+                                                        >
+                                                            {highlight[valKey]}
+                                                        </div>
+                                                        <div className="w-4/5 h-0.5 bg-gray-400 mb-2"></div>
+                                                        <p className="text-gray-600 font-medium">
+                                                            {highlight[`des${i + 1}`]}
+                                                        </p>
+                                                    </div>
+                                                ) : null
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom padding with scroll to top */}
+                <div className="h-20 flex justify-center">
+                    <button
+                        onClick={() => scrollToSection('hero-title')}
+                        className="px-8 py-4 bg-gradient-to-r from-[#1368b4] to-[#0f4c75] text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+                    >
+                        ↑ Back to Top
+                    </button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default BOD
+export default AboutTataChemicals;

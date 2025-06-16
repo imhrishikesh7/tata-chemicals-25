@@ -7,7 +7,7 @@ const Footer = () => {
         
         {/* Left: Company Logo */}
         <div className="flex items-center gap-2 bg-whie p-2 rounded">
-          <a href="https://www.tataconsumer.com/"> <img
+          <a href="https://www.tatachemicals.com/"> <img
             src="/tata-chemicals-blue.svg" // Replace with your path
             alt="Company Logo"
             className="h-3  object-contain"

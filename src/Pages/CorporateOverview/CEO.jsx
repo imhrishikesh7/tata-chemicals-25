@@ -6,14 +6,16 @@ const CEO = () => {
             <h1 className="m-bold text-3xl sm:text-4xl lg:text-5xl text-center text-[#1368b4] font-bold mb-8">
                 CEO’s Message
             </h1>
-            <div className=' flex border-b-4 border-red-500'>
-                <div className=''>
+            <div className=' flex border-b-4 border-red-500 items-center gap-6'>
+                <div className='w-[30%]'>
                     <img src="CorporateOverview/CEO/CEO.webp" alt=""
-                        className='w-[30%]'
+                        className='w-full'
                     />
                 </div>
-                <div>
-
+                <div className='w-[70%]'>
+                    <p className='text-[#1368b4]  text-3xl'>
+"Safety remains our first priority and our efforts are to create a zero harm work place. Our focus on operational efficiencies and newly commissioned capacities is expected to contribute towards improved performance as well as delivering safe and sustainable growth."
+                    </p>
                 </div>
             </div>
             <div className=''>

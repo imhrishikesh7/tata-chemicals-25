@@ -1,11 +1,10 @@
 import React from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import Title from '../Title';
-import KnowMore from '../KnowMore';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const bod = [
+// Image list
+const bodImages = [
     '/home/b1.webp',
     '/home/b2.webp',
     '/home/b3.webp',
@@ -16,81 +15,90 @@ const bod = [
     '/home/b8.webp',
 ];
 
-const CustomPrevArrow = (props) => {
-    const { onClick } = props;
-    return (
-        <button
-            onClick={onClick}
-            className="absolute bottom-0 left-1/2 transform -translate-x-14 bg-white/50 hover:bg-white/70 cursor-pointer border-[#2263a7] border rounded-full w-10 h-10 flex items-center justify-center z-10"
-            aria-label="Previous"
-        >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M15 18l-6-6 6-6" />
-            </svg>
-        </button>
-    );
-};
+// Bottom Arrow Components
+const NextArrow = ({ onClick }) => (
+    <button
+        onClick={onClick}
+        className="bg-white border border-[#1368b4]/30 shadow-lg hover:scale-110 transition rounded-full w-12 h-12 flex items-center justify-center mx-2"
+    >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1368b4" strokeWidth="2">
+            <path d="M9 18l6-6-6-6" />
+        </svg>
+    </button>
+);
 
-const CustomNextArrow = (props) => {
-    const { onClick } = props;
-    return (
-        <button
-            onClick={onClick}
-            className="absolute bottom-0 left-1/2 transform translate-x-4 bg-white/50 hover:bg-white/70 cursor-pointer rounded-full w-10 h-10 flex items-center justify-center border-[#2263a7] border z-10"
-            aria-label="Next"
-        >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18l6-6-6-6" />
-            </svg>
-        </button>
-    );
-};
+const PrevArrow = ({ onClick }) => (
+    <button
+        onClick={onClick}
+        className="bg-white border border-[#1368b4]/30 shadow-lg hover:scale-110 transition rounded-full w-12 h-12 flex items-center justify-center mx-2"
+    >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1368b4" strokeWidth="2">
+            <path d="M15 18l-6-6 6-6" />
+        </svg>
+    </button>
+);
 
-const BOD = () => {
+// Main Component
+const BODSlider = () => {
     const settings = {
-        dots: false,
+        dots: false, // Removed dots
         infinite: true,
-        speed: 800,
+        speed: 600,
         slidesToShow: 4,
         slidesToScroll: 1,
-        arrows: true,
-        prevArrow: <CustomPrevArrow />,
-        nextArrow: <CustomNextArrow />,
+        arrows: false, // Disabled default arrows
         responsive: [
             {
                 breakpoint: 1024,
-                settings: { slidesToShow: 2 },
+                settings: { slidesToShow: 3 }
             },
             {
-                breakpoint: 640,
-                settings: { slidesToShow: 1 },
+                breakpoint: 768,
+                settings: { slidesToShow: 2 }
             },
-        ],
+            {
+                breakpoint: 480,
+                settings: { slidesToShow: 1 }
+            }
+        ]
+    };
+
+    // Slider ref to control navigation
+    const sliderRef = React.useRef(null);
+
+    const goToNext = () => {
+        sliderRef.current.slickNext();
+    };
+
+    const goToPrev = () => {
+        sliderRef.current.slickPrev();
     };
 
     return (
-        <div className="marginal relative ">
-            <div className='text-center my-6'>
-                <Title text="Board of Directors" />
-            </div>
-            <Slider {...settings}>
-                {bod.map((img, i) => (
-                    <div key={i} className="px-4 pb-10">
-                        <div className="bg-white md:w-[300px] md:h-[480px] mx-auto rounded-xl overflow-hidden">
-                            <img
-                                src={img}
-                                alt={`BOD ${i + 1}`}
-                                className="w-full h-full object-cover"
-                            />
+        <div className="marginal bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30">
+            <Slider ref={sliderRef} {...settings}>
+                {bodImages.map((img, index) => (
+                    <div key={index} className="px-2">
+                        <div className="group relative rounded-2xl overflow-hidden transition-transform hover:scale-105 duration-300">
+                            <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-indigo-50">
+                                <img
+                                    src={img}
+                                    alt={`Director ${index + 1}`}
+                                    className="w-full h-full object-contain rounded-2xl"
+                                />
+                            </div>
                         </div>
                     </div>
                 ))}
             </Slider>
-            <div>
-            <KnowMore text="Explore More" />
+            
+            {/* Bottom Navigation Arrows */}
+            <div className="flex justify-center items-center mt-6">
+                <PrevArrow onClick={goToPrev} />
+                <NextArrow onClick={goToNext} />
             </div>
         </div>
     );
 };
 
-export default BOD;
+export default BODSlider;

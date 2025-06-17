@@ -15,11 +15,11 @@ const bodImages = [
     '/home/b8.webp',
 ];
 
-// Custom Arrow Components
+// Bottom Arrow Components
 const NextArrow = ({ onClick }) => (
     <button
         onClick={onClick}
-        className="absolute -right-6 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-[#1368b4]/30 shadow-lg hover:scale-110 transition rounded-full w-12 h-12 flex items-center justify-center"
+        className="bg-white border border-[#1368b4]/30 shadow-lg hover:scale-110 transition rounded-full w-12 h-12 flex items-center justify-center mx-2"
     >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1368b4" strokeWidth="2">
             <path d="M9 18l6-6-6-6" />
@@ -30,7 +30,7 @@ const NextArrow = ({ onClick }) => (
 const PrevArrow = ({ onClick }) => (
     <button
         onClick={onClick}
-        className="absolute -left-6 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-[#1368b4]/30 shadow-lg hover:scale-110 transition rounded-full w-12 h-12 flex items-center justify-center"
+        className="bg-white border border-[#1368b4]/30 shadow-lg hover:scale-110 transition rounded-full w-12 h-12 flex items-center justify-center mx-2"
     >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1368b4" strokeWidth="2">
             <path d="M15 18l-6-6 6-6" />
@@ -41,13 +41,12 @@ const PrevArrow = ({ onClick }) => (
 // Main Component
 const BODSlider = () => {
     const settings = {
-        dots: true,
+        dots: false, // Removed dots
         infinite: true,
         speed: 600,
         slidesToShow: 4,
         slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
+        arrows: false, // Disabled default arrows
         responsive: [
             {
                 breakpoint: 1024,
@@ -61,23 +60,26 @@ const BODSlider = () => {
                 breakpoint: 480,
                 settings: { slidesToShow: 1 }
             }
-        ],
-        appendDots: dots => (
-            <div className="mt-6">
-                <ul className="flex justify-center space-x-2">{dots}</ul>
-            </div>
-        ),
-        customPaging: i => (
-            <div className="w-3 h-3 bg-[#1368b4] rounded-full opacity-50 hover:opacity-100 transition" />
-        ),
+        ]
+    };
+
+    // Slider ref to control navigation
+    const sliderRef = React.useRef(null);
+
+    const goToNext = () => {
+        sliderRef.current.slickNext();
+    };
+
+    const goToPrev = () => {
+        sliderRef.current.slickPrev();
     };
 
     return (
         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30">
-            <Slider {...settings}>
+            <Slider ref={sliderRef} {...settings}>
                 {bodImages.map((img, index) => (
                     <div key={index} className="px-2">
-                        <div className="group relative rounded-2xl overflow-hidden  transition-transform hover:scale-105 duration-300">
+                        <div className="group relative rounded-2xl overflow-hidden transition-transform hover:scale-105 duration-300">
                             <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-indigo-50">
                                 <img
                                     src={img}
@@ -89,6 +91,12 @@ const BODSlider = () => {
                     </div>
                 ))}
             </Slider>
+            
+            {/* Bottom Navigation Arrows */}
+            <div className="flex justify-center items-center mt-6">
+                <PrevArrow onClick={goToPrev} />
+                <NextArrow onClick={goToNext} />
+            </div>
         </div>
     );
 };

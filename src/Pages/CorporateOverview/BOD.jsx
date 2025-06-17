@@ -8,7 +8,7 @@ const BOD = () => {
 
     const bodImages = [
         '/home/b1.webp',
-        '/home/b2.webp', 
+        '/home/b2.webp',
         '/home/b3.webp',
         '/home/b4.webp',
         '/home/b5.webp',
@@ -80,10 +80,10 @@ const BOD = () => {
 
     useEffect(() => {
         document.documentElement.style.scrollBehavior = 'smooth';
-        
+
         const handleScroll = () => setScrollY(window.scrollY);
         window.addEventListener('scroll', handleScroll, { passive: true });
-        
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
             document.documentElement.style.scrollBehavior = 'auto';
@@ -135,38 +135,37 @@ const BOD = () => {
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
             {/* Hero Section */}
             <div className="relative overflow-hidden">
-                <div 
+                <div
                     className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
                     style={{ transform: `translateY(${scrollY * 0.3}px)` }}
                 />
                 <div className="relative container mx-auto px-6 py-16">
-                    <div 
+                    <div
                         id="hero-title"
                         data-animate
-                        className={`transition-all duration-1000 transform ${
-                            isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                        }`}
+                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                            }`}
                     >
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
                             Board of Directors
                         </h1>
                         <div className="w-32 h-1 bg-gradient-to-r from-[#2ca9a1] to-[#40b2a2] mx-auto rounded-full mb-8"></div>
-                        
+
                         {/* Quick Navigation */}
                         <div className="flex justify-center flex-wrap gap-4">
-                            <button 
+                            <button
                                 onClick={() => scrollToSection('bod-carousel')}
                                 className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                             >
                                 Directors
                             </button>
-                            <button 
+                            <button
                                 onClick={() => scrollToSection('senior-management')}
                                 className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                             >
                                 Management
                             </button>
-                            <button 
+                            <button
                                 onClick={() => scrollToSection('financial-performance')}
                                 className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                             >
@@ -177,17 +176,16 @@ const BOD = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto px-6 space-y-20">
-                
-                <BODSlider/>
+            <div className="container mx-auto px-6 space-y-20 mt-10">
+
+                <BODSlider />
 
                 {/* Announcement */}
-                <div 
+                <div
                     id="announcement"
                     data-animate
-                    className={`transition-all duration-1000 delay-300 transform ${
-                        isVisible['announcement'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
+                    className={`transition-all duration-1000 delay-300 transform ${isVisible['announcement'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
                 >
                     <div className="relative">
                         <div className="absolute -inset-2 bg-gradient-to-r from-[#0b3f7e] to-[#40b2a2] rounded-3xl blur-lg"></div>
@@ -208,19 +206,18 @@ const BOD = () => {
                 </div>
 
                 {/* External Link */}
-                <div 
+                <div
                     id="external-link"
                     data-animate
-                    className={`transition-all duration-1000 delay-400 transform ${
-                        isVisible['external-link'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
+                    className={`transition-all duration-1000 delay-400 transform ${isVisible['external-link'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/30">
                         <p className="text-lg mb-4">Read the detailed profiles of our Board of Directors at</p>
-                        <a 
-                            href="https://www.tatachemicals.com/about-us/leadership-team/board-of-directors" 
+                        <a
+                            href="https://www.tatachemicals.com/about-us/leadership-team/board-of-directors"
                             className="inline-flex items-center gap-2 text-[#1368b4] text-lg font-medium hover:text-[#0f4c75] transition-colors duration-300"
-                            target="_blank" 
+                            target="_blank"
                             rel="noopener noreferrer"
                         >
                             https://www.tatachemicals.com/about-us/leadership-team/board-of-directors
@@ -234,55 +231,53 @@ const BOD = () => {
                 </div>
 
                 {/* Committees */}
-                {/* <div 
+                <div
                     id="committees"
                     data-animate
-                    className={`transition-all duration-1000 delay-500 transform ${
-                        isVisible['committees'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
-                    >
+                    className={`transition-all duration-1000 delay-500 transform ${isVisible['committees'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/30">
                         <h2 className="text-2xl font-bold text-[#1368b4] mb-8 text-center">Committee Structure</h2>
-                        <div className="grid lg:grid-cols-3 gap-8">
-                            <div className="lg:col-span-2 space-y-4">
-                                {committees.map((item, i) => (
-                                    <div 
-                                        key={i} 
-                                        className={`flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 transform transition-all duration-500 delay-${i * 100} ${
-                                            isVisible['committees'] ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
+
+                        {/* Committee items in a single row */}
+                        <div className="flex flex-wrap justify-center gap-6">
+                            {committees.map((item, i) => (
+                                <div
+                                    key={i}
+                                    className={`flex items-center gap-2 transform transition-all duration-500 delay-${i * 100} ${isVisible['committees'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                                         }`}
-                                    >
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-[#0b3f7e] to-[#1368b4] flex items-center justify-center text-white font-bold shadow-lg">
-                                            {item.letter}
-                                        </div>
-                                        <span className="text-gray-700 font-medium">{item.label}</span>
+                                >
+                                    <div className="w-5 h-5 rounded-full bg-gradient-to-r from-[#0b3f7e] to-[#1368b4] flex items-center justify-center text-white text-xs font-bold shadow-md">
+                                        {item.letter}
                                     </div>
-                                ))}
-                            </div>
-                            <div className="space-y-6">
-                                <h3 className="text-xl font-bold text-[#1368b4]">Legend</h3>
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-4 p-4 bg-white/50 rounded-xl">
-                                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#0b3f7e] to-[#1368b4] shadow-lg"></div>
-                                        <span className="font-medium">Chairperson</span>
-                                    </div>
-                                    <div className="flex items-center gap-4 p-4 bg-white/50 rounded-xl">
-                                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-[#40b2a2] to-[#2ca9a1] shadow-lg"></div>
-                                        <span className="font-medium">Member</span>
-                                    </div>
+                                    <span className="text-gray-700 font-medium">{item.label}</span>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Simple legend at bottom */}
+                        <div className="mt-8 pt-6 border-t border-gray-200">
+                            <div className="flex items-center justify-center gap-8">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#0b3f7e] to-[#1368b4] shadow-md"></div>
+                                    <span className="text-sm font-medium text-gray-600">Chairperson</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#40b2a2] to-[#2ca9a1] shadow-md"></div>
+                                    <span className="text-sm font-medium text-gray-600">Member</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
                 {/* Senior Management */}
-                <div 
+                <div
                     id="senior-management"
                     data-animate
-                    className={`transition-all duration-1000 delay-600 transform ${
-                        isVisible['senior-management'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
+                    className={`transition-all duration-1000 delay-600 transform ${isVisible['senior-management'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
                 >
                     <div className="relative">
                         <div className="absolute -inset-4 bg-gradient-to-r from-[#40b2a2]/20 to-[#2ca9a1]/20 rounded-3xl blur-xl"></div>
@@ -293,11 +288,10 @@ const BOD = () => {
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                                     {seniorManagement.map((person, i) => (
-                                        <div 
+                                        <div
                                             key={i}
-                                            className={`bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30 transform transition-all duration-500 delay-${i * 50} hover:scale-105 hover:shadow-xl ${
-                                                isVisible['senior-management'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                                            }`}
+                                            className={`bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30 transform transition-all duration-500 delay-${i * 50} hover:scale-105 hover:shadow-xl ${isVisible['senior-management'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                                }`}
                                         >
                                             <h3 className="text-[#432c87] text-base font-bold mb-3 leading-tight">{person.name}</h3>
                                             <p className="text-[#4d4d4f] text-sm leading-relaxed">{person.role}</p>
@@ -311,12 +305,11 @@ const BOD = () => {
                 </div>
 
                 {/* Financial Performance */}
-                <div 
+                <div
                     id="financial-performance"
                     data-animate
-                    className={`transition-all duration-1000 delay-700 transform ${
-                        isVisible['financial-performance'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
+                    className={`transition-all duration-1000 delay-700 transform ${isVisible['financial-performance'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30">
                         <div className="text-center mb-12">
@@ -325,14 +318,13 @@ const BOD = () => {
                             </h2>
                             <div className="w-24 h-1 bg-gradient-to-r from-[#2ca9a1] to-[#40b2a2] mx-auto rounded-full"></div>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {Object.entries(financialData).map(([category, values], index) => (
-                                <div 
+                                <div
                                     key={category}
-                                    className={`bg-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 transform transition-all duration-500 delay-${index * 100} ${
-                                        isVisible['financial-performance'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                                    }`}
+                                    className={`bg-white/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 transform transition-all duration-500 delay-${index * 100} ${isVisible['financial-performance'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                                        }`}
                                 >
                                     <h3 className="text-xl font-bold text-[#1368b4] mb-6 text-center">
                                         {formatTitle(category)}
@@ -348,9 +340,9 @@ const BOD = () => {
                                                     </span>
                                                 </div>
                                                 <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                                                    <div 
+                                                    <div
                                                         className={`h-full ${item.color} rounded-full transition-all duration-1000 ease-out transform origin-left`}
-                                                        style={{ 
+                                                        style={{
                                                             width: isVisible['financial-performance'] ? `${item.width}%` : '0%',
                                                             transitionDelay: `${index * 100 + i * 200}ms`
                                                         }}
@@ -362,21 +354,11 @@ const BOD = () => {
                                 </div>
                             ))}
                         </div>
-                        
+
                         <p className="text-lg italic mt-8 text-center text-gray-600">
                             *After Exceptional items of INR 861 crore in FY24 and INR 125 crore in FY25
                         </p>
                     </div>
-                </div>
-
-                {/* Back to Top */}
-                <div className="flex justify-center pb-20">
-                    <button 
-                        onClick={() => scrollToSection('hero-title')}
-                        className="px-8 py-4 bg-gradient-to-r from-[#1368b4] to-[#0f4c75] text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
-                    >
-                        ↑ Back to Top
-                    </button>
                 </div>
             </div>
         </div>

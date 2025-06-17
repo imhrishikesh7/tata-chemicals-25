@@ -74,13 +74,14 @@ const navItems = [
     },
 ];
 
-export default function ModernNavbar() {
+export default function EnhancedNavbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [activeDesktop, setActiveDesktop] = useState(null);
+    const [hoverDesktop, setHoverDesktop] = useState(null);
+    const [activeSubMenu, setActiveSubMenu] = useState(null);
     const [openAccordions, setOpenAccordions] = useState([]);
     const [isScrolled, setIsScrolled] = useState(false);
-    const submenuRef = useRef();
-    const mobileMenuRef = useRef();
+    const hoverTimeoutRef = useRef();
 
     const getPathFromItem = (item) =>
         "/" +
@@ -93,9 +94,27 @@ export default function ModernNavbar() {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
+        
+        const handleClickOutside = (event) => {
+            // Close active desktop menu when clicking outside
+            if (activeDesktop !== null) {
+                const navElement = event.target.closest('nav');
+                const submenuElement = event.target.closest('[data-submenu]');
+                
+                if (!navElement && !submenuElement) {
+                    setActiveDesktop(null);
+                }
+            }
+        };
+        
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+        document.addEventListener('click', handleClickOutside);
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [activeDesktop]);
 
     const toggleAccordion = (index) => {
         setOpenAccordions(prev =>
@@ -109,6 +128,39 @@ export default function ModernNavbar() {
         setActiveDesktop(activeDesktop === index ? null : index);
     };
 
+    const handleMouseEnter = (index) => {
+        // Don't show hover menu if any menu is pinned (clicked)
+        if (activeDesktop !== null) return;
+        
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+        }
+        setHoverDesktop(index);
+    };
+
+    const handleMouseLeave = () => {
+        hoverTimeoutRef.current = setTimeout(() => {
+            setHoverDesktop(null);
+        }, 150);
+    };
+
+    const handleSubmenuMouseEnter = () => {
+        if (hoverTimeoutRef.current) {
+            clearTimeout(hoverTimeoutRef.current);
+        }
+    };
+
+    const handleSubMenuClick = (parentIndex, subIndex, subItem) => {
+        setActiveSubMenu(`${parentIndex}-${subIndex}`);
+        if (mobileOpen) {
+            setMobileOpen(false);
+        }
+    };
+
+    const isSubmenuVisible = (index) => {
+        return activeDesktop === index || hoverDesktop === index;
+    };
+
     return (
         <div className={`sticky top-0 w-full z-50 transition-all duration-500 ${isScrolled
             ? 'bg-slate-900/95 backdrop-blur-lg shadow-2xl'
@@ -116,121 +168,146 @@ export default function ModernNavbar() {
             }`}>
             {/* Main Header */}
             <div className="relative">
-                {/* Top Bar */}
-                <div className="flex justify-between items-center px-6 lg:px-8 py-4">
-                    {/* Logo */}
-                    <div className="flex items-center space-x-4">
-                        <a href="/" >
-                            <div className="relative group">
-                                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-orange-500 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                                <img
-                                    src="tata-chemicals-white.svg"
-                                    className="w-48 h-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
-                                    alt="Tata Chemicals"
+                {/* Top Bar - Hide on scroll */}
+                <div className={`transition-all duration-500 overflow-hidden ${
+                    isScrolled 
+                        ? 'max-h-0 opacity-0 py-0' 
+                        : 'max-h-96 opacity-100 py-4'
+                }`}>
+                    <div className="flex justify-between items-center px-6 lg:px-8">
+                        {/* Logo */}
+                        <div className="flex items-center space-x-4">
+                            <a href="/" >
+                                <div className="relative group">
+                                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-orange-500 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                                    <img
+                                        src="tata-chemicals-white.svg"
+                                        className="w-48 h-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
+                                        alt="Tata Chemicals"
+                                    />
+                                </div>
+                            </a>
+                        </div>
+
+                        {/* Social Links - Desktop */}
+                        <div className="hidden lg:flex items-center space-x-4">
+                            {/* Annual Report Button */}
+                            <a
+                                href="#"
+                                className="relative overflow-hidden bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:scale-105 group"
+                            >
+                                <span className="relative z-10 flex items-center space-x-2">
+                                    <span>Annual Report 2024-25</span>
+                                    <FiExternalLink className="w-4 h-4" />
+                                </span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </a>
+
+                            {/* Social Icons */}
+                            <div className="">
+                                <div className="flex justify-center space-x-6">
+                                    {[
+                                        { icon: "/linkedin_icon.svg", alt: "LinkedIn", link: "https://www.linkedin.com/company/tata-chemicals/"  },
+                                        { icon: "twitter_icon.svg", alt: "Twitter", link: "https://x.com/TataChemicals/" },
+                                        { icon: "youtube_icon.svg", alt: "YouTube", link: "https://www.youtube.com/user/TataChemicalsLtd" },
+                                        { icon: "mail_icon.svg", alt: "Mail", link: "https://www.tatachemicals.com/contact-usx" },
+                                    ].map((social, idx) => (
+                                        <a
+                                            key={idx}
+                                            href={social.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                                        >
+                                            <img
+                                                src={`${social.icon}`}
+                                                alt={social.alt}
+                                                className="w-6 h-6"
+                                            />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Mobile Menu Toggle */}
+                        <button
+                            onClick={() => setMobileOpen(!mobileOpen)}
+                            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all duration-300"
+                        >
+                            <div className="relative">
+                                <FiMenu
+                                    className={`w-6 h-6 transition-all duration-300 ${mobileOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'
+                                        }`}
+                                />
+                                <FiX
+                                    className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${mobileOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
+                                        }`}
                                 />
                             </div>
-                        </a>
+                        </button>
                     </div>
-
-
-                    {/* Social Links - Desktop */}
-                    <div className="hidden lg:flex items-center space-x-4">
-                        {/* Annual Report Button */}
-                        <a
-                            href="#"
-                            className="relative overflow-hidden bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:scale-105 group"
-                        >
-                            <span className="relative z-10 flex items-center space-x-2">
-                                <span>Annual Report 2024-25</span>
-                                <FiExternalLink className="w-4 h-4" />
-                            </span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </a>
-
-                        {/* Social Icons */}
-                        <div className="">
-                            <div className="flex justify-center space-x-6">
-                                {[
-                                    { icon: "/linkedin_icon.svg", alt: "LinkedIn", link: "https://www.linkedin.com/company/tata-chemicals/"  },
-                                    { icon: "twitter_icon.svg", alt: "Twitter", link: "https://x.com/TataChemicals/" },
-                                    { icon: "youtube_icon.svg", alt: "YouTube", link: "https://www.youtube.com/user/TataChemicalsLtd" },
-                                    { icon: "mail_icon.svg", alt: "Mail", link: "https://www.tatachemicals.com/contact-us" },
-                                ].map((social, idx) => (
-                                    <a
-                                        key={idx}
-                                        href={social.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                                    >
-                                        <img
-                                            src={`${social.icon}`}
-                                            alt={social.alt}
-                                            className="w-6 h-6"
-                                        />
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
-
-                    {/* Mobile Menu Toggle */}
-                    <button
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all duration-300"
-                    >
-                        <div className="relative">
-                            <FiMenu
-                                className={`w-6 h-6 transition-all duration-300 ${mobileOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'
-                                    }`}
-                            />
-                            <FiX
-                                className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${mobileOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
-                                    }`}
-                            />
-                        </div>
-                    </button>
                 </div>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden lg:block border-t border-white/20">
+                <nav className="hidden lg:block border-t border-white/20" data-nav="true">
                     <div className="px-8 py-2">
                         <div className="flex items-center justify-center space-x-8">
                             {navItems.map((item, i) => (
-                                <div key={i} className="relative group">
+                                <div 
+                                    key={i} 
+                                    className="relative group"
+                                    onMouseEnter={() => handleMouseEnter(i)}
+                                    onMouseLeave={handleMouseLeave}
+                                >
                                     <button
                                         onClick={() => handleNavItemClick(i)}
-                                        className={`flex items-center space-x-1 px-4 py-3 text-sm font-medium transition-all duration-300 rounded-lg ${activeDesktop === i
-                                            ? 'text-orange-400 bg-white/10'
-                                            : 'text-white/90 hover:text-white hover:bg-white/5'
-                                            }`}
+                                        className={`flex items-center space-x-1 px-4 py-3 text-sm font-medium transition-all duration-300 rounded-lg ${
+                                            activeDesktop === i
+                                                ? 'text-orange-400 bg-white/10'
+                                                : 'text-white/90 hover:text-white hover:bg-white/5'
+                                        }`}
                                     >
                                         <span>{item.label}</span>
                                         <FiChevronDown
-                                            className={`w-4 h-4 transition-transform duration-300 ${activeDesktop === i ? 'rotate-180' : 'rotate-0'
-                                                }`}
+                                            className={`w-4 h-4 transition-transform duration-300 ${
+                                                isSubmenuVisible(i) ? 'rotate-180' : 'rotate-0'
+                                            }`}
                                         />
                                     </button>
 
                                     {/* Desktop Submenu */}
                                     <div
-                                        className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-slate-800/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/10 transition-all duration-300 ${activeDesktop === i
-                                            ? 'opacity-100 visible translate-y-0'
-                                            : 'opacity-0 invisible -translate-y-4'
-                                            }`}
+                                        className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-slate-800/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/10 transition-all duration-300 ${
+                                            isSubmenuVisible(i)
+                                                ? 'opacity-100 visible translate-y-0'
+                                                : 'opacity-0 invisible -translate-y-4'
+                                        }`}
+                                        onMouseEnter={handleSubmenuMouseEnter}
+                                        onMouseLeave={handleMouseLeave}
+                                        data-submenu="true"
                                     >
                                         <div className="p-4">
-                                            {item.submenu.map((sub, idx) => (
-                                                <a
-                                                    key={idx}
-                                                    href={getPathFromItem(sub)}
-                                                    className="flex items-center justify-between px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 group/item"
-                                                >
-                                                    <span>{sub}</span>
-                                                    <FiChevronRight className="w-4 h-4 opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" />
-                                                </a>
-                                            ))}
+                                            {item.submenu.map((sub, idx) => {
+                                                const isActive = activeSubMenu === `${i}-${idx}`;
+                                                return (
+                                                    <a
+                                                        key={idx}
+                                                        href={getPathFromItem(sub)}
+                                                        onClick={() => handleSubMenuClick(i, idx, sub)}
+                                                        className={`flex items-center justify-between px-4 py-3 text-sm rounded-lg transition-all duration-200 group/item ${
+                                                            isActive
+                                                                ? 'text-orange-400 bg-white/10'
+                                                                : 'text-white/80 hover:text-white hover:bg-white/10'
+                                                        }`}
+                                                    >
+                                                        <span>{sub}</span>
+                                                        <FiChevronRight className={`w-4 h-4 transition-opacity duration-200 ${
+                                                            isActive ? 'opacity-100' : 'opacity-0 group-hover/item:opacity-100'
+                                                        }`} />
+                                                    </a>
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                 </div>
@@ -242,9 +319,9 @@ export default function ModernNavbar() {
 
             {/* Mobile Menu */}
             <div
-                ref={mobileMenuRef}
-                className={`lg:hidden overflow-hidden transition-all duration-500 bg-slate-900/98 backdrop-blur-lg ${mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-                    }`}
+                className={`lg:hidden overflow-hidden transition-all duration-500 bg-slate-900/98 backdrop-blur-lg ${
+                    mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+                }`}
             >
                 <div className="px-6 py-6 space-y-2">
                     {/* Mobile Annual Report */}
@@ -268,26 +345,38 @@ export default function ModernNavbar() {
                                 >
                                     <span>{item.label}</span>
                                     <FiChevronDown
-                                        className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'
-                                            }`}
+                                        className={`w-5 h-5 transition-transform duration-300 ${
+                                            isOpen ? 'rotate-180' : 'rotate-0'
+                                        }`}
                                     />
                                 </button>
 
                                 <div
-                                    className={`overflow-hidden transition-all duration-400 ${isOpen ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
-                                        }`}
+                                    className={`overflow-hidden transition-all duration-400 ${
+                                        isOpen ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
+                                    }`}
                                 >
                                     <div className="pl-4 space-y-1">
-                                        {item.submenu.map((sub, j) => (
-                                            <a
-                                                key={j}
-                                                href={getPathFromItem(sub)}
-                                                onClick={() => setMobileOpen(false)}
-                                                className="block py-3 px-4 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
-                                            >
-                                                {sub}
-                                            </a>
-                                        ))}
+                                        {item.submenu.map((sub, j) => {
+                                            const isActive = activeSubMenu === `${i}-${j}`;
+                                            return (
+                                                <a
+                                                    key={j}
+                                                    href={getPathFromItem(sub)}
+                                                    onClick={() => {
+                                                        handleSubMenuClick(i, j, sub);
+                                                        setMobileOpen(false);
+                                                    }}
+                                                    className={`block py-3 px-4 text-sm rounded-lg transition-all duration-200 ${
+                                                        isActive
+                                                            ? 'text-orange-400 bg-white/10'
+                                                            : 'text-white/70 hover:text-white hover:bg-white/5'
+                                                    }`}
+                                                >
+                                                    {sub}
+                                                </a>
+                                            );
+                                        })}
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +408,6 @@ export default function ModernNavbar() {
                             ))}
                         </div>
                     </div>
-
                 </div>
             </div>
 

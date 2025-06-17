@@ -10,8 +10,8 @@ const A360Degree = () => {
             middleContent1: `A survey from 2024 shows that 77% of global manufacturers have implemented AI solutions, up from 70% in 2023. These solutions span production (31%), inventory management (28%) and customer service (28%), demonstrating AI's role in optimising operations.`,
             middleContent2: `Over the next five years, chemical companies are projected to invest about 5% of their annual revenue in digital operations solutions, aiming for efficiency improvements. Recent reports indicate that these digital initiatives have resulted in efficiency gains of 10-12%.`,
             rightContent: `As of 2023, approximately 36% of manufacturing companies are investing in AI and digital initiatives to enhance plant safety. Some of these initiatives are predictive analytics, digital twin models, AI powered computer vision systems for safety protocols etc. The usage of AI in plant safety has also seen significant growth over the past five years. From 2018 to 2023, the adoption of AI technologies in plant safety has increased by approximately 25%. This growth is driven by the need for improved safety measures, predictive maintenance and operational efficiency in manufacturing plants.Tata Chemicals, for instance, has allocated a specific
-budget for digital initiatives. This has translated into
-substantial savings of INR 50 crore.`,
+            budget for digital initiatives. This has translated into
+            substantial savings of INR 50 crore.`,
             strategicPriorities: [
                 { label: "SP 1", bgColor: "#3e2c84" },
                 { label: "SP 2", bgColor: "#40b2a2" }
@@ -64,15 +64,15 @@ substantial savings of INR 50 crore.`,
                     </h1>
                 </div>
                 <div className="flex-shrink-0">
-                    <img 
-                        src="ValueCreationApproach/18-Page-IMG.webp" 
+                    <img
+                        src="ValueCreationApproach/18-Page-IMG.webp"
                         alt=""
                         className='w-12 h-16 sm:w-14 sm:h-18 md:w-16 md:h-20 lg:w-18 lg:h-22 object-contain'
                     />
                 </div>
             </div>
             <HeaderWRedBottom />
-            
+
             <div className="w-full mt-6 lg:mt-10">
                 <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x border-gray-300 rounded-lg overflow-hidden">
                     {/* Left Box */}
@@ -98,7 +98,7 @@ substantial savings of INR 50 crore.`,
                         </div>
                         <div className="flex gap-2 mt-2 sm:mt-3 flex-wrap">
                             {data.strategicPriorities.map((sp, spIndex) => (
-                                <div 
+                                <div
                                     key={spIndex}
                                     className="text-white text-sm sm:text-base lg:text-lg xl:text-xl px-2 py-1 rounded m-bold"
                                     style={{ backgroundColor: sp.bgColor }}
@@ -127,7 +127,7 @@ substantial savings of INR 50 crore.`,
                 <h1 className="m-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-center text-[#1368b4] font-bold mb-6 sm:mb-8 leading-tight">
                     A 360-degree View of Operating Landscape
                 </h1>
-                
+
                 {/* Introduction Text */}
                 <div className='mb-8 sm:mb-12'>
                     <p className='text-[#432c87] text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-4 sm:mb-5 m-semi-bold leading-relaxed'>
@@ -146,7 +146,7 @@ substantial savings of INR 50 crore.`,
                 {sectionData.map((data, index) => (
                     <ContentSection key={index} data={data} index={index} />
                 ))}
-                
+
                 {/* Agar aur sections add karne hain, toh sectionData array mein add kar dena */}
             </div>
         </div>

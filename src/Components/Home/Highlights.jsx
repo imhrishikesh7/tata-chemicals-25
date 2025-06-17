@@ -95,16 +95,19 @@ const Highlights = () => {
                 {sections.map((section, i) => (
                     <div
                         key={i}
-                        className="rounded-xl border-[#2469b3] border  p-6  flex flex-col gap-4"
+                        className="rounded-xl  border-[#2469b3] border  flex flex-col gap-4"
 
                         style={{
                             color: section.colorTo
                             // background: `linear-gradient(to bottom right, ${section.colorFrom}, ${section.colorTo})`,
                         }}
                     >
-                        <h3 className="text-xl font-semibold border-b border-white/40 pb-2">
+                        <div className='bordeannualReport w-full border  p-2'
+                        >
+                        <h3 className="text-xl font-semibold pb-2">
                             {section.title}
                         </h3>
+                        </div>
                         {section.heading && (
                             <p className="text-sm  text-black font-bold italic mb-2">{section.heading}</p>
                         )}

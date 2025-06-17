@@ -96,7 +96,7 @@ const Gratitude = () => {
               His legacy will continue to inspire us as we strive to uphold the principles he so passionately championed.
             </p>
             <p className="font-bold text-lg">Padma Vibhushan Ratan N. Tata</p>
-            <p className="text-base">Born: December 28, 1937</p>
+            <p className="text-base">December 28, 1937 to October 09, 2024</p>
           </div>
           <div className="md:w-1/3">
             <img src="/home/rnt.webp" className="w-full h-auto object-contain" alt="Mr. Tata" />

@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Myriad';
-  src: url('/myriadprofont/MYRIADPRO-REGULAR.OTF') format('truetype');
+  src: url('/myriadprofont/MYRIADPRO-REGULAR.OTF') format('opentype');
   font-style: normal;
 }
 @font-face {
   font-family: 'Myriad_Bold';
-  src: url('myriadprofont/MYRIADPRO-BOLD.OTF') format('truetype');
+  src: url('myriadprofont/MYRIADPRO-BOLD.OTF') format('opentype');
   font-style: normal;
 }
-/* @font-face {
+@font-face {
   font-family: 'Myriad_Semi_Bold';
-  src: url('myriadprofont/MYRIADPRO-SEMIBOLD.OTF') format('truetype');
+  src: url('myriadprofont/MYRIADPRO-SEMIBOLD.OTF') format('opentype');
   font-style: normal;
 }
 .m-semi-bold{
   font-family: Myriad_Semi_Bold;
-} */
+}
 .m-bold{
   font-family: Myriad_Bold;
 }
@@ -49,3 +49,6 @@ body{
   }
 }
 
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}

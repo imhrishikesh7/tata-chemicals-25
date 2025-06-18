@@ -1,12 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-    FiMenu,
-    FiX,
-    FiChevronDown,
-    FiChevronRight,
-    FiExternalLink,
-} from "react-icons/fi";
-
+import { ChevronDown, Menu, X, ExternalLink } from "lucide-react";
+import { FaLinkedin, FaXTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa6'
 const navItems = [
     {
         label: "Corporate Overview",
@@ -74,14 +68,14 @@ const navItems = [
     },
 ];
 
-export default function EnhancedNavbar() {
+export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [activeDesktop, setActiveDesktop] = useState(null);
-    const [hoverDesktop, setHoverDesktop] = useState(null);
-    const [activeSubMenu, setActiveSubMenu] = useState(null);
+    const [activeSubmenu, setActiveSubmenu] = useState(null);
     const [openAccordions, setOpenAccordions] = useState([]);
-    const [isScrolled, setIsScrolled] = useState(false);
-    const hoverTimeoutRef = useRef();
+    const [scrollY, setScrollY] = useState(0);
+    const [showTopBar, setShowTopBar] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const dropdownRef = useRef();
 
     const getPathFromItem = (item) =>
         "/" +
@@ -92,29 +86,35 @@ export default function EnhancedNavbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            const currentScrollY = window.scrollY;
+
+            // Show/hide top bar based on scroll direction
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down and past threshold
+                setShowTopBar(false);
+            } else if (currentScrollY < lastScrollY) {
+                // Scrolling up
+                setShowTopBar(true);
+            }
+
+            setScrollY(currentScrollY);
+            setLastScrollY(currentScrollY);
         };
-        
+
         const handleClickOutside = (event) => {
-            // Close active desktop menu when clicking outside
-            if (activeDesktop !== null) {
-                const navElement = event.target.closest('nav');
-                const submenuElement = event.target.closest('[data-submenu]');
-                
-                if (!navElement && !submenuElement) {
-                    setActiveDesktop(null);
-                }
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setActiveSubmenu(null);
             }
         };
-        
-        window.addEventListener('scroll', handleScroll);
-        document.addEventListener('click', handleClickOutside);
-        
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        document.addEventListener('mousedown', handleClickOutside);
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [activeDesktop]);
+    }, [lastScrollY]);
 
     const toggleAccordion = (index) => {
         setOpenAccordions(prev =>
@@ -124,288 +124,228 @@ export default function EnhancedNavbar() {
         );
     };
 
-    const handleNavItemClick = (index) => {
-        setActiveDesktop(activeDesktop === index ? null : index);
-    };
-
-    const handleMouseEnter = (index) => {
-        // Don't show hover menu if any menu is pinned (clicked)
-        if (activeDesktop !== null) return;
-        
-        if (hoverTimeoutRef.current) {
-            clearTimeout(hoverTimeoutRef.current);
-        }
-        setHoverDesktop(index);
-    };
-
-    const handleMouseLeave = () => {
-        hoverTimeoutRef.current = setTimeout(() => {
-            setHoverDesktop(null);
-        }, 150);
-    };
-
-    const handleSubmenuMouseEnter = () => {
-        if (hoverTimeoutRef.current) {
-            clearTimeout(hoverTimeoutRef.current);
-        }
-    };
-
-    const handleSubMenuClick = (parentIndex, subIndex, subItem) => {
-        setActiveSubMenu(`${parentIndex}-${subIndex}`);
-        if (mobileOpen) {
-            setMobileOpen(false);
-        }
-    };
-
-    const isSubmenuVisible = (index) => {
-        return activeDesktop === index || hoverDesktop === index;
+    const handleSubmenuToggle = (index) => {
+        setActiveSubmenu(activeSubmenu === index ? null : index);
     };
 
     return (
-        <div className={`sticky top-0 w-full z-50 transition-all duration-500 ${isScrolled
-            ? 'bg-slate-900/95 backdrop-blur-lg shadow-2xl'
-            : 'bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900'
-            }`}>
-            {/* Main Header */}
-            <div className="relative">
-                {/* Top Bar - Hide on scroll */}
-                <div className={`transition-all duration-500 overflow-hidden ${
-                    isScrolled 
-                        ? 'max-h-0 opacity-0 py-0' 
-                        : 'max-h-96 opacity-100 py-4'
+        <>
+            {/* Top Bar - Logo Section */}
+            <div className={`fixed top-0 w-full z-50 transition-all duration-500 ease-in-out ${showTopBar
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-full opacity-0'
                 }`}>
-                    <div className="flex justify-between items-center px-6 lg:px-8">
-                        {/* Logo */}
-                        <div className="flex items-center space-x-4">
-                            <a href="/" >
-                                <div className="relative group">
-                                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-orange-500 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <div className="bg-white/80 backdrop-blur-xl border-b border-white/20 shadow-g">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex items-center justify-between h-16">
+                            {/* Logo */}
+                            <div className="flex-shrink-0">
+                                <a href="/" className="flex items-center">
                                     <img
-                                        src="tata-chemicals-white.svg"
-                                        className="w-48 h-auto relative z-10 transition-transform duration-300 group-hover:scale-105"
+                                        src="/tata-chemicals-blue.svg"
                                         alt="Tata Chemicals"
-                                    />
-                                </div>
-                            </a>
-                        </div>
-
-                        {/* Social Links - Desktop */}
-                        <div className="hidden lg:flex items-center space-x-4">
-                            {/* Annual Report Button */}
-                            <a
-                                href="#"
-                                className="relative overflow-hidden bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 hover:scale-105 group"
-                            >
-                                <span className="relative z-10 flex items-center space-x-2">
-                                    <span>Annual Report 2024-25</span>
-                                    <FiExternalLink className="w-4 h-4" />
-                                </span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            </a>
-
-                            {/* Social Icons */}
-                            <div className="">
-                                <div className="flex justify-center space-x-6">
-                                    {[
-                                        { icon: "/linkedin_icon.svg", alt: "LinkedIn", link: "https://www.linkedin.com/company/tata-chemicals/"  },
-                                        { icon: "twitter_icon.svg", alt: "Twitter", link: "https://x.com/TataChemicals/" },
-                                        { icon: "youtube_icon.svg", alt: "YouTube", link: "https://www.youtube.com/user/TataChemicalsLtd" },
-                                        { icon: "mail_icon.svg", alt: "Mail", link: "https://www.tatachemicals.com/contact-usx" },
-                                    ].map((social, idx) => (
-                                        <a
-                                            key={idx}
-                                            href={social.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                                        >
-                                            <img
-                                                src={`${social.icon}`}
-                                                alt={social.alt}
-                                                className="w-6 h-6"
-                                            />
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Mobile Menu Toggle */}
-                        <button
-                            onClick={() => setMobileOpen(!mobileOpen)}
-                            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 text-white transition-all duration-300"
-                        >
-                            <div className="relative">
-                                <FiMenu
-                                    className={`w-6 h-6 transition-all duration-300 ${mobileOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'
-                                        }`}
-                                />
-                                <FiX
-                                    className={`w-6 h-6 absolute inset-0 transition-all duration-300 ${mobileOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
-                                        }`}
-                                />
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                {/* Desktop Navigation */}
-                <nav className="hidden lg:block border-t border-white/20" data-nav="true">
-                    <div className="px-8 py-2">
-                        <div className="flex items-center justify-center space-x-8">
-                            {navItems.map((item, i) => (
-                                <div 
-                                    key={i} 
-                                    className="relative group"
-                                    onMouseEnter={() => handleMouseEnter(i)}
-                                    onMouseLeave={handleMouseLeave}
-                                >
-                                    <button
-                                        onClick={() => handleNavItemClick(i)}
-                                        className={`flex items-center space-x-1 px-4 py-3 text-sm font-medium transition-all duration-300 rounded-lg ${
-                                            activeDesktop === i
-                                                ? 'text-orange-400 bg-white/10'
-                                                : 'text-white/90 hover:text-white hover:bg-white/5'
-                                        }`}
-                                    >
-                                        <span>{item.label}</span>
-                                        <FiChevronDown
-                                            className={`w-4 h-4 transition-transform duration-300 ${
-                                                isSubmenuVisible(i) ? 'rotate-180' : 'rotate-0'
-                                            }`}
-                                        />
-                                    </button>
-
-                                    {/* Desktop Submenu */}
-                                    <div
-                                        className={`absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-slate-800/95 backdrop-blur-lg rounded-xl shadow-2xl border border-white/10 transition-all duration-300 ${
-                                            isSubmenuVisible(i)
-                                                ? 'opacity-100 visible translate-y-0'
-                                                : 'opacity-0 invisible -translate-y-4'
-                                        }`}
-                                        onMouseEnter={handleSubmenuMouseEnter}
-                                        onMouseLeave={handleMouseLeave}
-                                        data-submenu="true"
-                                    >
-                                        <div className="p-4">
-                                            {item.submenu.map((sub, idx) => {
-                                                const isActive = activeSubMenu === `${i}-${idx}`;
-                                                return (
-                                                    <a
-                                                        key={idx}
-                                                        href={getPathFromItem(sub)}
-                                                        onClick={() => handleSubMenuClick(i, idx, sub)}
-                                                        className={`flex items-center justify-between px-4 py-3 text-sm rounded-lg transition-all duration-200 group/item ${
-                                                            isActive
-                                                                ? 'text-orange-400 bg-white/10'
-                                                                : 'text-white/80 hover:text-white hover:bg-white/10'
-                                                        }`}
-                                                    >
-                                                        <span>{sub}</span>
-                                                        <FiChevronRight className={`w-4 h-4 transition-opacity duration-200 ${
-                                                            isActive ? 'opacity-100' : 'opacity-0 group-hover/item:opacity-100'
-                                                        }`} />
-                                                    </a>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            {/* Mobile Menu */}
-            <div
-                className={`lg:hidden overflow-hidden transition-all duration-500 bg-slate-900/98 backdrop-blur-lg ${
-                    mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-                }`}
-            >
-                <div className="px-6 py-6 space-y-2">
-                    {/* Mobile Annual Report */}
-                    <div className="mb-6">
-                        <a
-                            href="#"
-                            className="block w-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-center px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg"
-                        >
-                            📄 Annual Report 2024-25
-                        </a>
-                    </div>
-
-                    {/* Mobile Navigation Items */}
-                    {navItems.map((item, i) => {
-                        const isOpen = openAccordions.includes(i);
-                        return (
-                            <div key={i} className="border-b border-white/10 last:border-b-0">
-                                <button
-                                    onClick={() => toggleAccordion(i)}
-                                    className="w-full flex justify-between items-center py-4 text-white/90 font-medium hover:text-white transition-colors duration-200"
-                                >
-                                    <span>{item.label}</span>
-                                    <FiChevronDown
-                                        className={`w-5 h-5 transition-transform duration-300 ${
-                                            isOpen ? 'rotate-180' : 'rotate-0'
-                                        }`}
-                                    />
-                                </button>
-
-                                <div
-                                    className={`overflow-hidden transition-all duration-400 ${
-                                        isOpen ? 'max-h-96 opacity-100 mb-4' : 'max-h-0 opacity-0'
-                                    }`}
-                                >
-                                    <div className="pl-4 space-y-1">
-                                        {item.submenu.map((sub, j) => {
-                                            const isActive = activeSubMenu === `${i}-${j}`;
-                                            return (
-                                                <a
-                                                    key={j}
-                                                    href={getPathFromItem(sub)}
-                                                    onClick={() => {
-                                                        handleSubMenuClick(i, j, sub);
-                                                        setMobileOpen(false);
-                                                    }}
-                                                    className={`block py-3 px-4 text-sm rounded-lg transition-all duration-200 ${
-                                                        isActive
-                                                            ? 'text-orange-400 bg-white/10'
-                                                            : 'text-white/70 hover:text-white hover:bg-white/5'
-                                                    }`}
-                                                >
-                                                    {sub}
-                                                </a>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
-
-                    {/* Mobile Social Links */}
-                    <div className="pt-6 mt-6 border-t border-white/10">
-                        <div className="flex justify-center space-x-6">
-                            {[
-                                { icon: "linkedin_icon.svg", alt: "LinkedIn", link: "https://www.linkedin.com" },
-                                { icon: "twitter_icon.svg", alt: "Twitter", link: "https://www.twitter.com" },
-                                { icon: "youtube_icon.svg", alt: "YouTube", link: "https://www.youtube.com" },
-                                { icon: "mail_icon.svg", alt: "Mail", link: "mailto:your-email@example.com" },
-                            ].map((social, idx) => (
-                                <a
-                                    key={idx}
-                                    href={social.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                                >
-                                    <img
-                                        src={`/assets/icons/${social.icon}`}
-                                        alt={social.alt}
-                                        className="w-6 h-6"
+                                        className="h-4 w-auto"
                                     />
                                 </a>
-                            ))}
+                            </div>
+
+                            {/* Right Section - Desktop */}
+                            <div className="hidden lg:flex items-center space-x-6">
+                                {/* Annual Report */}
+                                <a
+                                    href="#"
+                                    className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#1467b3] hover:bg-[#1467b3]/80 rounded-lg backdrop-blur-sm transition-all duration-200 shadow-lg hover:shadow-xl"
+                                >
+                                    Annual Report 2024-25
+                                    <ExternalLink className="ml-2 h-4 w-4" />
+                                </a>
+
+                                {/* Social Icons */}
+                                <div className="flex justify-center space-x-6">
+                                    <a
+                                        href="https://www.linkedin.com/company/tata-chemicals/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-500 hover:text-blue-700 transition-all duration-200 hover:scale-110"
+                                    >
+                                        <FaLinkedin className="h-6 w-6" />
+                                    </a>
+
+                                    <a
+                                        href="https://x.com/TataChemicals/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-500 hover:text-black transition-all duration-200 hover:scale-110"
+                                    >
+                                        <FaXTwitter className="h-6 w-6" />
+                                    </a>
+
+                                    <a
+                                        href="https://www.youtube.com/user/TataChemicalsLtd"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-500 hover:text-red-600 transition-all duration-200 hover:scale-110"
+                                    >
+                                        <FaYoutube className="h-6 w-6" />
+                                    </a>
+
+                                    <a
+                                        href="mailto:contact@tatachemicals.com"
+                                        className="text-gray-500 hover:text-[#1467b3] transition-all duration-200 hover:scale-110"
+                                    >
+                                        <FaEnvelope className="h-6 w-6" />
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Mobile menu button */}
+                            <div className="lg:hidden">
+                                <button
+                                    onClick={() => setMobileOpen(!mobileOpen)}
+                                    className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white/20 backdrop-blur-sm transition-all duration-200"
+                                >
+                                    {mobileOpen ? (
+                                        <X className="h-6 w-6" />
+                                    ) : (
+                                        <Menu className="h-6 w-6" />
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Navigation - Always Sticky */}
+            <nav className={`fixed w-full z-40 transition-all duration-500 ease-in-out ${showTopBar ? 'top-16' : 'top-0'
+                }`}>
+                <div className="bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-lg">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        {/* Mobile Logo (shown when top bar is hidden) */}
+                        <div className={`lg:hidden flex items-center justify-between py-3 transition-all duration-300 ${!showTopBar ? 'opacity-100 max-h-16' : 'opacity-0 max-h-0 overflow-hidden'
+                            }`}>
+                            <a href="/" className="flex items-center">
+                                <img
+                                    src="/tata-chemicals-blue.svg"
+                                    alt="Tata Chemicals"
+                                    className="h-4 w-auto"
+                                />
+                            </a>
+                            <button
+                                onClick={() => setMobileOpen(!mobileOpen)}
+                                className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white/20 backdrop-blur-sm transition-all duration-200"
+                            >
+                                {mobileOpen ? (
+                                    <X className="h-5 w-5" />
+                                ) : (
+                                    <Menu className="h-5 w-5" />
+                                )}
+                            </button>
+                        </div>
+
+                        {/* Desktop Navigation */}
+                        <div className="hidden lg:flex justify-center">
+                            <div className="flex space-x-8" ref={dropdownRef}>
+                                {navItems.map((item, index) => (
+                                    <div key={index} className="relative">
+                                        <button
+                                            onClick={() => handleSubmenuToggle(index)}
+                                            className={`flex items-center px-3 py-4 text-sm font-medium transition-all duration-200 ${activeSubmenu === index
+                                                    ? 'text-blue-600 border-b-2 border-blue-600'
+                                                    : 'text-gray-700 hover:text-[#1467b3]'
+                                                }`}
+                                        >
+                                            {item.label}
+                                            <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${activeSubmenu === index ? 'rotate-180' : ''
+                                                }`} />
+                                        </button>
+
+                                        {/* Dropdown Menu */}
+                                        {activeSubmenu === index && (
+                                            <div className="absolute top-full left-0 mt-0 w-72 bg-white/90 backdrop-blur-xl rounded-lg shadow-xl border border-white/30 py-2 z-50">
+                                                {item.submenu.map((subItem, subIndex) => (
+                                                    <a
+                                                        key={subIndex}
+                                                        href={getPathFromItem(subItem)}
+                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-white/50 hover:text-[#1467b3] transition-all duration-200 rounded-md mx-2"
+                                                    >
+                                                        {subItem}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Mobile Navigation */}
+            <div className={`lg:hidden fixed w-full z-30 transition-all duration-300 ${showTopBar ? 'top-16' : 'top-12'
+                } ${mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                }`}>
+                <div className="bg-white/90 backdrop-blur-xl border-b border-white/20 shadow-lg">
+                    <div className="px-4 py-4 mt-2 space-y-1">
+                        {/* Mobile Annual Report */}
+                        <a
+                            href="#"
+                            className="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white bg-blue-600/90 hover:bg-blue-700/90 rounded-lg backdrop-blur-sm transition-all duration-200 mb-4 shadow-lg"
+                        >
+                            Annual Report 2024-25
+                            <ExternalLink className="ml-2 h-4 w-4" />
+                        </a>
+
+                        {/* Mobile Navigation Items */}
+                        {navItems.map((item, index) => (
+                            <div key={index} className="border-b border-white/20 last:border-b-0">
+                                <button
+                                    onClick={() => toggleAccordion(index)}
+                                    className="w-full flex items-center justify-between px-4 py-3 text-left text-gray-700 hover:bg-white/30 rounded-lg transition-all duration-200"
+                                >
+                                    <span className="text-sm font-medium">{item.label}</span>
+                                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${openAccordions.includes(index) ? 'rotate-180' : ''
+                                        }`} />
+                                </button>
+
+                                {openAccordions.includes(index) && (
+                                    <div className="bg-white/30 backdrop-blur-sm rounded-lg mt-1 mb-2">
+                                        {item.submenu.map((subItem, subIndex) => (
+                                            <a
+                                                key={subIndex}
+                                                href={getPathFromItem(subItem)}
+                                                className="block px-6 py-2 text-sm text-gray-600 hover:text-[#1467b3] hover:bg-white/40 transition-all duration-200 rounded-md mx-2"
+                                                onClick={() => setMobileOpen(false)}
+                                            >
+                                                {subItem}
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+
+                        {/* Mobile Social Links */}
+                        <div className="pt-4 mt-4 border-t border-white/20">
+                            <div className="flex justify-center space-x-6">
+                                <a href="https://www.linkedin.com/company/tata-chemicals/"
+                                    className="text-gray-500 hover:text-[#1467b3] transition-all duration-200 hover:scale-110">
+                                    <FaLinkedin className="h-6 w-6" />
+                                </a>
+                                <a href="https://x.com/TataChemicals/"
+                                    className="text-gray-500 hover:text-gray-900 transition-all duration-200 hover:scale-110">
+                                    <FaXTwitter className="h-6 w-6" />
+                                </a>
+                                <a href="https://www.youtube.com/user/TataChemicalsLtd"
+                                    className="text-gray-500 hover:text-red-600 transition-all duration-200 hover:scale-110">
+                                    <FaYoutube className="h-6 w-6" />
+                                </a>
+                                <a href="mailto:contact@tatachemicals.com"
+                                    className="text-gray-500 hover:text-[#1467b3] transition-all duration-200 hover:scale-110">
+                                    <FaEnvelope className="h-6 w-6" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -414,10 +354,12 @@ export default function EnhancedNavbar() {
             {/* Mobile Menu Overlay */}
             {mobileOpen && (
                 <div
-                    className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm -z-10"
+                    className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-20"
                     onClick={() => setMobileOpen(false)}
                 />
             )}
-        </div>
+
+
+        </>
     );
 }

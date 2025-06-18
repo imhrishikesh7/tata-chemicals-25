@@ -1,50 +1,40 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import SplitType from "split-type";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Title = ({ text = "Your Title Here" }) => {
+const Title = ({ text = "Your Title Here", color = "#0A2540" }) => {
   const titleRef = useRef(null);
 
   useEffect(() => {
-    const split = new SplitType(titleRef.current, {
-      types: "chars",
-    });
+    const el = titleRef.current;
 
-    gsap.from(split.chars, {
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-        toggleActions: "play none none none", // play once when in view
-      },
-      x: 60,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.04,
-      ease: "power4.out",
-    });
-
-    return () => {
-      split.revert(); // clean up
-    };
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   }, []);
 
   return (
-    <h1
-    className="text-[#2469b3]"
+    <h2
       ref={titleRef}
-      style={{
-        fontSize: "3rem",
-        fontWeight: "bold",
-        overflow: "hidden",
-        display: "inline-block",
-        whiteSpace: "nowrap",
-      }}
+      className="text-4xl md:text-5xl font-semibold text-center leading-tight tracking-tight"
+      style={{ color }}
     >
       {text}
-    </h1>
+    </h2>
   );
 };
 

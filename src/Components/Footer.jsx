@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Linkedin, Twitter, Youtube, Mail, ChevronDown, ChevronUp, Download } from 'lucide-react';
 
 const Footer = () => {
+  const [openAccordion, setOpenAccordion] = useState(null);
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -8,92 +11,213 @@ const Footer = () => {
     }
   };
 
-  return (
-    <footer className="relative w-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-32 h-32 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-40 h-40 bg-teal-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-300 rounded-full blur-2xl"></div>
-      </div>
+  const toggleAccordion = (accordionName) => {
+    setOpenAccordion(openAccordion === accordionName ? null : accordionName);
+  };
 
+  const statutoryReports = [
+    { name: "Business Responsibility and Sustainability Report", url: "#" },
+    { name: "Board’s Report", url: "#" },
+    { name: "Management iscussion and Analysis", url: "#" },
+    { name: "Corporate Governance Report", url: "#" }
+  ];
+
+  const financialStatements = [
+    { name: "Standalone Financial Statements", url: "#" },
+    { name: "Consolidated Financial Statements", url: "#" },
+    { name: "Form AOC-1", url: "#" },
+    { name: "Notice", url: "#" },
+    { name: "Financial Statistics", url: "#" },
+    { name: "Abbreviations", url: "#" },
+    { name: "GRI Content Index", url: "#" }
+  ];
+
+  return (
+    <footer className="w-full bg-neutral-800 text-white">
       {/* Main footer content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           
-          {/* Part 1: Company Logo */}
-          <div className="flex flex-col items-center space-y-3">
-            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+          {/* Company Logo and Info */}
+          <div className="md:col-span-2 space-y-6">
+            <div className="flex items-center space-x-4">
               <a href="https://www.tatachemicals.com/" className="block">
                 <img
                   src="/tata-chemicals-blue.svg"
                   alt="Tata Chemicals Logo"
-                  className="h-8 object-contain filter brightness-0 invert"
+                  className="h-7 object-contain filter brightness-0 invert"
                 />
               </a>
             </div>
-            <div className="text-center">
-              <p className="text-blue-200 text-sm font-medium">Leading the Future</p>
-              <p className="text-gray-300 text-xs">of Chemical Innovation</p>
+            <div className="space-y-3">
+              <h3 className="text-xl font-medium text-white">
+                Tata Chemicals Limited
+              </h3>
+              {/* Social Media Icons */}
+              <div className="flex items-center space-x-4 pt-2">
+                <a 
+                  href="#" 
+                  className="p-2 bg-neutral-700 hover:bg-blue-600 rounded-lg transition-colors duration-200"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a 
+                  href="#" 
+                  className="p-2 bg-neutral-700 hover:bg-gray-900 rounded-lg transition-colors duration-200"
+                  aria-label="X (Twitter)"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a 
+                  href="#" 
+                  className="p-2 bg-neutral-700 hover:bg-red-600 rounded-lg transition-colors duration-200"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
+                </a>
+                <a 
+                  href="mailto:contact@tatachemicals.com" 
+                  className="p-2 bg-neutral-700 hover:bg-blue-500 rounded-lg transition-colors duration-200"
+                  aria-label="Email"
+                >
+                  <Mail className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Part 2: Company Info */}
-          <div className="text-center space-y-2">
-            <div className="text-lg font-semibold text-blue-100 mb-2">
-              Tata Chemicals Limited
-            </div>
-            <div className="text-sm text-gray-300 leading-relaxed">
-              © {new Date().getFullYear()} Tata Chemicals Limited.<br />
-              All rights reserved.
-            </div>
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-base font-medium text-white">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-neutral-300">
+              <li>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  CEO's Message
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  Board of Directors
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  Business Strategy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-white transition-colors duration-200">
+                  Environment
+                </a>
+              </li>
+            </ul>
           </div>
 
-          {/* Part 3: Quick Links */}
-          <div className="text-center space-y-3">
-            <h4 className="text-sm font-semibold text-blue-200">Quick Links</h4>
-            <div className="flex flex-col space-y-2 text-xs text-gray-400">
-              <span className="hover:text-blue-300 cursor-pointer transition-colors">Privacy Policy</span>
-              <span className="hover:text-blue-300 cursor-pointer transition-colors">Terms of Service</span>
-              <span className="hover:text-blue-300 cursor-pointer transition-colors">Contact Us</span>
+          {/* Download Documents Accordions */}
+          <div className="space-y-4">
+            <h4 className="text-base font-medium text-white">Download Documents</h4>
+            
+            {/* Statutory Reports Accordion */}
+            <div className="border border-neutral-600 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleAccordion('statutory')}
+                className="w-full px-4 py-3 bg-neutral-700 hover:bg-neutral-600 flex items-center justify-between transition-colors duration-200"
+              >
+                <span className="text-sm font-medium text-white">Statutory Reports</span>
+                {openAccordion === 'statutory' ? (
+                  <ChevronUp className="w-4 h-4 text-neutral-300" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-neutral-300" />
+                )}
+              </button>
+              {openAccordion === 'statutory' && (
+                <div className="bg-neutral-750 border-t border-neutral-600">
+                  <ul className="py-2">
+                    {statutoryReports.map((report, index) => (
+                      <li key={index}>
+                        <a
+                          href={report.url}
+                          className="flex items-center px-4 py-2 text-xs text-neutral-300 hover:text-white hover:bg-neutral-600 transition-colors duration-200"
+                        >
+                          <Download className="w-3 h-3 mr-2" />
+                          {report.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Financial Statements Accordion */}
+            <div className="border border-neutral-600 rounded-lg overflow-hidden">
+              <button
+                onClick={() => toggleAccordion('financial')}
+                className="w-full px-4 py-3 bg-neutral-700 hover:bg-neutral-600 flex items-center justify-between transition-colors duration-200"
+              >
+                <span className="text-sm font-medium text-white">Financial Statements</span>
+                {openAccordion === 'financial' ? (
+                  <ChevronUp className="w-4 h-4 text-neutral-300" />
+                ) : (
+                  <ChevronDown className="w-4 h-4 text-neutral-300" />
+                )}
+              </button>
+              {openAccordion === 'financial' && (
+                <div className="bg-neutral-750 border-t border-neutral-600">
+                  <ul className="py-2">
+                    {financialStatements.map((statement, index) => (
+                      <li key={index}>
+                        <a
+                          href={statement.url}
+                          className="flex items-center px-4 py-2 text-xs text-neutral-300 hover:text-white hover:bg-neutral-600 transition-colors duration-200"
+                        >
+                          <Download className="w-3 h-3 mr-2" />
+                          {statement.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
-
-          {/* Part 4: Developer Info */}
-          <div className="flex flex-col items-center space-y-3">
-            <a href="https://kalolwala.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105">
-              <span className="text-sm text-gray-300">Crafted with ❤️ by</span>
-              <img
-                src="/k&a logo.svg"
-                alt="K&A Developer Logo"
-                className="w-6 h-6 object-contain"
-              />
-            </a>
-          </div>
-        </div>
-        
-        {/* Divider line */}
-        <div className="my-8 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"></div>
-        
-        {/* Back to Top Button - Centered */}
-        <div className="flex justify-center">
-          <button
-            onClick={() => scrollToSection('hero-title')}
-            className="group relative px-8 py-3 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white rounded-full font-semibold shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 border border-blue-500/30"
-          >
-            <span className="flex items-center gap-2">
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clipRule="evenodd" />
-              </svg>
-              Back to Top
-            </span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-          </button>
         </div>
       </div>
 
-      {/* Bottom accent line */}
-      <div className="h-1 bg-gradient-to-r from-blue-600 via-teal-500 to-blue-600"></div>
+      {/* Bottom section */}
+      <div className="bg-neutral-900 border-t border-neutral-700">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-sm text-neutral-400">
+              © {new Date().getFullYear()} Tata Chemicals Limited. All rights reserved.
+            </div>
+            
+            {/* Developer Credit */}
+            <div className="flex items-center space-x-2 text-sm text-neutral-400">
+              <span>Website by</span>
+              <a 
+                href="https://kalolwala.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-1 hover:text-neutral-300 transition-colors duration-200"
+              >
+                <img
+                  src="/k&a logo.svg"
+                  alt="K&A Developer Logo"
+                  className="w-4 h-4 object-contain"
+                />
+                <span>Kalolwala & Associates</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };

@@ -24,7 +24,7 @@ const AboutTataChemicals = () => {
             title: 'Values',
             img: 'CorporateOverview/AboutChemicals/06-icon-img-4.webp',
             desc: '',
-            img1: 'CorporateOverview/AboutChemicals/Values.png'
+            img1: 'CorporateOverview/AboutChemicals/Values.webp'
         },
     ];
 

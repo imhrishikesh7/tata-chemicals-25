@@ -61,7 +61,7 @@ const BusinessModel = () => {
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
-                        <img src="ValueCreationApproach/BusinessModel/24-25-Page-IMG.png" alt="" />
+                        <img src="ValueCreationApproach/BusinessModel/24-25-Page-IMG.webp" alt="" />
                     </div>
             </div>
         </div>

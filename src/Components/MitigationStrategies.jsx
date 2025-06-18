@@ -15,8 +15,8 @@ const MitigationStrategies = () => {
     const strategies = [
         {
             title: "Sustainability Risk",
-            image: "ValueCreationApproach/RiskManagement/27-Page-IMG.png",
-            image2: "ValueCreationApproach/RiskManagement/1.png",
+            image: "ValueCreationApproach/RiskManagement/27-Page-IMG.webp",
+            image2: "ValueCreationApproach/RiskManagement/1.webp",
             content: {
                 description: "Failure to address climate change-related risks – Reducing carbon emissions, maintaining a circular economy (water, solid waste and renewables) and preserving nature and biodiversity.",
                 mitigationActions: [
@@ -42,8 +42,8 @@ const MitigationStrategies = () => {
         },
         {
             title: "Recession Risk",
-            image2: "ValueCreationApproach/RiskManagement/2.png",
-            image: "ValueCreationApproach/RiskManagement/27-Page-IMG-1.png",
+            image2: "ValueCreationApproach/RiskManagement/2.webp",
+            image: "ValueCreationApproach/RiskManagement/27-Page-IMG-1.webp",
             content: {
                 description: `Global economic slowdown impacting demand and pricing `,
                 mitigationActions: [
@@ -63,8 +63,8 @@ const MitigationStrategies = () => {
         },
         {
             title: "Digitalisation Risk",
-            image2: "ValueCreationApproach/RiskManagement/3.png",
-            image: "ValueCreationApproach/RiskManagement/28-Page-IMG.png",
+            image2: "ValueCreationApproach/RiskManagement/3.webp",
+            image: "ValueCreationApproach/RiskManagement/28-Page-IMG.webp",
             content: {
                 description: "Embracing digitalisation as a key lever of business growth ",
                 mitigationActions: [
@@ -105,8 +105,8 @@ continuous innovation and transformation.`,
         },
         {
             title: "Talent Risk",
-            image2: "ValueCreationApproach/RiskManagement/4.png",
-            image: "ValueCreationApproach/RiskManagement/28-Page-IMG-2.png",
+            image2: "ValueCreationApproach/RiskManagement/4.webp",
+            image: "ValueCreationApproach/RiskManagement/28-Page-IMG-2.webp",
             content: {
                 description: "Challenges of attracting and retaining talent in remote manufacturing locations ",
                 mitigationActions: [
@@ -131,8 +131,8 @@ internal mobility and long-term retention.`,
         },
         {
             title: "Cyber Risk",
-            image2: "ValueCreationApproach/RiskManagement/5.png",
-            image: "ValueCreationApproach/RiskManagement/29-Page-IMG.png",
+            image2: "ValueCreationApproach/RiskManagement/5.webp",
+            image: "ValueCreationApproach/RiskManagement/29-Page-IMG.webp",
             content: {
                 description: "Loss of data and compromised operations resulting from cyber attacks",
                 mitigationActions: [
@@ -167,8 +167,8 @@ excellence in the industry`,
         },
         {
             title: "Supply Chain Risk",
-            image2: "ValueCreationApproach/RiskManagement/6.png",
-            image: "ValueCreationApproach/RiskManagement/29-Page-IMG-1.png",
+            image2: "ValueCreationApproach/RiskManagement/6.webp",
+            image: "ValueCreationApproach/RiskManagement/29-Page-IMG-1.webp",
             content: {
                 description: "Securing raw materials, energy sources and upgradation of logistics infrastructure to support growth plans",
                 mitigationActions: [
@@ -214,8 +214,8 @@ reliability and long-term cost efficiency.`
         },
         {
             title: "Debt Risk",
-            image2: "ValueCreationApproach/RiskManagement/7.png",
-            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-4.png",
+            image2: "ValueCreationApproach/RiskManagement/7.webp",
+            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-4.webp",
             content: {
                 description: "Managing debt and tightening interest rates ",
                 mitigationActions: [
@@ -235,8 +235,8 @@ timely debt reduction.`,
         },
         {
             title: "Unfunded Pension Risk",
-            image2: "ValueCreationApproach/RiskManagement/8.png",
-            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-1.png",
+            image2: "ValueCreationApproach/RiskManagement/8.webp",
+            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-1.webp",
             content: {
                 description: "Unfunded pension liabilities of overseas subsidiaries",
                 mitigationActions: [
@@ -256,8 +256,8 @@ investment through deferred payment arrangements.`,
         },
         {
             title: "Regulatory and Policy Risk ",
-            image2: "ValueCreationApproach/RiskManagement/9.png",
-            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-3.png",
+            image2: "ValueCreationApproach/RiskManagement/9.webp",
+            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-3.webp",
             content: {
                 description: "Policy changes which could impact the Company’s operations at large",
                 mitigationActions: [
@@ -293,8 +293,8 @@ as carbon credits`
         },
         {
             title: "Safety Risk",
-            image2: "ValueCreationApproach/RiskManagement/10.png",
-            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-4.png",
+            image2: "ValueCreationApproach/RiskManagement/10.webp",
+            image: "ValueCreationApproach/RiskManagement/30-Page-IMG-4.webp",
             content: {
                 description: "Ensuring containment of safety hazards (behaviour, workplace, process and product) ",
                 mitigationActions: [

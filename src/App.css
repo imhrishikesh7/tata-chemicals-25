@@ -5,12 +5,12 @@
 }
 @font-face {
   font-family: 'Myriad_Bold';
-  src: url('myriadprofont/MYRIADPRO-BOLD.OTF') format('opentype');
+  src: url('/myriadprofont/MYRIADPRO-BOLD.OTF') format('opentype');
   font-style: normal;
 }
 @font-face {
   font-family: 'Myriad_Semi_Bold';
-  src: url('myriadprofont/MYRIADPRO-SEMIBOLD.OTF') format('opentype');
+  src: url('/myriadprofont/MYRIADPRO-SEMIBOLD.OTF') format('opentype');
   font-style: normal;
 }
 .m-semi-bold{

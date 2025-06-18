@@ -46,15 +46,15 @@ const BusinessStrategy = () => {
             title: 'Excel',
             icon: (
                 <div className="w-15 h-15 bg-white rounded-full flex items-center justify-center p-2">
-                    <img src="ValueCreationApproach/BusinessStategy/20-Page-IMG-3.png" alt="" />
+                    <img src="ValueCreationApproach/BusinessStategy/20-Page-IMG-3.webp" alt="" />
                 </div>
             ),
             content: (
                 <div>
-                    <img src="ValueCreationApproach/BusinessStategy/Excel.png" alt="" />
-                    <img src="ValueCreationApproach/BusinessStategy/21-Page-IMG.png" alt="" className='mt-10' />
-                    <img src="ValueCreationApproach/BusinessStategy/21-Page-IMG-2.png" alt="" className='mt-10' />
-                    <img src="ValueCreationApproach/BusinessStategy/People.png" alt="" className='mt-10'/>
+                    <img src="ValueCreationApproach/BusinessStategy/Excel.webp" alt="" />
+                    <img src="ValueCreationApproach/BusinessStategy/21-Page-IMG.webp" alt="" className='mt-10' />
+                    <img src="ValueCreationApproach/BusinessStategy/21-Page-IMG-2.webp" alt="" className='mt-10' />
+                    <img src="ValueCreationApproach/BusinessStategy/People.webp" alt="" className='mt-10'/>
                 </div>
             )
         },
@@ -64,12 +64,12 @@ const BusinessStrategy = () => {
             title: 'Embed',
             icon: (
                 <div className="w-15 h-15 bg-white rounded-full flex items-center justify-center p-1">
-                    <img src="ValueCreationApproach/BusinessStategy/22-Page-IMG-3.png" alt="" />
+                    <img src="ValueCreationApproach/BusinessStategy/22-Page-IMG-3.webp" alt="" />
                 </div>
             ),
             content: (
                 <div>
-                    <img src="ValueCreationApproach/BusinessStategy/22-Page-IMG-2.png" alt="" />
+                    <img src="ValueCreationApproach/BusinessStategy/22-Page-IMG-2.webp" alt="" />
                 </div>
             )
         },
@@ -79,13 +79,13 @@ const BusinessStrategy = () => {
             title: 'Expand',
             icon: (
                 <div className="w-15 h-15 bg-white rounded-full flex items-center justify-center p-2">
-                    <img src="ValueCreationApproach/BusinessStategy/23-Page-IMG-3.png" alt="" />
+                    <img src="ValueCreationApproach/BusinessStategy/23-Page-IMG-3.webp" alt="" />
                 </div>
             ),
             content: (
                 <div>
-                    <img src="ValueCreationApproach/BusinessStategy/23-Page-IMG.png" alt="" />
-                    <img src="ValueCreationApproach/BusinessStategy/23-Page-IMG-2.png" alt="" className='mt-10' />
+                    <img src="ValueCreationApproach/BusinessStategy/23-Page-IMG.webp" alt="" />
+                    <img src="ValueCreationApproach/BusinessStategy/23-Page-IMG-2.webp" alt="" className='mt-10' />
                 </div>
             )
         }
@@ -184,7 +184,7 @@ const BusinessStrategy = () => {
                     </div>
                 </div>
                 <div>
-                    <img src="ValueCreationApproach/BusinessStategy/3.png" alt="" />
+                    <img src="ValueCreationApproach/BusinessStategy/3.webp" alt="" />
                 </div>
                 <div
                     id="strategy-section"

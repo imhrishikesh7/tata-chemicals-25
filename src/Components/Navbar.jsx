@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Menu, X, ExternalLink } from "lucide-react";
 import { FaLinkedin, FaXTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa6'
+import { Link } from "react-router-dom";
 const navItems = [
     {
         label: "Corporate Overview",
@@ -141,13 +142,13 @@ export default function Navbar() {
                         <div className="flex items-center justify-between h-16">
                             {/* Logo */}
                             <div className="flex-shrink-0">
-                                <a href="/" className="flex items-center">
+                                <Link to="/" className="flex items-center">
                                     <img
                                         src="/tata-chemicals-blue.svg"
                                         alt="Tata Chemicals"
                                         className="h-4 w-auto"
                                     />
-                                </a>
+                                </Link>
                             </div>
 
                             {/* Right Section - Desktop */}
@@ -218,20 +219,20 @@ export default function Navbar() {
             </div>
 
             {/* Main Navigation - Always Sticky */}
-            <nav className={`fixed w-full z-40 transition-all duration-500 ease-in-out ${showTopBar ? 'top-16' : 'top-0'
+            <nav className={`sticky top-0 w-full z-40 transition-all duration-500 ease-in-out ${showTopBar ? 'top-16' : 'top-0'
                 }`}>
                 <div className="bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-lg">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         {/* Mobile Logo (shown when top bar is hidden) */}
                         <div className={`lg:hidden flex items-center justify-between py-3 transition-all duration-300 ${!showTopBar ? 'opacity-100 max-h-16' : 'opacity-0 max-h-0 overflow-hidden'
                             }`}>
-                            <a href="/" className="flex items-center">
+                            <Link to="/" className="flex items-center">
                                 <img
                                     src="/tata-chemicals-blue.svg"
                                     alt="Tata Chemicals"
                                     className="h-4 w-auto"
                                 />
-                            </a>
+                            </Link>
                             <button
                                 onClick={() => setMobileOpen(!mobileOpen)}
                                 className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-white/20 backdrop-blur-sm transition-all duration-200"
@@ -265,13 +266,13 @@ export default function Navbar() {
                                         {activeSubmenu === index && (
                                             <div className="absolute top-full left-0 mt-0 w-72 bg-white/90 backdrop-blur-xl rounded-lg shadow-xl border border-white/30 py-2 z-50">
                                                 {item.submenu.map((subItem, subIndex) => (
-                                                    <a
+                                                    <Link
                                                         key={subIndex}
-                                                        href={getPathFromItem(subItem)}
+                                                        to={getPathFromItem(subItem)}
                                                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-white/50 hover:text-[#1467b3] transition-all duration-200 rounded-md mx-2"
                                                     >
                                                         {subItem}
-                                                    </a>
+                                                    </Link>
                                                 ))}
                                             </div>
                                         )}
@@ -313,14 +314,14 @@ export default function Navbar() {
                                 {openAccordions.includes(index) && (
                                     <div className="bg-white/30 backdrop-blur-sm rounded-lg mt-1 mb-2">
                                         {item.submenu.map((subItem, subIndex) => (
-                                            <a
+                                            <Link
                                                 key={subIndex}
-                                                href={getPathFromItem(subItem)}
+                                                to={getPathFromItem(subItem)}
                                                 className="block px-6 py-2 text-sm text-gray-600 hover:text-[#1467b3] hover:bg-white/40 transition-all duration-200 rounded-md mx-2"
                                                 onClick={() => setMobileOpen(false)}
                                             >
                                                 {subItem}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 )}

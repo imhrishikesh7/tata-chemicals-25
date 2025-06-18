@@ -194,13 +194,13 @@ const StakeholderEngagement = () => {
                             </div>
                         </div>
                         <div className='mt-10 space-y-10'>
-                        <img src="ValueCreationApproach/Stakeholder/1.png" alt="" id='Customers'/>
-                            <img src="ValueCreationApproach/Stakeholder/2.png" alt="" id='Employees'/>
-                            <img src="ValueCreationApproach/Stakeholder/4.png" alt="" id='Communities'/>
-                            <img src="ValueCreationApproach/Stakeholder/5.png" alt="" id='Shareholders'/>
-                            <img src="ValueCreationApproach/Stakeholder/6.png" alt="" id='Suppliers'/>
-                            <img src="ValueCreationApproach/Stakeholder/7.png" alt=""/>
-                            <img src="ValueCreationApproach/Stakeholder/3.png" alt="" id='Legend'/>
+                        <img src="ValueCreationApproach/Stakeholder/1.webp" alt="" id='Customers'/>
+                            <img src="ValueCreationApproach/Stakeholder/2.webp" alt="" id='Employees'/>
+                            <img src="ValueCreationApproach/Stakeholder/4.webp" alt="" id='Communities'/>
+                            <img src="ValueCreationApproach/Stakeholder/5.webp" alt="" id='Shareholders'/>
+                            <img src="ValueCreationApproach/Stakeholder/6.webp" alt="" id='Suppliers'/>
+                            <img src="ValueCreationApproach/Stakeholder/7.webp" alt=""/>
+                            <img src="ValueCreationApproach/Stakeholder/3.webp" alt="" id='Legend'/>
                         </div>
 
                     </div>

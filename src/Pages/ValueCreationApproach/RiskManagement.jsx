@@ -214,7 +214,7 @@ const RiskManagemant = () => {
                                 </h3>
                                 <div className="bg-gradient-to-br from-gray-50 to-blue-50 p-8 rounded-tr-[50px]">
                                     <div className="bg-white p-6 rounded-tr-[40px] shadow-inner">
-                                        <img src="ValueCreationApproach/RiskManagement/26-Page-IMG.png" alt="" />
+                                        <img src="ValueCreationApproach/RiskManagement/26-Page-IMG.webp" alt="" />
                                     </div>
                                 </div>
                             </div>

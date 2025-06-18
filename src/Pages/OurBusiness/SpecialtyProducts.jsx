@@ -124,7 +124,7 @@ const SpecialtyProducts = () => {
                                 acceptance across segments.</p>
                             <div className="w-full bg-gray-200 rounded-br-[50px] flex items-center justify-center">
                                 <div className='bg-[#dbe9fe] p-3 rounded-br-[40px]'>
-                                    <img src="OurBusiness/SpecialityProducts.jsx/India12.png" alt="" />
+                                    <img src="OurBusiness/SpecialityProducts.jsx/India12.webp" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -342,7 +342,7 @@ const SpecialtyProducts = () => {
                                 <div className="mt-6">
                                     <h3 className='font-semibold text-2xl text-[#1368b4] mb-3'>World-Class Quality Standards</h3>
                                     <div className="w-full flex items-center justify-center">
-                                        <img src="OurBusiness/SpecialityProducts.jsx/16-Page-IMG.png" alt="" />
+                                        <img src="OurBusiness/SpecialityProducts.jsx/16-Page-IMG.webp" alt="" />
                                     </div>
                                 </div>
                             </div>

@@ -109,7 +109,7 @@ const Materiality = () => {
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] text-center">
                                 The Assessment Covers
                             </h1>
-                            <img src="ValueCreationApproach/Materiality/1.png" alt="" className='' />
+                            <img src="ValueCreationApproach/Materiality/1.webp" alt="" className='' />
                             <p className='text-lg'>We completed a Double Materiality Assessment to understand how sustainability-relevant drives intersect with our strategy, operations
                                 and externalities.
                                 Under the IRO framework, ESG issues were evaluated across value chain and established their importance based on feedback from
@@ -120,11 +120,11 @@ const Materiality = () => {
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
                                 Stakeholder Identification Process
                             </h1>
-                            <img src="ValueCreationApproach/Materiality/2.png" alt="" />
+                            <img src="ValueCreationApproach/Materiality/2.webp" alt="" />
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
                                 Factors to identify, assess and prioritise IROs
                             </h1>
-                            <img src="ValueCreationApproach/Materiality/3.png" alt="" />
+                            <img src="ValueCreationApproach/Materiality/3.webp" alt="" />
                             <p className='text-lg mt-10'>
                                 We adopted a data-based approach to our Double Materiality Assessment, in line with ESRS and GRI guidelines. The analysis tested
                                 financial materiality by determining how our business performance is impacted by ESG factors and impact materiality by setting out our
@@ -135,13 +135,13 @@ const Materiality = () => {
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
                                 Materiality Matrix
                             </h1>
-                            <img src="ValueCreationApproach/Materiality/35-Page-IMG.png" alt="" />
+                            <img src="ValueCreationApproach/Materiality/35-Page-IMG.webp" alt="" />
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
                             Material Topics
                             </h1>
-                            <img src="ValueCreationApproach/Materiality/3a668b86-d7cc-4da0-afda-1a3e04018a80.png" alt="" />
-                            <img src="ValueCreationApproach/Materiality/c01f265a-11f7-49e7-ae0e-ad23488d138d.png" alt="" />
-                            <img src="ValueCreationApproach/Materiality/f1762a2b-eeba-4bf3-b3db-564eeb51b7bb.png" alt="" />
+                            <img src="ValueCreationApproach/Materiality/3a668b86-d7cc-4da0-afda-1a3e04018a80.webp" alt="" />
+                            <img src="ValueCreationApproach/Materiality/c01f265a-11f7-49e7-ae0e-ad23488d138d.webp" alt="" />
+                            <img src="ValueCreationApproach/Materiality/f1762a2b-eeba-4bf3-b3db-564eeb51b7bb.webp" alt="" />
                         </div>
                     </div>
                 </div>

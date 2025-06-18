@@ -37,7 +37,7 @@ const Cover = () => {
       {/* Animated Heading */}
       <div
         ref={headingRef}
-        className="absolute p-2 bottom-20 left-1/2 transform -translate-x-1/2 w-full text-center text-white font-bold"
+        className="absolute p-2 bottom-40 left-1/2 transform -translate-x-1/2 w-full text-center text-white font-bold"
       >
         <h1 className="text-4xl md:text-[8vh] leading-[1.2] tracking-tight m-bold">
           <div className="overflow-hidden">

@@ -158,26 +158,26 @@ const Technology = () => {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.3 }}
                         >
-                            <img src="Function/Technology/India15.png" alt=""
+                            <img src="Function/Technology/India15.webp" alt=""
                                 className='rounded-tr-[50px]' />
                         </motion.div>
                         <div className='mt-10'>
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] text-center">
                                 Our security strategy
                             </h1>
-                            <img src="Function/Technology/42.png" alt="" className='mt-5' />
+                            <img src="Function/Technology/42.webp" alt="" className='mt-5' />
                         </div>
                         <div className='mt-10'>
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] text-center">
                                 Adopting Advanced Technologies
                             </h1>
-                            <img src="Function/Technology/41 copy.png" alt="" className='mt-5'/>
+                            <img src="Function/Technology/41 copy.webp" alt="" className='mt-5'/>
                         </div>
                         <div className='mt-10'>
                             <h1 className="text-3xl m-semi-bold text-[#1368b4] text-center">
                                 Operational Benefits
                             </h1>
-                            <img src="Function/Technology/Operational_Benefits.png" alt="" className='mt-5' />
+                            <img src="Function/Technology/Operational_Benefits.webp" alt="" className='mt-5' />
                         </div>
                     </div>
                 </div>

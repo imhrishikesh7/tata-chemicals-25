@@ -114,7 +114,7 @@ const Research = () => {
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
                         <div>
                             <div className='bg-[#dbe9fe] p-3 rounded-tr-[60px]'>
-                                <img src="Function/Research/38.png" alt=""
+                                <img src="Function/Research/38.webp" alt=""
                                     className='rounded-tr-[50px]' />
                             </div>
                             <div id="key" className="bg-gray-50 p-6 scroll-mt-30">
@@ -132,7 +132,7 @@ const Research = () => {
                                     <div className="bg-[#f6f6ec] rounded-tr-[40px] p-6">
                                         <div className="flex items-center mb-4">
                                             <div className="w-15 h-15 flex items-center justify-center mr-4">
-                                                <img src="Function/Research/Icon.png" alt="" />
+                                                <img src="Function/Research/Icon.webp" alt="" />
                                             </div>
                                         </div>
 
@@ -155,7 +155,7 @@ const Research = () => {
                                     <div className="bg-[#f6f6ec] rounded-tr-[40px] p-6">
                                         <div className="flex items-center mb-4">
                                             <div className="w-15 h-15 flex items-center justify-center mr-4">
-                                                <img src="Function/Research/Icon2.png" alt="" />
+                                                <img src="Function/Research/Icon2.webp" alt="" />
                                             </div>
                                         </div>
 
@@ -178,7 +178,7 @@ const Research = () => {
                                     <div className="bg-[#f6f6ec] rounded-tr-[40px] p-6">
                                         <div className="flex items-center mb-4">
                                             <div className="w-15 h-15 flex items-center justify-center mr-4">
-                                                <img src="Function/Research/Icon3.png" alt="" />
+                                                <img src="Function/Research/Icon3.webp" alt="" />
                                             </div>
                                         </div>
 
@@ -201,7 +201,7 @@ const Research = () => {
                                     <div className="bg-[#f6f6ec] rounded-tr-[40px] p-6">
                                         <div className="flex items-center mb-4">
                                             <div className="w-13 h-13 flex items-center justify-center mr-4">
-                                                <img src="Function/Research/Icon4.png" alt="" />
+                                                <img src="Function/Research/Icon4.webp" alt="" />
                                             </div>
                                         </div>
 
@@ -224,7 +224,7 @@ const Research = () => {
                                     <div className="bg-[#f6f6ec] rounded-tr-[40px] p-6 md:col-span-2">
                                         <div className="flex items-center mb-4">
                                             <div className="w-15 h-15 flex items-center justify-center mr-4">
-                                                <img src="Function/Research/Icon5.png" alt="" />
+                                                <img src="Function/Research/Icon5.webp" alt="" />
                                             </div>
                                         </div>
 

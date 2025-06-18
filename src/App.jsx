@@ -35,7 +35,7 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <BrowserRouter>
           <Navbar />
-          <div className="flex-grow">
+          <div className="flex-grow mt-10">
             <Routes>
               <Route path="/" element={<Home />} />
               {/* Corporate Overview */}

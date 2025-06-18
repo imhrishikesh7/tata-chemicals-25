@@ -151,7 +151,7 @@ const BasicChemistry = () => {
                                 {/* Image Column - Now at bottom and full width */}
                                 <div className="w-full p-4 flex justify-center items-center">
                                     <div className="w-full bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center p-2">
-                                        <img src="OurBusiness/BasicChemistry/Image10.png" alt="" className="w-full h-auto" />
+                                        <img src="OurBusiness/BasicChemistry/Image10.webp" alt="" className="w-full h-auto" />
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@ const BasicChemistry = () => {
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
                         <div className="mb-8">
                             <div className="w-full flex items-center justify-center mb-6">
-                                <img src="OurBusiness/BasicChemistry/India11.png" alt="" />
+                                <img src="OurBusiness/BasicChemistry/India11.webp" alt="" />
                             </div>
                         </div>
                         <HeadingWRedCorner title='India' />
@@ -334,7 +334,7 @@ const BasicChemistry = () => {
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
                         <div className="w-full flex items-center justify-center mb-8">
-                            <img src="OurBusiness/BasicChemistry/US.png" alt="" />
+                            <img src="OurBusiness/BasicChemistry/US.webp" alt="" />
                         </div>
                         <HeadingWRedCorner title='US' />
                         <div className='flex flex-col lg:flex-row text-[#4d4d4f] gap-10'>

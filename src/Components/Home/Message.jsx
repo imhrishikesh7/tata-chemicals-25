@@ -121,7 +121,7 @@ const Message = () => {
                                     {/* Opening Quote Icon */}
                                     <div className="absolute -top-6 -left-4 w-12 h-12 opacity-80">
                                         <img 
-                                            src="/home/qt.png" 
+                                            src="/home/qt.webp" 
                                             alt="Quote start" 
                                             className="w-full h-full text-white"
                                         />
@@ -145,7 +145,7 @@ const Message = () => {
                                     {/* Closing Quote Icon */}
                                     <div className="absolute -bottom-2 -right-4 w-12 h-12 opacity-80">
                                         <img 
-                                            src="/home/qt.png" 
+                                            src="/home/qt.webp" 
                                             alt="Quote end" 
                                             className="w-full h-full text-white rotate-180"
                                         />

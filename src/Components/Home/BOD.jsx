@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Title from '../Title';
 
 // Image list
 const bodImages = [
@@ -75,12 +76,17 @@ const BODSlider = () => {
     };
 
     return (
-        <div className="marginal bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30">
+        <div className="marginal">
+             <div className="text-center my-6 ">
+        <Title text="Board of Directors" />
+      </div>
             <Slider ref={sliderRef} {...settings}>
                 {bodImages.map((img, index) => (
-                    <div key={index} className="px-2">
+                    <div key={index} className="p-2">
                         <div className="group relative rounded-2xl overflow-hidden transition-transform hover:scale-105 duration-300">
-                            <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-indigo-50">
+                            <div className="aspect-[3/4] p-4 bg-gradient-to-br from-blue-50 to-indigo-50"
+                            
+                            >
                                 <img
                                     src={img}
                                     alt={`Director ${index + 1}`}

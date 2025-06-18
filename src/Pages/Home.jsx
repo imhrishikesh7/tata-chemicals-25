@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import BOD from '../Components/Home/BOD';
 import Highlights from '../Components/Home/Highlights';
 import Message from '../Components/Home/Message';
+import RnD from '../Components/Home/RnD';
 
 const Home = () => {
     
@@ -17,6 +18,7 @@ const Home = () => {
             <Highlights />
             <Message />
             <BOD />
+            <RnD/>
         </div>
     )
 }

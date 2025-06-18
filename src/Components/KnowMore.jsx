@@ -2,7 +2,11 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 
-const KnowMore = ({ text = "Know More", link = "/" }) => {
+const KnowMore = ({ 
+  text = "Know More", 
+  link = "/",
+  customColor = "white" // Single color prop that replaces all white elements
+}) => {
   const linkRef = useRef(null);
   const arrowRef = useRef(null);
   const rippleRef = useRef(null);
@@ -10,11 +14,11 @@ const KnowMore = ({ text = "Know More", link = "/" }) => {
   // Hover animation setup
   const setupHover = () => {
     if (!linkRef.current) return;
-    
+        
     const tl = gsap.timeline({ paused: true });
     tl.to(linkRef.current, {
       scale: 1.03,
-      boxShadow: '0 0 15px rgba(255, 255, 255, 0.5)',
+      boxShadow: `0 0 15px rgba(${customColor === 'white' ? '255, 255, 255' : hexToRgb(customColor)}, 0.5)`,
       duration: 0.3,
       ease: 'power2.out'
     })
@@ -27,6 +31,16 @@ const KnowMore = ({ text = "Know More", link = "/" }) => {
 
     linkRef.current.addEventListener('mouseenter', () => tl.play());
     linkRef.current.addEventListener('mouseleave', () => tl.reverse());
+  };
+
+  // Helper function to convert hex to RGB
+  const hexToRgb = (hex) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    if (result) {
+      return `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`;
+    }
+    // Fallback for named colors or invalid hex - return white RGB
+    return '255, 255, 255';
   };
 
   // Ripple effect on click
@@ -54,38 +68,45 @@ const KnowMore = ({ text = "Know More", link = "/" }) => {
         linkRef.current.removeEventListener('mouseleave', setupHover);
       }
     };
-  }, []);
+  }, [customColor]); // Add customColor as dependency
 
   return (
     <Link
-      ref={linkRef}
       to={link}
+      ref={linkRef}
       onClick={handleClick}
-      className="group relative overflow-hidde  inline-flex items-center border border-amber-50  gap-2 px-6 py-3 rounded-full text-white text-sm font-semibold tracking-wide transition-all duration-300"
-      
+      className="relative inline-flex rounded-full items-center gap-2 px-6 py-3 text-sm font-medium transition-all duration-300 overflow-hidden group"
+      style={{
+        backgroundColor: 'transparent',
+        color: customColor,
+        border: `1px solid ${customColor}`,
+      }}
     >
-      <div
+      {/* Ripple effect */}
+      <span
         ref={rippleRef}
-        className="absolute w-8 h-8 rounded-full pointer-events-none opacity-0 transform scale-0"
+        className="absolute rounded-full pointer-events-none opacity-0"
+        style={{
+          backgroundColor: customColor,
+          width: '20px',
+          height: '20px',
+          transform: 'translate(-50%, -50%)'
+        }}
       />
-      <span className="relative z-10 flex items-center gap-2">
-        {text}
-        <span className="absolute left-0 -bottom-1 w-0 h-[2px] transition-all duration-300 group-hover:w-full" />
-      </span>
-      <span ref={arrowRef} className="relative flex items-center justify-center">
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+      
+      {/* Text */}
+      <span className="relative z-10">{text}</span>
+      
+      {/* Arrow */}
+      <span 
+        ref={arrowRef}
+        className="relative z-10 transition-transform duration-200"
+        style={{ color: customColor }}
+      >
+        →
       </span>
     </Link>
   );
 };
 
 export default KnowMore;
-

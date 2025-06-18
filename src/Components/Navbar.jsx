@@ -13,6 +13,7 @@ const navItems = [
         submenu: [
             "Board of Directors",
             "About Tata Chemicals",
+            "Performance Review",
             "CEO's Message",
             "Safety at the Core",
         ],

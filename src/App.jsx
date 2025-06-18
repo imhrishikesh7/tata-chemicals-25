@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import "./App.css"
+import LenisScroll from './Components/LenisScroll';
 
 // Corporate Overview
 import BOD from './Pages/CorporateOverview/BOD'
@@ -17,7 +18,16 @@ import BasicChemistry from './Pages/OurBusiness/BasicChemistry'
 import SpecialtyProducts from './Pages/OurBusiness/SpecialtyProducts'
 // Value Creation Approach
 import A360Degree from './Pages/ValueCreationApproach/A360Degree'
-import LenisScroll from './Components/LenisScroll';
+import BusinessStrategy from './Pages/ValueCreationApproach/BusinessStrategy';
+import BusinessModel from './Pages/ValueCreationApproach/BusinessModel'
+import RiskManagemant from './Pages/ValueCreationApproach/RiskManagement'
+import StakeholderEngagement from './Pages/ValueCreationApproach/StakeholderEngagement';
+import Materiality from './Pages/ValueCreationApproach/Materiality';
+//Functions
+import Research from './Pages/Function/Research';
+import Technology from './Pages/Function/Technology'
+//ESG
+import Environment from './Pages/ESG/Environment'
 
 function App() {
   return (
@@ -39,6 +49,16 @@ function App() {
               <Route path="/speciality_product_business" element={<SpecialtyProducts />} />
               {/* Value Creation Approach */}
               <Route path="/a_360degree_view_of_operating_landscape" element={<A360Degree />} />
+              <Route path="/business_strategy" element={< BusinessStrategy/>}/>
+              <Route path="/a_resilient_business_model" element={< BusinessModel/>}/>
+              <Route path="/risk_management" element={< RiskManagemant/>}/>
+              <Route path="/stakeholder_engagement" element={< StakeholderEngagement/>}/>
+              <Route path="/materiality_assessment" element={< Materiality/>}/>
+              {/* Function */}
+              <Route path="/research_and_development" element={< Research/>}/>
+              <Route path="/technology" element={< Technology/>}/>
+              {/* ESG */}
+              <Route path="/environment" element={< Environment/>}/>
             </Routes>
           </div>
           <Footer />

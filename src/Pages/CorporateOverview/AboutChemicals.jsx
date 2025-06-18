@@ -23,7 +23,8 @@ const AboutTataChemicals = () => {
         {
             title: 'Values',
             img: 'CorporateOverview/AboutChemicals/06-icon-img-4.webp',
-            desc: 'S.P.I.C.E.',
+            desc: '',
+            img1: 'CorporateOverview/AboutChemicals/Values.png'
         },
     ];
 
@@ -81,18 +82,6 @@ const AboutTataChemicals = () => {
             bgcolor: '#06aeef',
         }
     ];
-
-    useEffect(() => {
-        document.documentElement.style.scrollBehavior = 'smooth';
-
-        const handleScroll = () => setScrollY(window.scrollY);
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            document.documentElement.style.scrollBehavior = 'auto';
-        };
-    }, []);
 
     useEffect(() => {
         const observerOptions = {
@@ -168,13 +157,13 @@ const AboutTataChemicals = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto px-6 space-y-20">
+            <div className="container mx-auto px-6 space-y-20 mt-10">
 
                 {/* Mission, Vision, Leadership, Values */}
                 <div
                     id="mission-vision"
                     data-animate
-                    className={`transition-all duration-1000 delay-200 transform ${isVisible['mission-vision'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={` scroll-mt-40 transition-all duration-1000 delay-200 transform ${isVisible['mission-vision'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -187,7 +176,7 @@ const AboutTataChemicals = () => {
                                 <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 text-center h-full flex flex-col hover:transform hover:scale-105 transition-all duration-300">
                                     <div className="relative mb-6">
                                         <div className="absolute -inset-2 bg-gradient-to-r from-[#40b2a2]/20 to-[#40b2a2]/10 rounded-full blur-lg"></div>
-                                        <div className="relative w-20 h-20 mx-auto bg-white rounded-full p-2 shadow-lg">
+                                        <div className="relative w-20 h-20 mx-auto bg-white rounded-full p-3 shadow-lg">
                                             <img
                                                 src={item.img}
                                                 alt={item.title}
@@ -196,7 +185,21 @@ const AboutTataChemicals = () => {
                                         </div>
                                     </div>
                                     <h3 className="text-2xl font-bold text-[#40b2a2] mb-4">{item.title}</h3>
-                                    <p className="text-gray-700 leading-relaxed flex-1">{item.desc}</p>
+                                    {item.desc && (
+                                        <p className="text-gray-700 leading-relaxed flex-1">{item.desc}</p>
+                                    )}
+                                    
+                                    {/* Only show img1 for Values card */}
+                                    {item.title === 'Values' && item.img1 && (
+                                        <div className='relative w-full h-25 mx-auto my-4'>
+                                            <img
+                                                src={item.img1}
+                                                alt="Values"
+                                                className="w-full h-full object-contain"
+                                            />
+                                        </div>
+                                    )}
+                                    
                                     <div className="w-10 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full mt-4"></div>
                                 </div>
                             </div>
@@ -208,7 +211,7 @@ const AboutTataChemicals = () => {
                 <div
                     id="achievements"
                     data-animate
-                    className={`transition-all duration-1000 delay-300 transform ${isVisible['achievements'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`transition-all duration-1000 delay-100 transform ${isVisible['achievements'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
@@ -237,7 +240,7 @@ const AboutTataChemicals = () => {
                 <div
                     id="global-presence"
                     data-animate
-                    className={`transition-all duration-1000 delay-400 transform ${isVisible['global-presence'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`scroll-mt-30 transition-all duration-1000 delay-400 transform ${isVisible['global-presence'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
@@ -295,7 +298,7 @@ const AboutTataChemicals = () => {
                 <div
                     id="highlights"
                     data-animate
-                    className={`transition-all duration-1000 delay-500 transform ${isVisible['highlights'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`scroll-mt-30 transition-all duration-1000 delay-500 transform ${isVisible['highlights'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
@@ -349,16 +352,6 @@ const AboutTataChemicals = () => {
                             ))}
                         </div>
                     </div>
-                </div>
-
-                {/* Bottom padding with scroll to top */}
-                <div className="h-20 flex justify-center">
-                    <button
-                        onClick={() => scrollToSection('hero-title')}
-                        className="px-8 py-4 bg-gradient-to-r from-[#1368b4] to-[#0f4c75] text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
-                    >
-                        ↑ Back to Top
-                    </button>
                 </div>
             </div>
         </div>

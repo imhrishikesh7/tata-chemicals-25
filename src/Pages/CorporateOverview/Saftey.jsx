@@ -14,19 +14,6 @@ const Safety = () => {
     ];
 
     useEffect(() => {
-        // Smooth scroll behavior for the entire page
-        document.documentElement.style.scrollBehavior = 'smooth';
-
-        const handleScroll = () => setScrollY(window.scrollY);
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            document.documentElement.style.scrollBehavior = 'auto';
-        };
-    }, []);
-
-    useEffect(() => {
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -109,15 +96,17 @@ const Safety = () => {
                 <div
                     id="overview"
                     data-animate
-                    className={`transition-all duration-1000 delay-200 transform ${isVisible['overview'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`scroll-mt-40 transition-all duration-1000 delay-200 transform ${isVisible['overview'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="flex flex-row gap-12 items-stretch mt-5">
                         {/* Left Block */}
-                        <div className="w-1/2 space-y-6 flex flex-col">
+                        <div className="w-1/2 space-y-6 flex flex-col order-2">
                             <div className="flex-1 p-8 bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20">
                                 <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-                                    Tata Chemicals prioritises achieving <span className="font-bold text-[#1368b4]">'Zero Harm'</span> by promoting a robust safety culture and systematic safety management systems. Health, safety and environmental practices are governed through <span className="font-semibold text-[#ed1a3b]">ISO 45001, ISO 14001</span> and <span className="font-semibold text-[#ed1a3b]">Responsible Care Certifications</span>.
+                                    Tata Chemicals priortises achieving ‘Zero Harm’ by promoting a robust safety culture and
+                                    systematic safety management systems. Health, safety and environmental practices are
+                                    governed through ISO 45001, ISO 14001 and Responsible Care Certifications.
                                 </p>
                             </div>
                         </div>
@@ -144,7 +133,7 @@ const Safety = () => {
                 <div
                     id="psi-section"
                     data-animate
-                    className={`transition-all duration-1000 delay-300 transform ${isVisible['psi-section'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`scroll-mt-40 transition-all duration-1000 delay-100 transform ${isVisible['psi-section'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="grid lg:grid-cols-2 gap-12 items-stretch">
@@ -155,13 +144,18 @@ const Safety = () => {
                                     Ensuring Safety Every Step of the Way
                                 </h2>
                                 <p className="text-lg leading-relaxed text-gray-700 mb-8">
-                                    We have deployed the <span className="font-semibold text-[#ed1a3b]">Progressive Safety Index (PSI)</span> across all our manufacturing sites to track leadership engagement, workplace safety practices, employee competency, behaviour-based safety and review systems.
+                                    We have deployed the Progressive Safety
+                                    Index (PSI) across all our manufacturing
+                                    sites to track leadership engagement,
+                                    workplace safety practices employee
+                                    competency, behaviour-based safety
+                                    and review systems.
                                 </p>
 
                                 {/* Stats Cards */}
                                 <div className="grid md:grid-cols-2 gap-6 mb-8">
                                     <div className="bg-gradient-to-br from-[#ed1a3b]/10 to-[#ed1a3b]/5 rounded-xl p-6 border border-[#ed1a3b]/20">
-                                        <h3 className="text-sm font-semibold text-[#ed1a3b] mb-2">PSI Implementation Status</h3>
+                                        <h3 className="text-xl font-semibold text-[#ed1a3b] mb-2">PSI Implementation Status</h3>
                                         <div className="text-4xl font-bold text-[#432c87] mb-2">100%</div>
                                         <p className="text-sm text-gray-600">of manufacturing sites have adopted PSI</p>
                                     </div>
@@ -171,9 +165,16 @@ const Safety = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200/50 mt-auto">
+                                <div>
                                     <p className="text-lg leading-relaxed text-gray-700">
-                                        We build capability among our employees and business partners through <span className="font-semibold text-[#1368b4]">Safety Felt Leadership programmes</span> and targeted skill development initiatives.
+                                        We build capability among our employees
+                                        and business partners through Safety Felt
+                                        Leadership programmes and targeted skill
+                                        development initiatives. We also strengthen
+                                        engagement with contractors and partners
+                                        through activities such as safety toolbox
+                                        talks, monthly compliance review and
+                                        trade validations.
                                     </p>
                                 </div>
                             </div>
@@ -208,7 +209,7 @@ const Safety = () => {
                 <div
                     id="process-safety"
                     data-animate
-                    className={`transition-all duration-1000 delay-400 transform ${isVisible['process-safety'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`scroll-mt-40 transition-all duration-1000 delay-400 transform ${isVisible['process-safety'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="grid lg:grid-cols-2 gap-12">
@@ -219,14 +220,17 @@ const Safety = () => {
                                     Process Safety and Risk Management
                                 </h2>
                                 <div className="space-y-4 text-lg leading-relaxed text-gray-700">
-                                    <p>
-                                        <span className="font-semibold text-[#ed1a3b]">Process Safety and Risk Management (PSRM)</span> has been implemented at our manufacturing sites in India. The adoption of <span className="font-semibold">HAZOP study recommendations</span> and <span className="font-semibold">Normalisation of Deviation (NoD)</span> procedures has strengthened our risk-based decision-making model.
+                                    <p>Process Safety and Risk Management (PSRM) has
+                                        been implemented at our manufacturing sites
+                                        in India. The adoption of Hazard and Operability
+                                        Study (HAZOP) study recommendations and
+                                        Normalisation of Deviation (NoD) procedures
+                                        has strengthened our risk-based decisionmaking model at critical sites, leading to better
+                                        identification and mitigation of process risks,
+                                        particularly in the storage and handling of
+                                        hazardous chemicals. We do not have any tier 1
+                                        process safety incidents in the past 5 years.
                                     </p>
-                                    <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-                                        <p className="text-green-800 font-semibold">
-                                            ✓ Zero tier 1 process safety incidents in the past 5 years
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
 
@@ -236,17 +240,25 @@ const Safety = () => {
                                     Occupational Health Measures
                                 </h2>
                                 <p className="text-lg leading-relaxed text-gray-700">
-                                    Occupational health is supported through initiatives such as <span className="font-semibold text-[#ed1a3b]">regular health checkups</span> and <span className="font-semibold text-[#ed1a3b]">industrial hygiene evaluations</span> to assess employee well-being and evaluate exposure to physical, chemical and biological risks.
+                                    Occupational health is supported
+                                    through initiatives such as regular health
+                                    checkups that are performed to assess
+                                    employee well-being. Further, industrial
+                                    hygiene evaluations are conducted to
+                                    evaluate exposure to physical, chemical
+                                    and biological risks, with necessary
+                                    corrective and preventive measures
+                                    implemented as required.
                                 </p>
                             </div>
                         </div>
 
                         {/* Workplace Enhancements */}
-                        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20">
+                        <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 mb-10">
                             <h2 className="text-2xl md:text-3xl font-bold text-[#1368b4] text-center mb-8">
                                 Workplace Enhancements
                             </h2>
-                            <div className="space-y-8">
+                            <div className="space-y-9">
                                 {steps.map((text, index) => (
                                     <div
                                         key={index}
@@ -271,16 +283,6 @@ const Safety = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-
-                {/* Bottom padding with scroll to top */}
-                <div className="h-20 flex justify-center">
-                    <button
-                        onClick={() => scrollToSection('hero-title')}
-                        className="px-8 py-4 bg-gradient-to-r from-[#1368b4] to-[#0f4c75] text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
-                    >
-                        ↑ Back to Top
-                    </button>
                 </div>
             </div>
         </div>

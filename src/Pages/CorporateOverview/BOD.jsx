@@ -78,17 +78,17 @@ const BOD = () => {
         ],
     };
 
-    useEffect(() => {
-        document.documentElement.style.scrollBehavior = 'smooth';
+    // useEffect(() => {
+    //     document.documentElement.style.scrollBehavior = 'smooth';
 
-        const handleScroll = () => setScrollY(window.scrollY);
-        window.addEventListener('scroll', handleScroll, { passive: true });
+    //     const handleScroll = () => setScrollY(window.scrollY);
+    //     window.addEventListener('scroll', handleScroll, { passive: true });
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            document.documentElement.style.scrollBehavior = 'auto';
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //         document.documentElement.style.scrollBehavior = 'auto';
+    //     };
+    // }, []);
 
     useEffect(() => {
         const observerOptions = {
@@ -154,13 +154,13 @@ const BOD = () => {
                         {/* Quick Navigation */}
                         <div className="flex justify-center flex-wrap gap-4">
                             <button
-                                onClick={() => scrollToSection('bod-carousel')}
+                                onClick={() => scrollToSection('bod')}
                                 className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                             >
                                 Directors
                             </button>
                             <button
-                                onClick={() => scrollToSection('senior-management')}
+                                onClick={() => scrollToSection('committees')}
                                 className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                             >
                                 Management
@@ -176,20 +176,19 @@ const BOD = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto px-6 space-y-20 mt-10">
+            <div id='bod' className="container mx-auto px-6 space-y-20 mt-10 scroll-mt-30">
 
                 <BODSlider />
 
                 {/* Announcement */}
                 <div
-                    id="announcement"
                     data-animate
-                    className={`transition-all duration-1000 delay-300 transform ${isVisible['announcement'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`transition-all duration-1000 delay-100 transform ${isVisible[''] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="relative">
-                        <div className="absolute -inset-2 bg-gradient-to-r from-[#0b3f7e] to-[#40b2a2] rounded-3xl blur-lg"></div>
-                        <div className="relative bg-gradient-to-r from-[#0b3f7e] to-[#0f4c75] rounded-3xl p-8 text-white shadow-2xl border border-white/10">
+                        <div className="absolute -inset-2 bg-gradient-to-r from-[#0b3f7e] to-[#40b2a2] rounded-3xl"></div>
+                        <div className="relative bg-gradient-to-r from-[#0b3f7e] to-[#0f4c75] rounded-3xl p-8 text-white ">
                             <div className="flex items-start gap-6">
                                 <div className="w-2 bg-gradient-to-b from-[#40b2a2] to-[#2ca9a1] rounded-full flex-shrink-0 h-full min-h-[100px]"></div>
                                 <div className="space-y-4">
@@ -207,9 +206,8 @@ const BOD = () => {
 
                 {/* External Link */}
                 <div
-                    id="external-link"
                     data-animate
-                    className={`transition-all duration-1000 delay-400 transform ${isVisible['external-link'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`transition-all duration-1000 delay-400 transform ${isVisible[''] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/30">
@@ -308,7 +306,7 @@ const BOD = () => {
                 <div
                     id="financial-performance"
                     data-animate
-                    className={`transition-all duration-1000 delay-700 transform ${isVisible['financial-performance'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`scroll-mt-33 transition-all duration-1000 delay-700 transform ${isVisible[''] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30">

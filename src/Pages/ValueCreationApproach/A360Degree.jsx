@@ -1,156 +1,435 @@
-import React from 'react'
-import HeaderWRedBottom from '../../Components/HeaderWRedBottom'
+import React, { useState, useEffect } from 'react';
+import HeaderWRedBottom from '../../Components/HeaderWRedBottom';
 
 const A360Degree = () => {
-    // Content data for different sections - har section ke liye alag data including SP values
-    const sectionData = [
+    const [scrollY, setScrollY] = useState(0);
+    const [isVisible, setIsVisible] = useState({});
+    const [activeTab, setActiveTab] = useState('digital-transformation');
+
+    useEffect(() => {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setIsVisible(prev => ({
+                        ...prev,
+                        [entry.target.id]: true
+                    }));
+                }
+            });
+        }, observerOptions);
+
+        const elements = document.querySelectorAll('[data-animate]');
+        elements.forEach(el => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
+    // Smooth scroll utility function
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    // Tab data
+    const tabsData = [
         {
-            title: "Embracing AI and Digital Transformation",
-            leftContent: `Automation, digitisation, analytics and AI/ML are extensively used in the industry, enhancing operational efficiency with increase in productivity, improving safety through video analytics and PSRM and optimising CRM for seamless customer experience. Approximately 40% of companies utilise AI, with 42% exploring its adoption. In the supply chain, businesses achieve better integration across multi-modal logistics and demand forecasting.`,
-            middleContent1: `A survey from 2024 shows that 77% of global manufacturers have implemented AI solutions, up from 70% in 2023. These solutions span production (31%), inventory management (28%) and customer service (28%), demonstrating AI's role in optimising operations.`,
-            middleContent2: `Over the next five years, chemical companies are projected to invest about 5% of their annual revenue in digital operations solutions, aiming for efficiency improvements. Recent reports indicate that these digital initiatives have resulted in efficiency gains of 10-12%.`,
-            rightContent: `As of 2023, approximately 36% of manufacturing companies are investing in AI and digital initiatives to enhance plant safety. Some of these initiatives are predictive analytics, digital twin models, AI powered computer vision systems for safety protocols etc. The usage of AI in plant safety has also seen significant growth over the past five years. From 2018 to 2023, the adoption of AI technologies in plant safety has increased by approximately 25%. This growth is driven by the need for improved safety measures, predictive maintenance and operational efficiency in manufacturing plants.Tata Chemicals, for instance, has allocated a specific
-            budget for digital initiatives. This has translated into
-            substantial savings of INR 50 crore.`,
-            strategicPriorities: [
-                { label: "SP 1", bgColor: "#3e2c84" },
-                { label: "SP 2", bgColor: "#40b2a2" }
-            ]
+            id: 'green-chemistry',
+            title: 'Shift towards Low Carbon Technologies and Green Chemistry',
+            content: (
+                <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-xl">
+                        <p className="text-gray-700 leading-relaxed">
+                            The chemical industry is
+                            integral to the manufacturing
+                            ecosystem. Between 2018
+                            and 2022, greenhouse
+                            gas intensity decreased
+                            by 7.4% and energy
+                            efficiency improved by 6.9%.
+                            Scope 1 and 2 emissions
+                            reporting increased by 46%,
+                            while scope 3 emissions
+                            reporting rose by 83%.
+                        </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+                            <p className="text-gray-700">
+                                Differences in regulatory frameworks
+                                between US and Europe create challenges,
+                                raising production costs and driving up
+                                consumer prices. Investment patterns
+                                are shifting towards focused low-carbon
+                                technologies due to regulatory support,
+                                technological progress, market demand
+                                and risk management.
+                                <br />
+                                <br />
+                                Global investments in low-carbon energy
+                                transition technologies grew by 11%
+                                annually, reaching $2.1 trillion in 2024.
+                                Investment in renewables, energy storage,
+                                electric vehicles and power grids grew
+                                14.7%, totalling $1.93 trillion. However,
+                                investment in emerging technologies like
+                                electrified heat, hydrogen and carbon
+                                capture and storage (CCS) dropped by
+                                23% to $155 billion.
+                            </p>
+                        </div>
+
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+                            <p className="text-gray-700">
+                                Approximately 20-25% of the chemical
+                                industry’s capital expenditure is directed
+                                towards green chemistry, growing at ~5%
+                                CAGR. Tata Chemicals dedicates 100% of its
+                                R&D expenditure to green chemistry.
+                                <br />
+                                <br />
+                                The global investment in biochemicals was
+                                $933 million in 2024, projected to grow at
+                                a CAGR of 16.2% over the next five years.
+                                The transition towards Electric Vehicles
+                                (EVs) and carbon-neutral fuels is reshaping
+                                global energy markets, promoting
+                                sustainability and resilience while reducing
+                                environmental impact.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="mt-6">
+                        <h4 className="text-xl m-semi-bold text-red-500 mb-3">Strategic Objectives</h4>
+                        <div className="flex gap-2">
+                            <span className="px-3 py-1 bg-[#40b2a2] text-white text-lg m-semi-bold">
+                                SP 1
+                            </span>
+                            <span className="px-3 py-1 bg-[#a088ad] text-white text-lg m-semi-bold">
+                                SP 3
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )
         },
         {
-            title: "Supply Chain Resilience",
-            leftContent: `In the evolving global supply chain landscape, chemical companies face significant challenges and opportunities.`,
-            middleContent1: `The US-China trade conflict affects 20-25% of bilateral trade agreements globally, shifting trade patterns and allowing other countries to fill gaps left by reduced US-China trade.`,
-            middleContent2: `About 30-35% of global chemical trade occurs through Free Trade Agreements (FTAs). The number of FTAs has grown 53% in the past five years, driven by countries seeking to enhance trade relationships, reduce`,
-            rightContent: `Businesses are diversifying sourcing strategies, shifting production closer to home or to geopolitical allies. According to a Gartner survey, 73% of companies have changed their supply chain networks in the past two years, adding or removing production locations to mitigate risks and improve performance`,
-            strategicPriorities: [
-                { label: "SP 2", bgColor: "#ed1a3b" },
-                { label: "SP 3", bgColor: "#f4a61e" },
-                { label: "SP 5", bgColor: "#2e8b57" }
-            ]
+            id: 'digital-transformation',
+            title: 'Embracing AI and Digital Transformation',
+            content: (
+                <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl">
+                        <p className="text-gray-700 leading-relaxed">
+                            Automation, digitisation,
+                            analytics and AI/ML are
+                            extensively used in the
+                            industry, enhancing operational
+                            efficiency with increase in
+                            productivity, improving safety
+                            through video analytics and
+                            PSRM and optimising CRM for
+                            seamless customer experience.
+                            Approximately 40% of companies
+                            utilise AI, with 42% exploring
+                            its adoption. In the supply
+                            chain, businesses achieve better
+                            integration across multi-modal
+                            logistics and demand forecasting.
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+                            <p className="text-gray-700">
+                                A survey from 2024 shows that 77% of
+                                global manufacturers have implemented
+                                AI solutions, up from 70% in 2023. These
+                                solutions span production (31%), inventory
+                                management (28%) and customer
+                                service (28%), demonstrating AI’s role in
+                                optimising operations.
+                                <br />
+                                <br />
+                                Over the next five years, chemical
+                                companies are projected to invest about
+                                5% of their annual revenue in digital
+                                operations solutions, aiming for efficiency
+                                improvements. Recent reports indicate that
+                                these digital initiatives have resulted in
+                                efficiency gains of 10-12%.
+                            </p>
+                        </div>
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+                            <p className="text-gray-700">
+                                As of 2023, approximately 36% of manufacturing
+                                companies are investing in AI and digital initiatives
+                                to enhance plant safety. Some of these initiatives are
+                                predictive analytics, digital twin models, AI powered
+                                computer vision systems for safety protocols
+                                etc. The usage of AI in plant safety has also seen
+                                significant growth over the past five years. From
+                                2018 to 2023, the adoption of AI technologies in
+                                plant safety has increased by approximately 25%.
+                                This growth is driven by the need for improved
+                                safety measures, predictive maintenance and
+                                operational efficiency in manufacturing plants.
+                                <br />
+                                <br />
+                                Tata Chemicals, for instance, has allocated a specific
+                                budget for digital initiatives. This has translated into
+                                substantial savings of INR 50 crore.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mt-6">
+                        <h4 className="text-xl m-semi-bold text-red-500 mb-3">Strategic Objectives</h4>
+                        <div className="flex gap-2">
+                            <span className="px-3 py-1 bg-[#432c87] text-white text-lg m-semi-bold">
+                                SP 1
+                            </span>
+                            <span className="px-3 py-1 bg-[#40b2a2] text-white text-lg m-semi-bold">
+                                SP 2
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )
         },
         {
-            title: "Supply Chain Resilience and Risk Management",
-            leftContent: `Global supply chain disruptions have highlighted the need for more resilient and agile supply networks. Companies are diversifying suppliers, implementing digital supply chain tracking, and building strategic inventory buffers to mitigate risks.`,
-            middleContent1: `Supply chain digitization has accelerated, with 80% of companies implementing real-time tracking systems. Investment in supply chain technology has grown by 35% since 2023, focusing on predictive analytics and automated procurement.`,
-            middleContent2: `Risk management frameworks now include geopolitical risk assessment, climate impact analysis, and supplier financial health monitoring. Companies with robust risk management report 30% fewer supply disruptions.`,
-            rightContent: `Regional supply chain networks are being established to reduce dependency on single sources. Near-shoring and friend-shoring strategies have become prevalent, with 45% of companies relocating critical suppliers closer to operations to ensure continuity.`,
-            strategicPriorities: [
-                { label: "SP 1", bgColor: "#3e2c84" },
-                { label: "SP 2", bgColor: "#ed1a3b" },
-                { label: "SP 6", bgColor: "#8e44ad" }
-            ]
+            id: 'supply-chain',
+            title: 'Supply Chain Resilience',
+            content: (
+                <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl">
+                        <p className="text-gray-700 leading-relaxed">
+                            In the evolving global supply
+                            chain landscape, chemical
+                            companies face significant
+                            challenges and opportunities.
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+
+                            <p className="text-gray-700">
+                                The US-China trade conflict affects 20-25%
+                                of bilateral trade agreements globally, shifting
+                                trade patterns and allowing other countries
+                                to fill gaps left by reduced US-China trade.
+                                <br />
+                                <br />
+                                About 30-35% of global chemical
+                                trade occurs through Free Trade
+                                Agreements (FTAs). The number of FTAs
+                                has grown 53% in the past five years,
+                                driven by countries seeking to enhance
+                                trade relationships, reduce tariffs
+                                and open new markets.
+                            </p>
+                        </div>
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+                            <p className="text-gray-700">
+                                Businesses are diversifying sourcing strategies,
+                                shifting production closer to home or to geopolitical
+                                allies. According to a Gartner survey, 73% of
+                                companies have changed their supply chain networks
+                                in the past two years, adding or removing production
+                                locations to mitigate risks and improve performance.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mt-6">
+                        <h4 className="text-lg m-semi-bold text-red-500 mb-3">Strategic Objectives</h4>
+                        <div className="flex gap-2">
+                            <span className="px-3 py-1 bg-[#432c87] text-white text-lg  m-semi-bold">
+                                SP 1
+                            </span>
+                            <span className="px-3 py-1 bg-[#aeb936] text-white text-lg m-semi-bold">
+                                SP 4
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )
         },
         {
-            title: "Customer-Centric Innovation and Market Expansion",
-            leftContent: `Customer expectations are evolving rapidly, demanding more customized solutions, faster delivery times, and transparent sustainability credentials. Companies are investing in customer analytics and relationship management systems to better understand and serve their markets.`,
-            middleContent1: `Market research indicates that 70% of customers now consider sustainability as a key factor in purchasing decisions. Companies with strong customer engagement platforms report 25% higher customer retention rates.`,
-            middleContent2: `Investment in customer-facing digital platforms has increased by 50% since 2023. Companies are focusing on omnichannel experiences and personalized service delivery to maintain competitive advantage.`,
-            rightContent: `New market opportunities are emerging in developing economies, with 60% of growth expected from Asia-Pacific and Latin American markets. Companies are adapting products and services to local needs while maintaining global quality standards.`,
-            strategicPriorities: [
-                { label: "SP 3", bgColor: "#f4a61e" },
-                { label: "SP 4", bgColor: "#40b2a2" },
-                { label: "SP 7", bgColor: "#16a085" }
-            ]
+            id: 'innovation',
+            title: 'Operational Efficiencies and Asset Realisation',
+            content: (
+                <div className="space-y-4">
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+                            <p className="text-gray-700">
+                                The chemical industry’s focus on resilience
+                                has evolved, with cost management
+                                remaining crucial, especially in areas with
+                                higher energy prices. Many companies are
+                                extending cost-reduction programmes
+                                through 2025, emphasising operational
+                                efficiency and market-aligned spending.
+                                Around 18% prioritise capital investments
+                                in efficiency, while 26% focus on plant and
+                                equipment upgrades.
+                                <br />
+                                <br />
+                                Technology-enabled improvements such
+                                as advanced analytics and predictive
+                                maintenance, have boosted productivity
+                                by 5-10% in many facilities. Asset
+                                optimisation has been a key strategy,
+                                with 30-40% of companies engaging in
+                                it over the past three years, expected to
+                                continue through 2025.
+                            </p>
+                        </div>
+                        <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
+                            <p className="text-gray-700">
+                                Mergers and acquisitions are anticipated
+                                to rise in coming years as interest rates
+                                moderate, with companies seeking growth
+                                and portfolio reconfiguration
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mt-6">
+                        <h4 className="text-lg m-semi-bold text-red-500 mb-3">Strategic Objectives</h4>
+                        <div className="flex gap-2">
+                            <span className="px-3 py-1 bg-[#432c87] text-white text-lg  m-semi-bold">
+                                SP 1
+                            </span>
+                            <span className="px-3 py-1 bg-[#aeb936] text-white text-lg m-semi-bold">
+                                SP 4
+                            </span>
+                            <span className='px-3 py-1 bg-[#06aeef] text-white text-lg m-semi-bold'>
+                                SP 5
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )
         }
     ];
 
-    const ContentSection = ({ data, index }) => (
-        <div key={index} className="mb-12">
-            <div className='flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-4'>
-                <div className="flex-1">
-                    <h1 className='text-xl sm:text-2xl lg:text-3xl text-[#1368b4] m-semi-bold leading-tight'>
-                        {data.title}
-                    </h1>
-                </div>
-                <div className="flex-shrink-0">
-                    <img
-                        src="ValueCreationApproach/18-Page-IMG.webp"
-                        alt=""
-                        className='w-12 h-16 sm:w-14 sm:h-18 md:w-16 md:h-20 lg:w-18 lg:h-22 object-contain'
-                    />
+    const activeTabData = tabsData.find(tab => tab.id === activeTab);
+
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
+            {/* Hero Section */}
+            <div className="relative overflow-hidden">
+                <div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
+                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+                />
+                <div className="relative container mx-auto px-6 py-20">
+                    <div
+                        id="hero-title"
+                        data-animate
+                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                            }`}
+                        >
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
+                            A 360-degree View of
+                            Operating Landscape
+                        </h1>
+                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
+                        <div className='text-center mt-5'>
+                            <p className='text-2xl text-[#432c87]'>Our operating environment is increasingly becoming more complex posing varied challenges and
+                                opportunities. Having Manufacturing operations across four continents increase exposure to global
+                                geopolitical developments and economic cyclicality. Being a chemicals manufacturing company, the
+                                business is influenced by stringent environmental regulations and heightened social sensitivities.</p>
+                            <p className='text-xl mt-5'>
+                                We are conscious of the influence of these mega trends and events on our business and have structured approaches
+                                like materiality assessment, risk and mitigation frameworks among others to identify and assess these trends.
+                            </p>
+                        </div>
+
+                        {/* Smooth scroll navigation */}
+                        <div className="flex justify-center mt-12 space-x-4 flex-wrap gap-4">
+                            <button
+                                onClick={() => {
+                                    setActiveTab('digital-transformation');
+                                    scrollToSection('message-section');
+                                }}
+                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'digital-transformation'
+                                    ? 'bg-[#1368b4] text-white shadow-lg'
+                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
+                                    }`}
+                            >
+                                Embracing AI and Digital Transformation
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setActiveTab('supply-chain');
+                                    scrollToSection('message-section');
+                                }}
+                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'supply-chain'
+                                    ? 'bg-[#1368b4] text-white shadow-lg'
+                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
+                                    }`}
+                            >
+                                Supply Chain Resilience
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setActiveTab('green-chemistry');
+                                    scrollToSection('message-section');
+                                }}
+                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'green-chemistry'
+                                    ? 'bg-[#1368b4] text-white shadow-lg'
+                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
+                                    }`}
+                            >
+                                Shift towards Low Carbon Technologies and Green Chemistry
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setActiveTab('innovation');
+                                    scrollToSection('message-section');
+                                }}
+                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'innovation'
+                                    ? 'bg-[#1368b4] text-white shadow-lg'
+                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
+                                    }`}
+                            >
+                                Operational Efficiencies and Asset Realisation
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <HeaderWRedBottom />
 
-            <div className="w-full mt-6 lg:mt-10">
-                <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x border-gray-300 rounded-lg overflow-hidden">
-                    {/* Left Box */}
-                    <div className="lg:w-1/3 bg-[#eef5f3] p-4 sm:p-6 rounded-bl-none lg:rounded-bl-[40px]">
-                        <p className="text-[#0057a0] font-semibold text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed text-center lg:text-left">
-                            {data.leftContent}
-                        </p>
-                    </div>
-
-                    {/* Middle Box */}
-                    <div className="lg:w-1/3 p-4 sm:p-6 flex flex-col gap-4 justify-center">
-                        <p className="text-[#333] text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">
-                            {data.middleContent1}
-                        </p>
-                        <hr className="border-gray-400" />
-                        <p className="text-[#333] text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">
-                            {data.middleContent2}
-                        </p>
-                        <div className='mt-3 sm:mt-5 border-b border-[#1368b4] pb-1'>
-                            <span className="text-[#ed1a3b] m-bold text-base sm:text-lg xl:text-xl">
-                                Strategic Objectives
-                            </span>
+            {/* Main Content */}
+            <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
+                {/* Message Section */}
+                <div
+                    id="message-section"
+                    data-animate
+                    className={`scroll-mt-30 transition-all duration-1000 delay-100 transform ${isVisible['message-section'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
+                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
+                        {/* Content Display */}
+                        <div className="min-h-[400px] transition-all duration-500">
+                            <h2 className="text-3xl font-bold text-[#1368b4] mb-6">
+                                {activeTabData?.title}
+                            </h2>
+                            <HeaderWRedBottom />
+                            <div className="opacity-100 transition-opacity duration-300 mt-5">
+                                {activeTabData?.content}
+                            </div>
                         </div>
-                        <div className="flex gap-2 mt-2 sm:mt-3 flex-wrap">
-                            {data.strategicPriorities.map((sp, spIndex) => (
-                                <div
-                                    key={spIndex}
-                                    className="text-white text-sm sm:text-base lg:text-lg xl:text-xl px-2 py-1 rounded m-bold"
-                                    style={{ backgroundColor: sp.bgColor }}
-                                >
-                                    {sp.label}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Right Box */}
-                    <div className="lg:w-1/3 p-4 sm:p-6">
-                        <p className="text-[#333] text-sm sm:text-base lg:text-lg xl:text-xl leading-relaxed">
-                            {data.rightContent}
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
     );
+};
 
-    return (
-        <div className='marginal'>
-            <div className="px-4 sm:px-6 lg:px-8">
-                {/* Main Title */}
-                <h1 className="m-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-center text-[#1368b4] font-bold mb-6 sm:mb-8 leading-tight">
-                    A 360-degree View of Operating Landscape
-                </h1>
-
-                {/* Introduction Text */}
-                <div className='mb-8 sm:mb-12'>
-                    <p className='text-[#432c87] text-lg sm:text-xl lg:text-2xl xl:text-3xl mb-4 sm:mb-5 m-semi-bold leading-relaxed'>
-                        Our operating environment is increasingly becoming more complex posing varied challenges and
-                        opportunities. Having Manufacturing operations across four continents increase exposure to global
-                        geopolitical developments and economic cyclicality. Being a chemicals manufacturing company, the
-                        business is influenced by stringent environmental regulations and heightened social sensitivities.
-                    </p>
-                    <p className='text-base sm:text-lg lg:text-xl leading-relaxed'>
-                        We are conscious of the influence of these mega trends and events on our business and have structured approaches
-                        like materiality assessment, risk and mitigation frameworks among others to identify and assess these trends.
-                    </p>
-                </div>
-
-                {/* Content Sections - Har section mein alag data including dynamic SP values */}
-                {sectionData.map((data, index) => (
-                    <ContentSection key={index} data={data} index={index} />
-                ))}
-
-                {/* Agar aur sections add karne hain, toh sectionData array mein add kar dena */}
-            </div>
-        </div>
-    )
-}
-
-export default A360Degree
+export default A360Degree;

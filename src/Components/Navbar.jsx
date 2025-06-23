@@ -45,9 +45,7 @@ const navItems = [
             "Value Chain Partners",
             "Community",
             "Governance",
-            "Engaging with Our Shareholders",
-            "Information and Grievance",
-            "Redressal",
+            "Engaging with Our Shareholders: Information and Grievance Redressal",
         ],
     },
     {

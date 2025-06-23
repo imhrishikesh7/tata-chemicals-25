@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import StrategyDashboard from '../../Components/StrategyDashbord';
-import { div, img } from 'framer-motion/client';
+// import StrategyDashboard from '../../Components/StrategyDashbord';
+// import { div, img } from 'framer-motion/client';
 
 const BusinessStrategy = () => {
     const [scrollY, setScrollY] = useState(0);

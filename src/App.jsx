@@ -28,6 +28,11 @@ import Research from './Pages/Function/Research';
 import Technology from './Pages/Function/Technology'
 //ESG
 import Environment from './Pages/ESG/Environment'
+import HumanResources from './Pages/ESG/HumanResources'
+import ValueChain from './Pages/ESG/ValueChain'
+import Stakeholder from './Pages/ESG/Stakeholder'
+import Community from './Pages/ESG/Community'
+import Governance from './Pages/ESG/Governance'
 
 function App() {
   return (
@@ -35,7 +40,7 @@ function App() {
       <div className="min-h-screen flex flex-col">
         <BrowserRouter>
           <Navbar />
-          <div className="flex-grow">
+          <div className="flex-grow mt-20">
             <Routes>
               <Route path="/" element={<Home />} />
               {/* Corporate Overview */}
@@ -59,6 +64,11 @@ function App() {
               <Route path="/technology" element={< Technology/>}/>
               {/* ESG */}
               <Route path="/environment" element={< Environment/>}/>
+              <Route path="/value_chain_partners" element={< ValueChain/>}/>
+              <Route path="/human_resources" element={< HumanResources/>}/>
+              <Route path="/engaging_with_our_shareholders_information_and_grievance_redressal" element={< Stakeholder/>}/>
+              <Route path="/community" element={< Community/>}/>
+              <Route path="/governance" element={< Governance/>}/>
             </Routes>
           </div>
           <Footer />

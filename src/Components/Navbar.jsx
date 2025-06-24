@@ -46,9 +46,7 @@ const navItems = [
             "Value Chain Partners",
             "Community",
             "Governance",
-            "Engaging with Our Shareholders",
-            "Information and Grievance",
-            "Redressal",
+            "Engaging with Our Shareholders: Information and Grievance Redressal",
         ],
     },
     {
@@ -155,7 +153,8 @@ export default function Navbar() {
                             <div className="hidden lg:flex items-center space-x-6">
                                 {/* Annual Report */}
                                 <a
-                                    href="#"
+                                    target="_blank"
+                                    href="https://www.tatachemicals.com/upload/content_pdf/integrated-annual-report-fy-2024-25.pdf"
                                     className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-[#1467b3] hover:bg-[#1467b3]/80 rounded-lg backdrop-blur-sm transition-all duration-200 shadow-lg hover:shadow-xl"
                                 >
                                     Annual Report 2024-25

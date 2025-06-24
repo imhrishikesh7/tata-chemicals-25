@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Linkedin, Twitter, Youtube, Mail, ChevronDown, ChevronUp, Download } from 'lucide-react';
-
+import { Mail, ChevronDown, ChevronUp, Download } from 'lucide-react';
+import { FaLinkedin, FaXTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa6'
+import { Link } from 'react-router-dom';
 const Footer = () => {
   const [openAccordion, setOpenAccordion] = useState(null);
 
@@ -60,28 +61,28 @@ const Footer = () => {
                   className="p-2 bg-neutral-700 hover:bg-blue-600 rounded-lg transition-colors duration-200"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <FaLinkedin className="w-5 h-5" />
                 </a>
                 <a 
                   href="#" 
                   className="p-2 bg-neutral-700 hover:bg-gray-900 rounded-lg transition-colors duration-200"
                   aria-label="X (Twitter)"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <FaXTwitter className="w-5 h-5" />
                 </a>
-                <a 
+                <a
                   href="#" 
                   className="p-2 bg-neutral-700 hover:bg-red-600 rounded-lg transition-colors duration-200"
                   aria-label="YouTube"
                 >
-                  <Youtube className="w-5 h-5" />
+                  <FaYoutube className="w-5 h-5" />
                 </a>
-                <a 
+                <a
                   href="mailto:contact@tatachemicals.com" 
                   className="p-2 bg-neutral-700 hover:bg-blue-500 rounded-lg transition-colors duration-200"
                   aria-label="Email"
                 >
-                  <Mail className="w-5 h-5" />
+                  <FaEnvelope className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -92,29 +93,29 @@ const Footer = () => {
             <h4 className="text-base font-medium text-white">Quick Links</h4>
             <ul className="space-y-3 text-sm text-neutral-300">
               <li>
-                <a href="#" className="hover:text-white transition-colors duration-200">
-                  About Us
-                </a>
+                <Link to="/about_tata_chemicals" className="hover:text-white transition-colors duration-200">
+                  About Tata Chemicals
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors duration-200">
+                <Link to="/ceos_message" className="hover:text-white transition-colors duration-200">
                   CEO's Message
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors duration-200">
+                <Link to="/board_of_directors" className="hover:text-white transition-colors duration-200">
                   Board of Directors
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors duration-200">
+                <Link to="/business_strategy" className="hover:text-white transition-colors duration-200">
                   Business Strategy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors duration-200">
+                <Link to="/environment" className="hover:text-white transition-colors duration-200">
                   Environment
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -201,7 +202,7 @@ const Footer = () => {
             {/* Developer Credit */}
             <div className="flex items-center space-x-2 text-sm text-neutral-400">
               <span>Website by</span>
-              <a 
+              <a
                 href="https://kalolwala.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"

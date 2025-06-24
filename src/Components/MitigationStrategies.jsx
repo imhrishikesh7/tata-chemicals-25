@@ -237,6 +237,7 @@ timely debt reduction.`,
             title: "Unfunded Pension Risk",
             image2: "ValueCreationApproach/RiskManagement/8.webp",
             image: "ValueCreationApproach/RiskManagement/30-Page-IMG-1.webp",
+            image3: "/mithapur plant.webp",
             content: {
                 description: "Unfunded pension liabilities of overseas subsidiaries",
                 mitigationActions: [
@@ -435,6 +436,14 @@ learning and awareness.`
                                     <div className="mr-2">
                                         <img
                                             src={strategy.image2}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="flex items-center text-[#1368b4] transition-transform duration-200 ease-in-out">
+                                    {/* Yahan sirf current strategy ka image dikhega */}
+                                    <div className="mr-2">
+                                        <img
+                                            src={strategy.image3}
                                         />
                                     </div>
                                 </div>

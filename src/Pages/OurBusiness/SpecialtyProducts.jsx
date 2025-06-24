@@ -162,7 +162,7 @@ const SpecialtyProducts = () => {
                                     with global partners for Custom Synthesis
                                     Manufacturing (CSM) and product exports</p>
 
-                                <h3 className="font-semibold text-2xl text-[#1368b4] mt-5">Trends</h3>
+                                <h3 className="font-semibold text-2xl text-[#1368b4] mt-5">Value Proposition</h3>
                                 <ul className="list-disc list-inside text-xl text-[#4d4d4f] marker:text-[#40b2a2] space-y-3">
                                     <li>Focused portfolio in high-value
                                         hybrid seeds and differentiated crop

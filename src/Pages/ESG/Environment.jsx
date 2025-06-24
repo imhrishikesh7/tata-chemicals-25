@@ -295,7 +295,7 @@ const Environment = () => {
               </div>
             </div>
           </section>
-          <div className='bg-gradient-to-br from-amber-50 to-orange-100 rounded-3xl p-8 md:p-12 shadow-xl'>
+          <div className='bg-white rounded-3xl p-8 md:p-12 shadow-xl'>
             <h1 className='text-3xl text-[#1368b4] font-bold text-center'>Progress in Sustainability Performance </h1>
             <img src="ESG/Environment/Table.png" alt="" className='mt-10' />
             <img src="ESG/Environment/India16.png" alt="" className='mt-10' />
@@ -307,6 +307,12 @@ const Environment = () => {
               <div className='w-1/3'>
                 <img src="ESG/Environment/India18.png" alt="" className='mt-25' />
               </div>
+            </div>
+            <div className='my-6'>
+              <img src="./envc1.webp" alt="" />
+            </div>
+            <div className='my-6'>
+              <img src="./envc2.webp" className='w-full' alt="" />
             </div>
           </div>
         </div>

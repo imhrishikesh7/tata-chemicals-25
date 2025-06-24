@@ -61,21 +61,7 @@ const Governance = () => {
                                 and sustainability to strengthen business resilience and keep integrity at the centre of all operations.</p>
                         </div>
 
-                        {/* Smooth scroll navigation */}
-                        <div className="flex justify-center mt-12 space-x-4">
-                            <button
-                                onClick={() => scrollToSection('ceo-quote')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                N/A
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('message-section')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                N/A
-                            </button>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -89,7 +75,12 @@ const Governance = () => {
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
-
+                        <div className='mb-6'>
+                            <img src="./ESG/52-IMG-3.webp" alt="" />
+                        </div>
+                        <div className=''>
+                            <img src="./ESG/53-IMG-1.webp" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>

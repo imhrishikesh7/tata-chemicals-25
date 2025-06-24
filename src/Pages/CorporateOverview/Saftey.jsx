@@ -73,6 +73,12 @@ const Safety = () => {
                                 Overview
                             </button>
                             <button
+                                onClick={() => scrollToSection('key-initiatives')}
+                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                            >
+                                Key Initiatives
+                            </button>
+                            <button
                                 onClick={() => scrollToSection('psi-section')}
                                 className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                             >
@@ -127,6 +133,48 @@ const Safety = () => {
                         </div>
                     </div>
 
+                </div>
+
+                <div
+                    id="key-initiatives"
+                    data-animate
+                    className={`scroll-mt-40 transition-all duration-1000 delay-100 transform ${isVisible['psi-section'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
+                    {/* Left Side */}
+                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 flex flex-col">
+                        <h2 className="text-2xl md:text-3xl font-bold text-[#ed1a3b] mb-6">
+                            Key Initiatives
+                        </h2>
+                        <ul className='list-disc list-inside marker:text-blue-600'>
+                            <li className='mb-3 text-xl'>
+                                Integrated safety leading indicators into
+                                SHES Board and management reviews.
+                            </li>
+                            <li className='mb-3 text-xl'>
+                                Restructured MD Safety Global Review
+                                Forum based on DSS+ insights to focus
+                                on leadership and high-risk areas.
+                            </li>
+                            <li className='mb-3 text-xl'>
+                                Conducted Safety Felt Leadership
+                                workshops for 600+ senior and line
+                                managers and 100+ business partners.
+                            </li>
+                            <li className='mb-3 text-xl'>
+                                Rolled out a month-long Executive
+                                Safety Leadership Programme for
+                                selected line managers with hands-on
+                                exposure to safety operations.
+                            </li>
+                            <li className='mb-3 text-xl'>
+                                Participated in the Group-wide Fire
+                                Prevention and Preparedness Week
+                                with 1,400+ employees and partners.
+                            </li>
+                        </ul>
+
+                    </div>
                 </div>
 
                 {/* PSI Section */}

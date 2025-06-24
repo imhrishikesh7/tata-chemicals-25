@@ -6,64 +6,64 @@ const navItems = [
     {
         label: "Corporate Overview",
         submenu: [
-            "Board of Directors",
-            "About Tata Chemicals",
-            "Performance Review",
-            "CEO's Message",
-            "Safety at the Core",
+            { label: "Board of Directors" },
+            { label: "About Tata Chemicals" },
+            { label: "Performance Review" },
+            { label: "CEO's Message" },
+            { label: "Safety at the Core" },
         ],
     },
     {
         label: "Our Businesses",
         submenu: [
-            "Basic Chemistry Business",
-            "Speciality Product Business",
+            { label: "Basic Chemistry Business" },
+            { label: "Speciality Product Business" },
         ],
     },
     {
         label: "Value Creation Approach",
         submenu: [
-            "A 360-degree View of Operating Landscape",
-            "Business Strategy",
-            "A Resilient Business Model",
-            "Risk Management",
-            "Stakeholder Engagement",
-            "Materiality Assessment",
+            { label: "A 360-degree View of Operating Landscape" },
+            { label: "Business Strategy" },
+            { label: "A Resilient Business Model" },
+            { label: "Risk Management" },
+            { label: "Stakeholder Engagement" },
+            { label: "Materiality Assessment" },
         ],
     },
     {
         label: "Functions",
         submenu: [
-            "Research and Development",
-            "Technology",
+            { label: "Research and Development" },
+            { label: "Technology" },
         ],
     },
     {
         label: "ESG",
         submenu: [
-            "Environment",
-            "Human Resources",
-            "Value Chain Partners",
-            "Community",
-            "Governance",
-            "Engaging with Our Shareholders: Information and Grievance Redressal",
+            { label: "Environment" },
+            { label: "Human Resources" },
+            { label: "Value Chain Partners" },
+            { label: "Community" },
+            { label: "Governance" },
+            { label: "Engaging with Our Shareholders: Information and Grievance Redressal" },
         ],
     },
     {
         label: "Statutory Reports",
         submenu: [
-            "Business Responsibility and Sustainability Report",
-            "Board's Report",
-            "Management Discussion and Analysis",
-            "Corporate Governance Report",
+            { label: "Business Responsibility and Sustainability Report", href: "./docs/02 Tata Chemical Ltd BRSR_05.06.2025 V1.pdf" },
+            { label: "Board's Report", href: "./docs/03 Tata Chemical Ltd BR_05.06.2025 V1.pdf" },
+            { label: "Management Discussion and Analysis", href: "./docs/04 Tata Chemical Ltd MDA_ 05.06.2025 V1.pdf" },
+            { label: "Corporate Governance Report", href: "./docs/05 Tata Chemical Ltd  CG 05.06.2025 V1.pdf" },
         ],
     },
     {
         label: "Financial Statements",
         submenu: [
-            "Standalone Financial Statements",
-            "Consolidated Financial Statements",
-            "Form AOC-1",
+            { label: "Standalone Financial Statements", href: "./docs/06.Tata Chemical Ltd SFS_05.06.2025.pdf" },
+            { label: "Consolidated Financial Statements", href: "./docs/07 Tata Chemical Ltd CFS_05.06.2025 V1.pdf" },
+            { label: "Notice", href: "./docs/08 Tata Chemical Ltd Notice_05.06.2025 V1.pdf" },
         ],
     },
 ];
@@ -264,15 +264,30 @@ export default function Navbar() {
                                         {/* Dropdown Menu */}
                                         {activeSubmenu === index && (
                                             <div className="absolute top-full left-0 mt-0 w-72 bg-white/90 backdrop-blur-xl rounded-lg shadow-xl border border-white/30 py-2 z-50">
-                                                {item.submenu.map((subItem, subIndex) => (
-                                                    <Link
-                                                        key={subIndex}
-                                                        to={getPathFromItem(subItem)}
-                                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-white/50 hover:text-[#1467b3] transition-all duration-200 rounded-md mx-2"
-                                                    >
-                                                        {subItem}
-                                                    </Link>
-                                                ))}
+                                                {item.submenu.map((subItem, subIndex) => {
+                                                    if (subItem.href) {
+                                                        return (
+                                                            <a
+                                                                key={subIndex}
+                                                                href={subItem.href}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-white/50 hover:text-[#1467b3] transition-all duration-200 rounded-md mx-2"
+                                                            >
+                                                                {subItem.label}
+                                                            </a>
+                                                        );
+                                                    }
+                                                    return (
+                                                        <Link
+                                                            key={subIndex}
+                                                            to={getPathFromItem(subItem.label)}
+                                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-white/50 hover:text-[#1467b3] transition-all duration-200 rounded-md mx-2"
+                                                        >
+                                                            {subItem.label}
+                                                        </Link>
+                                                    );
+                                                })}
                                             </div>
                                         )}
                                     </div>
@@ -312,16 +327,33 @@ export default function Navbar() {
 
                                 {openAccordions.includes(index) && (
                                     <div className="bg-white/30 backdrop-blur-sm rounded-lg mt-1 mb-2">
-                                        {item.submenu.map((subItem, subIndex) => (
-                                            <Link
-                                                key={subIndex}
-                                                to={getPathFromItem(subItem)}
-                                                className="block px-6 py-2 text-sm text-gray-600 hover:text-[#1467b3] hover:bg-white/40 transition-all duration-200 rounded-md mx-2"
-                                                onClick={() => setMobileOpen(false)}
-                                            >
-                                                {subItem}
-                                            </Link>
-                                        ))}
+                                        {item.submenu.map((subItem, subIndex) => {
+                                            if (subItem.href) {
+                                                return (
+                                                    <a
+                                                        key={subIndex}
+                                                        href={subItem.href}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center justify-between px-6 py-2 text-sm text-gray-600 hover:text-[#1467b3] hover:bg-white/40 transition-all duration-200 rounded-md mx-2"
+                                                        onClick={() => setMobileOpen(false)}
+                                                    >
+                                                        {subItem.label}
+                                                        <ExternalLink className="ml-2 h-4 w-4" />
+                                                    </a>
+                                                );
+                                            }
+                                            return (
+                                                <Link
+                                                    key={subIndex}
+                                                    to={getPathFromItem(subItem.label)}
+                                                    className="block px-6 py-2 text-sm text-gray-600 hover:text-[#1467b3] hover:bg-white/40 transition-all duration-200 rounded-md mx-2"
+                                                    onClick={() => setMobileOpen(false)}
+                                                >
+                                                    {subItem.label}
+                                                </Link>
+                                            );
+                                        })}
                                     </div>
                                 )}
                             </div>

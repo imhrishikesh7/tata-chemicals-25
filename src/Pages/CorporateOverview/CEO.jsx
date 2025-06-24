@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Title from '../../Components/Title';
 
 const CEO = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -78,55 +79,114 @@ const CEO = () => {
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
 
                 {/* CEO Quote Section with Image */}
-                <div
-                    id="ceo-quote"
-                    data-animate
-                    className={`scroll-mt-20 transition-all duration-1000 delay-200 transform ${isVisible['ceo-quote'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                        }`}
-                >
-                    <div className="grid lg:grid-cols-10 gap-12 items-center">
-                        {/* CEO Image */}
-                        <div className="lg:col-span-3">
-                            <div className="relative">
-                                <div className="absolute -inset-4  rounded-3xl blur-xl"></div>
-                                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-white/30">
-                                    <img
-                                        src="CorporateOverview/CEO/CEO.webp"
-                                        alt="CEO"
-                                        className="w-full rounded-xl shadow-lg"
-                                    />
+                <div className='container border bg-slate-800 rounded-3xl py-6 mx-auto px-8 relative z-10'>
+                <div className="max-w-7xl mx-auto">
+                    
+                    {/* Header */}
+                    <div className="mb-16">
+                        <Title text="CEO's Message" color='white' />
+                    </div> 
+
+                    <div className="grid lg:grid-cols-12 gap-16 items-center">
+                        
+                        {/* CEO Image Section */}
+                        <div className="lg:col-span-4">
+                            <div 
+                             
+                                className="relative group cursor-pointer"
+                              
+                            >
+                                {/* Image container */}
+                                <div className="relative overflow-hidden rounded-3xl bg-slate-800">
+                                    <div className="aspect-[3/4] rounded-3xl relative">
+                                        <img 
+                                            src="/home/ceo.webp" 
+                                            className={`w-full h-full rounded-3xl object-cover transition-all duration-500 `}
+                                            alt="CEO R. Mukundan" 
+                                        />
+                                        
+                                        {/* Subtle overlay */}
+                                        <div className="absolute inset-0 bg-gradient-to-t  from-slate-900/40 to-transparent"></div>
+                                    </div>
+                                </div>
+                                
+                                {/* CEO Info */}
+                                <div className="mt-6 pl-4 border-l-2 border-slate-600">
+                                    <h3 className="text-white text-xl font-bold mb-1">R. Mukundan</h3>
+                                    <p className="text-slate-300 text-sm font-medium uppercase tracking-wide">
+                                        Managing Director & CEO
+                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Quote */}
-                        <div className="lg:col-span-7">
-                            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 relative">
-                                {/* Quote mark decoration
-                                <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] rounded-full flex items-center justify-center shadow-lg">
-                                    <span className="text-white text-2xl font-bold">"</span>
-                                </div> */}
+                        {/* Message Content */}
+                        <div  className="lg:col-span-8">
+                            <div className="space-y-8">
+                                
+                                {/* Quote */}
+                                <div className="relative">
+                                    {/* Opening Quote Icon */}
+                                    <div className="absolute -top-6 -left-4 w-12 h-12 opacity-80">
+                                        <img 
+                                            src="/home/qt.webp" 
+                                            alt="Quote start" 
+                                            className="w-full h-full text-white"
+                                        />
+                                    </div>
 
-                                <blockquote className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-[#1368b4] font-medium  mb-6 pl-8">
-                                    Safety remains our first priority and our efforts are to create a zero harm work place. Our focus on operational efficiencies and newly commissioned capacities is expected to contribute towards improved performance as well as delivering safe and sustainable growth.
-                                </blockquote>
+                                    <blockquote className="space-y-6 p-8 ">
+                                        <p 
+                                           
+                                            className="text-white text-xl lg:text-2xl leading-relaxed font-light"
+                                        >
+                                            Safety remains our first priority and our efforts are to create a zero harm work place.
+                                        </p>
+                                        <p 
+                                            
+                                            className="text-white text-xl lg:text-2xl leading-relaxed font-light"
+                                        >
+                                            Our focus on operational efficiencies and newly commissioned capacities is expected to contribute towards improved performance as well as delivering safe and sustainable growth.
+                                        </p>
+                                    </blockquote>
 
-                                <div className="border-t-2 pt-4 pl-8">
-                                    <p className='text-2xl text-[#1368b4] m-bold'>
-                                        R. Mukundan
-                                    </p>
-                                    <p className="text-lg font-semibold text-gray-700">
-                                        Chief Executive Officer
-                                    </p>
-                                    <p className="text-base text-gray-600">
-                                        Tata Chemicals Limited
-                                    </p>
+                                    {/* Closing Quote Icon */}
+                                    <div className="absolute -bottom-2 -right-4 w-12 h-12 opacity-80">
+                                        <img 
+                                            src="/home/qt.webp" 
+                                            alt="Quote end" 
+                                            className="w-full h-full text-white rotate-180"
+                                        />
+                                    </div>
                                 </div>
+
+                                {/* CTA Section */}
+                                <div 
+                                    
+                                    className="flex items-center justify-between pt-12 border-t border-slate-700"
+                                >
+                                  
+                                    
+                                    <div className="group">
+                                        <button className="  px-8 py-4 font-semibold  transition-all duration-300 flex items-center space-x-3 group">
+                                            
+                                            <svg 
+                                                className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" 
+                                                fill="none" 
+                                                stroke="currentColor" 
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
                 {/* Message Section */}
                 <div
                     id="message-section"
@@ -233,7 +293,7 @@ const CEO = () => {
                                     R. Mukundan
                                 </p>
                                 <p className="text-lg font-semibold text-gray-700">
-                                    Chief Executive Officer
+                                Managing Director & CEO
                                 </p>
                                 <p className="text-base text-gray-600">
                                     Tata Chemicals Limited

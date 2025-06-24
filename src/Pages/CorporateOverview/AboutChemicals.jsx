@@ -135,6 +135,12 @@ const AboutTataChemicals = () => {
 
                         <div className="flex justify-center mt-12 space-x-4">
                             <button
+                                onClick={() => scrollToSection('core-verticals')}
+                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                            >
+                                Our Core Verticals
+                            </button>
+                            <button
                                 onClick={() => scrollToSection('mission-vision')}
                                 className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
                             >
@@ -159,6 +165,87 @@ const AboutTataChemicals = () => {
 
             <div className="container mx-auto px-6 space-y-20 mt-10">
 
+                  {/* Our Core Verticals */}
+                <div
+                    id="core-verticals"
+                    data-animate
+                    className={` scroll-mt-40 transition-all duration-1000 delay-200 transform ${isVisible['mission-vision'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
+                >
+                    <div >
+                        <div className='flex md:flex-row items-stretch gap-4 flex-col w-full'>
+                            <div className='md:w-1/2 bg-[#40b2a2]/5  p-4 '>
+                                <h3 className='text-[#ed1a3b] text-2xl font-bold'>Basic Chemistry Products</h3>
+                                <div className='flex my-6 flex-col gap-3'>
+                                    <div className='flex flex-row gap-3 items-center'>
+                                        <div className='bg-[#40b2a2] flex items-center rounded-full py-1 px-3'>
+                                            <p className='text-white text-xl font-bold'>1</p>
+                                        </div>
+                                        <p className='text-xl'>
+                                        Soda Ash (Sodium Carbonate)
+                                        </p>
+                                    </div>
+                                    <div className='flex flex-row gap-3 items-center'>
+                                        <div className='bg-[#40b2a2] flex items-center rounded-full py-1 px-3'>
+                                            <p className='text-white text-xl font-bold'>2</p>
+                                        </div>
+                                        <p className='text-xl'>
+                                        Sodium Bicarbonate
+                                        </p>
+                                    </div>
+                                    <div className='flex flex-row gap-3 items-center'>
+                                        <div className='bg-[#40b2a2] flex items-center rounded-full py-1 px-3'>
+                                            <p className='text-white text-xl font-bold'>3</p>
+                                        </div>
+                                        <p className='text-xl'>
+                                        Salt
+                                        </p>
+                                    </div>
+                                    <div className='flex flex-row gap-3 items-center'>
+                                        <div className='bg-[#40b2a2] flex items-center rounded-full py-1 px-3'>
+                                            <p className='text-white text-xl font-bold'>4</p>
+                                        </div>
+                                        <p className='text-xl'>
+                                        Other inorganic products (Bromine,
+                                            Caustic Soda, Cement)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='md:w-1/2 bg-[#40b2a2]/5 p-4'>
+                                <h3 className='text-[#ed1a3b] text-2xl font-bold'>Specialty Products</h3>
+                                <div className='flex my-6 flex-col gap-3'>
+                                    <div className='flex flex-row gap-3 items-center'>
+                                        <div className='bg-[#40b2a2] flex items-center rounded-full py-1 px-3'>
+                                            <p className='text-white text-xl font-bold'>1</p>
+                                        </div>
+                                        <p className='text-xl'>
+                                        Agrochemicals and Seeds
+                                        </p>
+                                    </div>
+                                    <div className='flex flex-row gap-3 items-center'>
+                                        <div className='bg-[#40b2a2] flex items-center rounded-full py-1 px-3'>
+                                            <p className='text-white text-xl font-bold'>2</p>
+                                        </div>
+                                        <p className='text-xl'>
+                                        Specialty Silica
+                                        </p>
+                                    </div>
+                                    <div className='flex flex-row gap-3 items-center'>
+                                        <div className='bg-[#40b2a2] flex items-center rounded-full py-1 px-3'>
+                                            <p className='text-white text-xl font-bold'>3</p>
+                                        </div>
+                                        <p className='text-xl'>
+                                        Prebiotics (FOS)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>              
                 {/* Mission, Vision, Leadership, Values */}
                 <div
                     id="mission-vision"

@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
+
 import HeadingWRedCorner from '../../Components/HeadingWRedCorner';
 
 const BasicChemistry = () => {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState({});
+    const [reveal, setReveal] = useState(false)
+    const [activeTab, setActiveTab] = useState('value');
+    const scrollToSection = (id) => {
+        setActiveTab(id);
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     useEffect(() => {
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
+
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -27,6 +35,10 @@ const BasicChemistry = () => {
 
         return () => observer.disconnect();
     }, []);
+    useEffect(() => {
+        const timeout = setTimeout(() => setReveal(true), 100) // Delay to show animation
+        return () => clearTimeout(timeout)
+    }, [])
 
     const columns = [
         [
@@ -62,60 +74,61 @@ const BasicChemistry = () => {
                     className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
                     style={{ transform: `translateY(${scrollY * 0.5}px)` }}
                 />
-                <div className="relative container mx-auto px-6 py-20">
+                <div className="relative overflow-hidden bg-gray-100">
+                    {/* Reveal Layer */}
                     <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        className={`absolute inset-0 bg-white transition-transform duration-[1200ms] ease-in-out z-10 ${reveal ? 'translate-y-full' : 'translate-y-0'
                             }`}
-                    >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            Basic Chemistry Business
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className='text-center mt-5'>
-                            <p className='text-2xl text-[#432c87]'>Tata Chemicals’ Basic Chemistry Business focuses on the production of essential inorganic
-                                chemicals such as soda ash, sodium bicarbonate, and salt, which are used across glass,
-                                detergents, food, and industrial sectors.</p>
+                    />
+
+                    {/* Content */}
+                    <div className="relative z-20 container mx-auto px-6 py-24">
+                        <div
+                            id="hero-title"
+                            data-animate
+                            className={`transition-all duration-1000 transform ${isVisible['hero-title']
+                                ? 'translate-y-0 opacity-100'
+                                : 'translate-y-10 opacity-0'
+                                }`}
+                        >
+                            <h1 className="text-4xl md:text-6xl lg:text-6xl font-extrabold text-center text-[#1b5587] tracking-tight mb-4">
+                                Basic Chemistry Business
+                            </h1>
+
+                            <div className="mx-auto w-20 h-[2px] bg-red-600 mb-4 rounded-sm" />
+
+                            <p className="text-center max-w-3xl mx-auto text-lg md:text-xl text-neutral-700 leading-relaxed">
+                                Tata Chemicals’ Basic Chemistry Business focuses on the production of essential inorganic chemicals such as soda ash, sodium bicarbonate, and salt — used across glass, detergents, food, and industrial sectors.
+                            </p>
                         </div>
-                    </div>
-                    <div className="flex justify-center mt-12 space-x-4">
-                        <button
-                            onClick={() => scrollToSection('value')}
-                            className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                        >
-                            Value Proposition
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('india-ops')}
-                            className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                        >
-                            India
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('case-study')}
-                            className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                        >
-                            Case Study
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('us-ops')}
-                            className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                        >
-                            US
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('uk-ops')}
-                            className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                        >
-                            UK
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('africa-ops')}
-                            className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                        >
-                            Kenya
-                        </button>
+
+                        {/* In-page Navigation */}
+                        <div className="w-full mt-14">
+                            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3 w-full max-w-5xl mx-auto">
+                                {[
+                                    { label: 'Value Proposition', id: 'value' },
+                                    { label: 'India', id: 'india-ops' },
+                                    { label: 'Case Study', id: 'case-study' },
+                                    { label: 'US', id: 'us-ops' },
+                                    { label: 'UK', id: 'uk-ops' },
+                                    { label: 'Kenya', id: 'africa-ops' },
+                                ].map(({ label, id }) => (
+                                    <button
+                                        key={id}
+                                        onClick={() => scrollToSection(id)}
+                                        className={`py-3 rounded-2xl w-full text-sm sm:text-base cursor-pointer font-medium border transition-all duration-300
+          ${activeTab === id
+                                                ? 'bg-[#1b5587] text-white shadow-md'
+                                                : 'bg-white text-[#1b5587] border-neutral-300 hover:bg-neutral-100'
+                                            }
+        `}
+                                    >
+                                        {label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -130,7 +143,7 @@ const BasicChemistry = () => {
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
-                        <h1 className="text-3xl font-semibold text-[#1368b4] text-center mb-8">Value Proposition</h1>
+                        <h1 className="text-3xl font-semibold text-[#1368b4] text-center mb-8" id="value">Value Proposition</h1>
 
                         <div className="bg-[#f4f9f8] p-6 md:p-10 rounded-2xl">
                             <div className="flex flex-col border border-[#dcdcdc] rounded-2xl overflow-hidden">

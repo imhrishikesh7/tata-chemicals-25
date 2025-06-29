@@ -16,22 +16,40 @@ const Footer = () => {
     setOpenAccordion(openAccordion === accordionName ? null : accordionName);
   };
 
-  const statutoryReports = [
-    { name: "Business Responsibility and Sustainability Report", url: "#" },
-    { name: "Board’s Report", url: "#" },
-    { name: "Management iscussion and Analysis", url: "#" },
-    { name: "Corporate Governance Report", url: "#" }
-  ];
+const statutoryReports = [
+  {
+    name: "Business Responsibility and Sustainability Report",
+    url: "./docs/02 Tata Chemical Ltd BRSR_05.06.2025 V1.pdf",
+  },
+  {
+    name: "Board’s Report",
+    url: "./docs/03 Tata Chemical Ltd BR_05.06.2025 V1.pdf",
+  },
+  {
+    name: "Management Discussion and Analysis",
+    url: "./docs/04 Tata Chemical Ltd MDA_ 05.06.2025 V1.pdf",
+  },
+  {
+    name: "Corporate Governance Report",
+    url: "./docs/05 Tata Chemical Ltd  CG 05.06.2025 V1.pdf",
+  },
+];
 
-  const financialStatements = [
-    { name: "Standalone Financial Statements", url: "#" },
-    { name: "Consolidated Financial Statements", url: "#" },
-    { name: "Form AOC-1", url: "#" },
-    { name: "Notice", url: "#" },
-    { name: "Financial Statistics", url: "#" },
-    { name: "Abbreviations", url: "#" },
-    { name: "GRI Content Index", url: "#" }
-  ];
+const financialStatements = [
+  {
+    name: "Standalone Financial Statements",
+    url: "./docs/06.Tata Chemical Ltd SFS_05.06.2025.pdf",
+  },
+  {
+    name: "Consolidated Financial Statements",
+    url: "./docs/07 Tata Chemical Ltd CFS_05.06.2025 V1.pdf",
+  },
+  {
+    name: "Notice",
+    url: "./docs/08 Tata Chemical Ltd Notice_05.06.2025 V1.pdf",
+  },
+];
+
 
   return (
     <footer className="w-full bg-neutral-800 text-white">
@@ -57,28 +75,28 @@ const Footer = () => {
               {/* Social Media Icons */}
               <div className="flex items-center space-x-4 pt-2">
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/company/tata-chemicals/"
                   className="p-2 bg-neutral-700 hover:bg-blue-600 rounded-lg transition-colors duration-200"
                   aria-label="LinkedIn"
                 >
                   <FaLinkedin className="w-5 h-5" />
                 </a>
                 <a 
-                  href="#" 
+                  href="https://x.com/TataChemicals/"
                   className="p-2 bg-neutral-700 hover:bg-gray-900 rounded-lg transition-colors duration-200"
                   aria-label="X (Twitter)"
                 >
                   <FaXTwitter className="w-5 h-5" />
                 </a>
                 <a
-                  href="#" 
+                  href="https://www.youtube.com/user/TataChemicalsLtd"
                   className="p-2 bg-neutral-700 hover:bg-red-600 rounded-lg transition-colors duration-200"
                   aria-label="YouTube"
                 >
                   <FaYoutube className="w-5 h-5" />
                 </a>
                 <a
-                  href="mailto:contact@tatachemicals.com" 
+                  href="mailto:contact@tatachemicals.com"
                   className="p-2 bg-neutral-700 hover:bg-blue-500 rounded-lg transition-colors duration-200"
                   aria-label="Email"
                 >

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import TopSection from '../../Components/TopSection';
 
 const StakeholderEngagement = () => {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState({});
+    const [activeTab, setActiveTab] = useState('digital-transformation');
+
 
     useEffect(() => {
         const observerOptions = {
@@ -66,87 +69,59 @@ const StakeholderEngagement = () => {
         }
     ];
 
+    const tabs = [
+        {
+            id: 'Customers',
+            title: 'Customers',
+            label: 'Customers'
+        },
+        {
+            id: 'Employees',
+            title: 'Employees',
+            label: 'Employees'
+        },
+        {
+            id: 'Communities',
+            title: 'Communities/Society',
+            label: 'Communities/Society'
+        },
+        {
+            id: 'Shareholders',
+            title: 'Shareholders',
+            label: 'Shareholders'
+        },
+        {
+            id: 'Suppliers',
+            title: 'Suppliers',
+            label: 'Suppliers'
+        },
+        {
+            id: 'Legend',
+            title: 'Legend',
+            label: 'Legend'
+        }
+    ];
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
             {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="relative container mx-auto px-6 py-20">
-                    <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}
-                    >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            Stakeholder Engagement
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className='text-center mt-5'>
-                            <p className='text-8xl text-[#1368b4]'>We Listen, Understand, Deliver. </p>
-                            <p className='text-xl mt-5'>
-                                Tata Chemicals acknowledges the importance of fostering robust partnerships with stakeholders
-                                to ensure holistic growth and long-term value creation. We have open dialogues with Communities
-                                / Society, Employees, Shareholders, Customers, Suppliers and Government. This helps
-                                identify pressing issues and develop strategies to mitigate them efficiently. As a responsible
-                                corporate citizen, we believe in upholding transparency and ethical integrity and will continue to
-                                keep stakeholder engagement as the cornerstone of our growth strategy.
-                            </p>
-                        </div>
-
-                        {/* Smooth scroll navigation */}
-                        <div className="flex justify-center mt-12 space-x-4">
-                            <button
-                                onClick={() => scrollToSection('Customers')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Customers
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('Employees')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Employees
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('Communities')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Communities / Society
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('Shareholders')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Shareholders
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('Suppliers')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Suppliers
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('Legend')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Legend
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            {/* Top Section */}
+            <TopSection
+                title="Stakeholder Engagement"
+                subtitle="We Listen, Understand, Deliver."
+                description="Tata Chemicals acknowledges the importance of fostering robust partnerships with stakeholders to ensure holistic growth and long-term value creation. We have open dialogues with Communities / Society, Employees, Shareholders, Customers, Suppliers and Government. This helps identify pressing issues and develop strategies to mitigate them efficiently. As a responsible corporate citizen, we believe in upholding transparency and ethical integrity and will continue to keep stakeholder engagement as the cornerstone of our growth strategy."
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabClick={scrollToSection}
+                isVisible={isVisible}
+            />
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
                 <div
-                data-animate
-                className={`transition-all duration-1000 delay-100 transform ${isVisible[''] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
+                    data-animate
+                    className={`transition-all duration-1000 delay-100 transform ${isVisible[''] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
                         <div className="max-w-6xl mx-auto">
@@ -194,13 +169,13 @@ const StakeholderEngagement = () => {
                             </div>
                         </div>
                         <div className='mt-10 space-y-10'>
-                        <img src="ValueCreationApproach/Stakeholder/1.webp" alt="" id='Customers'/>
-                            <img src="ValueCreationApproach/Stakeholder/2.webp" alt="" id='Employees'/>
-                            <img src="ValueCreationApproach/Stakeholder/4.webp" alt="" id='Communities'/>
-                            <img src="ValueCreationApproach/Stakeholder/5.webp" alt="" id='Shareholders'/>
-                            <img src="ValueCreationApproach/Stakeholder/6.webp" alt="" id='Suppliers'/>
-                            <img src="ValueCreationApproach/Stakeholder/7.webp" alt=""/>
-                            <img src="ValueCreationApproach/Stakeholder/3.webp" alt="" id='Legend'/>
+                            <img src="ValueCreationApproach/Stakeholder/1.webp" alt="" id='Customers' />
+                            <img src="ValueCreationApproach/Stakeholder/2.webp" alt="" id='Employees' />
+                            <img src="ValueCreationApproach/Stakeholder/4.webp" alt="" id='Communities' />
+                            <img src="ValueCreationApproach/Stakeholder/5.webp" alt="" id='Shareholders' />
+                            <img src="ValueCreationApproach/Stakeholder/6.webp" alt="" id='Suppliers' />
+                            <img src="ValueCreationApproach/Stakeholder/7.webp" alt="" />
+                            <img src="ValueCreationApproach/Stakeholder/3.webp" alt="" id='Legend' />
                         </div>
 
                     </div>

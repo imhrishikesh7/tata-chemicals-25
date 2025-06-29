@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import HeaderWRedBottom from '../../Components/HeaderWRedBottom';
 import MitigationStrategies from '../../Components/MitigationStrategies';
+import TopSection from '../../Components/TopSection';
 
 const RiskManagemant = () => {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState({});
+        const [activeTab, setActiveTab] = useState('digital-transformation');
 
     useEffect(() => {
         const observerOptions = {
@@ -36,56 +38,26 @@ const RiskManagemant = () => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
+     const tabs = [
+        {
+            id: 'framework',
+            title: 'Risk MAnagement Framework',
+            label: 'Risk MAnagement Framework'
+        }
+    ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
             {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="relative container mx-auto px-6 py-20">
-                    <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}
-                    >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            Risk Management
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className='text-center mt-5'>
-                            <p className='text-2xl text-[#432c87]'>Sustainable growth depends on the ability to manage both internal and external risks, including
-                                market volatility, regulatory developments and operational disruptions. TCL has implemented a
-                                defined risk management framework aimed at identifying material risks early, supporting timely
-                                responses and reducing potential impacts on business performance.</p>
-                            <p className='text-xl mt-5'>
-                                This framework operates under the governance of the Risk Management Committee, which regularly reviews risk
-                                exposures, evaluates mitigation measures and ensures integration with overall strategic planning.
-                            </p>
-                        </div>
-
-                        {/* Smooth scroll navigation */}
-                        <div className="flex justify-center mt-12 space-x-4">
-                            <button
-                                onClick={() => scrollToSection('framework')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Risk Management Framework
-                            </button>
-                            {/* <button
-                                onClick={() => scrollToSection('message-section')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Mitigation Strategies
-                            </button> */}
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <TopSection
+                            title="Risk Management"
+                            subtitle="Sustainable growth depends on the ability to manage both internal and external risks, including market volatility, regulatory developments and operational disruptions. TCL has implemented a defined risk management framework aimed at identifying material risks early, supporting timely responses and reducing potential impacts on business performance."
+                            description="This framework operates under the governance of the Risk Management Committee, which regularly reviews risk exposures, evaluates mitigation measures and ensures integration with overall strategic planning."
+                            tabs={tabs}
+                            activeTab={activeTab}
+                            onTabClick={scrollToSection}
+                            isVisible={isVisible}
+                        />
 
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">

@@ -80,7 +80,7 @@ const BODSlider = () => {
                 {bodImages.map((img, index) => (
                     <div key={index} className="px-2">
                         <div className="group relative rounded-2xl overflow-hidden transition-transform hover:scale-105 duration-300">
-                            <div className="aspect-[3/4] bg-gradient-to-br from-blue-50 to-indigo-50">
+                            <div className="aspect-[3/4] bg-gradient-to-br py-4 from-blue-50 to-indigo-50">
                                 <img
                                     src={img}
                                     alt={`Director ${index + 1}`}

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import HeadingWRedCorner from '../../Components/HeadingWRedCorner';
+import TopSection from '../../Components/TopSection';
 
 const SpecialtyProducts = () => {
     const [scrollY, setScrollY] = useState(0);
-    const [isVisible, setIsVisible] = useState({});
+    const [activeTab, setActiveTab] = useState('value');
+    const [isVisible, setIsVisible] = useState({ 'hero-title': true });
+  
+
 
     useEffect(() => {
         const observerOptions = {
@@ -34,57 +38,24 @@ const SpecialtyProducts = () => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
+    const tabs = [
+        { label: 'Agri-business', id: 'agri' },
+        { label: 'Specialty Silica', id: 'ss' },
+        { label: 'Prebiotics', id: 'prebiotics' },
+      ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
             {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="relative container mx-auto px-6 py-20">
-                    <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}
-                    >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            Specialty Products Business
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className='text-center mt-5'>
-                            <p className='text-2xl text-[#432c87]'>With sustained performance in Agri-business, Specialty Silica and Prebiotics, the Speciality
-                                Products division kept growing. To handle shifting market dynamics, strategy is centred on
-                                innovation, sustainability and operational efficacy. We increased capacity, bolstered worldwide
-                                footprint and launched new sustainable product lines during the year.</p>
-                        </div>
-
-                        {/* Navigation Buttons */}
-                        <div className="flex justify-center mt-12 space-x-4 flex-wrap gap-2">
-                            <button
-                                onClick={() => scrollToSection('agri-business')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Agri-business
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('specialty-silica')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Specialty Silica
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('prebiotics')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Prebiotics
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           <TopSection
+            title="Specialty Products Business"
+            description={"ormance in Agri-business, Specialty Silica and Prebiotics, the Speciality Products division kept growing. To handle shifting market dynamics, strategy is centred on innovation, sustainability and operational efficacy. We increased capacity, bolstered worldwide footprint and launched new sustainable product lines during the year."}
+            tabs={tabs}
+            activeTab={activeTab}
+            onTabClick={scrollToSection}
+            isVisible={isVisible}
+           />
+          
 
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
@@ -133,7 +104,7 @@ const SpecialtyProducts = () => {
 
                 {/* Agri-business Section */}
                 <div
-                    id="agri-business"
+                    id="agri"
                     data-animate
                     className={`scroll-mt-30 transition-all duration-1000 delay-200 transform ${isVisible['agri-business'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
@@ -263,7 +234,7 @@ const SpecialtyProducts = () => {
 
                 {/* Specialty Silica Section */}
                 <div
-                    id="specialty-silica"
+                    id="ss"
                     data-animate
                     className={`scroll-mt-30 transition-all duration-1000 delay-300 transform ${isVisible['specialty-silica'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}

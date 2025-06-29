@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TopSection from '../../Components/TopSection';
 // import StrategyDashboard from '../../Components/StrategyDashbord';
 // import { div, img } from 'framer-motion/client';
 
@@ -105,33 +106,12 @@ const BusinessStrategy = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
             {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="relative container mx-auto px-6 py-20">
-                    <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}
-                    >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            Business Strategy
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className='text-center mt-5'>
-                            <p className='text-2xl text-[#1368b4] m-semi-bold'>Leading through Sustainability, Customer Centricity and Operational Excellence</p>
-                            <p className='text-xl mt-5'>
-                                The integration of sustainable practices and operational excellence forms a robust foundation that allows Tata Chemicals to
-                                consistently provide high-quality products and services to customers, minimise operational expenses and maintain resilience through
-                                functional excellence.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <TopSection
+      title="Business Strategy"
+      subtitle="Leading through Sustainability, Customer Centricity and Operational Excellence"
+      description="The integration of sustainable practices and operational excellence forms a robust foundation that allows Tata Chemicals to consistently provide high-quality products and services to customers, minimise operational expenses and maintain resilience through functional excellence."
+    />
+
 
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
@@ -183,9 +163,7 @@ const BusinessStrategy = () => {
                         ))}
                     </div>
                 </div>
-                <div>
-                    <img src="ValueCreationApproach/BusinessStategy/3.webp" alt="" />
-                </div>
+                
                 <div
                     id="strategy-section"
                     data-animate
@@ -210,6 +188,9 @@ const BusinessStrategy = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div>
+                    {/* <img src="ValueCreationApproach/BusinessStategy/3.webp" alt="" /> */}
                 </div>
             </div>
         </div>

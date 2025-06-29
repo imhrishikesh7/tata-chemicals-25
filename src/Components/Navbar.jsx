@@ -32,7 +32,7 @@ const navItems = [
         ],
     },
     {
-        label: "Functions",
+        label: "Innovations",
         submenu: [
             { label: "Research and Development" },
             { label: "Technology" },

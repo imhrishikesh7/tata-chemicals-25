@@ -38,7 +38,7 @@ const Stakeholder = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#3da8a4] via-[#3088ae] to-[#2469b2] scroll-smooth">
             {/* Hero Section */}
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden mt-6">
                 <div
                     className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
                     style={{ transform: `translateY(${scrollY * 0.5}px)` }}
@@ -50,7 +50,7 @@ const Stakeholder = () => {
                         className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                             }`}
                     >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center text-white mb-6">
+                        <h1 className="text-4xl md:text-6xl lg:text-6xl font-bold text-center text-white mb-6">
                             Engaging with Our Shareholders:
                             Information and Grievance Redressal
                         </h1>

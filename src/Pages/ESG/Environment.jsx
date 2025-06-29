@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import TopSection from '../../Components/TopSection';
 
 const Environment = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState({});
   const [currentSlide, setCurrentSlide] = useState(0);
+   const [activeTab, setActiveTab] = useState('');
 
   useEffect(() => {
     const observerOptions = {
@@ -35,45 +37,30 @@ const Environment = () => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
+     const tabs = [
+        {
+            id: 'targets-initiatives',
+            title: 'Tata Chemicals Environment Targets and Initiatives',
+            label: 'Tata Chemicals Environment Targets and Initiatives'
+        },
+        {
+            id: 'driving',
+            title: 'Driving Net Zero',
+            label: 'Driving Net Zero'
+        }
+    ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-        />
-        <div className="relative container mx-auto px-6 py-16">
-          <div
-            id="hero-title"
-            data-animate
-            className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-              }`}
-          >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-              Environment
-            </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-[#2ca9a1] to-[#40b2a2] mx-auto rounded-full mb-8"></div>
+                     <TopSection
+                                  title="Technology"
+                                  tabs={tabs}
+                                  activeTab={activeTab}
+                                  onTabClick={scrollToSection}
+                                  isVisible={isVisible}
+                              />
 
-            {/* Quick Navigation */}
-            <div className="flex justify-center flex-wrap gap-4">
-              <button
-                onClick={() => scrollToSection('carbon-footprint')}
-                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-              >
-                Reducing our Carbon Footprint
-              </button>
-              <button
-                onClick={() => scrollToSection('targets-initiatives')}
-                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-              >
-                Tata Chemicals Environment Targets and Initiatives
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Main Content with Background Image */}
       <div
@@ -308,7 +295,7 @@ const Environment = () => {
                 <img src="ESG/Environment/India18.png" alt="" className='mt-25' />
               </div>
             </div>
-            <div className='my-6'>
+            <div className='my-6' id='driving'>
               <img src="./envc1.webp" alt="" />
             </div>
             <div className='my-6'>

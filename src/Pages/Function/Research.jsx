@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import HeadingWRedCorner from '../../Components/HeadingWRedCorner';
 import { motion } from 'framer-motion';
+import TopSection from '../../Components/TopSection';
 
 const Research = () => {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState({});
+    const [activeTab, setActiveTab] = useState('digital-transformation');
 
     useEffect(() => {
         const observerOptions = {
@@ -36,73 +38,35 @@ const Research = () => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
+    const tabs = [
+        {
+            id: 'key',
+            title: 'Key Developments',
+            label: 'Key Developments'
+        },
+        {
+            id: 'products',
+            title: 'Innovative Products, Harnessing Green Chemistry',
+            label: 'Innovative Products, Harnessing Green Chemistry'
+        },
+        {
+            id: 'way',
+            title: 'Way Forward',
+            label: 'Way Forward'
+        }
+    ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
             {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="relative container mx-auto px-6 py-20">
-                    <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}
-                    >
-                        <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            Research and Development
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className='text-center mt-5'>
-                            <p className='text-2xl text-[#432c87]'>R&D focus on developing
-                                green sustainable solutions
-                                through advanced green
-                                chemistry principles and
-                                cutting-edge research. In the
-                                past year, our R&D team has
-                                made strides in developing
-                                specialty products, bio-based
-                                products and advanced
-                                agrochemicals, contributing
-                                to both business growth and
-                                achieving sustainability goals.
-                                Tata Chemicals operates three
-                                Innovation Centres, located
-                                in Pune and Bengaluru. These
-                                centres conduct research
-                                and development activities
-                                focused on specialty products,
-                                bio-based products and
-                                agricultural biotechnology.</p>
-                        </div>
-
-                        {/* Smooth scroll navigation */}
-                        <div className="flex justify-center mt-12 space-x-4">
-                            <button
-                                onClick={() => scrollToSection('key')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] m-semi-bold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Key Developments
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('products')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] m-semi-bold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Innovative Products, Harnessing Green Chemistry
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('way')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] m-semi-bold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Way Forward
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <TopSection
+                title=" Research and Development"
+                description="R&D focus on developing green sustainable solutions through advanced green chemistry principles and cutting-edge research. In the past year, our R&D team has made strides in developing specialty products, bio-based products and advanced agrochemicals, contributing to both business growth and achieving sustainability goals. Tata Chemicals operates three Innovation Centres, located in Pune and Bengaluru. These centres conduct research and development activities focused on specialty products, bio-based products and agricultural biotechnology."
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabClick={scrollToSection}
+                isVisible={isVisible}
+            />
 
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
@@ -280,7 +244,7 @@ const Research = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.3 }}
-                            >
+                        >
                             <div className="bg-gradient-to-r from-[#1368b4] to-transparent p-4 mb-5">
                                 <div className="bg-[#ed1a3b] text-white text-sm font-semibold inline-block px-3 py-1 rounded-br-2xl mb-2">
                                     Case Study

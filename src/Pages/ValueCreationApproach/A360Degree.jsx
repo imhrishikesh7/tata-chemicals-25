@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import HeaderWRedBottom from '../../Components/HeaderWRedBottom';
+import TopSection from '../../Components/TopSection';
 
 const A360Degree = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -31,13 +32,38 @@ const A360Degree = () => {
 
     // Smooth scroll utility function
     const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
+        setActiveTab(sectionId);
+        const element = document.getElementById('message-section');
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
 
-    // Tab data
+    // Tab data for TopSection
+    const tabs = [
+        {
+            id: 'digital-transformation',
+            title: 'Embracing AI and Digital Transformation',
+            label: 'Embracing AI and Digital Transformation'
+        },
+        {
+            id: 'supply-chain',
+            title: 'Supply Chain Resilience',
+            label: 'Supply Chain Resilience'
+        },
+        {
+            id: 'green-chemistry',
+            title: 'Shift towards Low Carbon Technologies and Green Chemistry',
+            label: 'Shift towards Low Carbon Technologies and Green Chemistry'
+        },
+        {
+            id: 'innovation',
+            title: 'Operational Efficiencies and Asset Realisation',
+            label: 'Operational Efficiencies and Asset Realisation'
+        }
+    ];
+
+    // Tab data with content
     const tabsData = [
         {
             id: 'green-chemistry',
@@ -89,7 +115,7 @@ const A360Degree = () => {
                         <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
                             <p className="text-gray-700">
                                 Approximately 20-25% of the chemical
-                                industry’s capital expenditure is directed
+                                industry's capital expenditure is directed
                                 towards green chemistry, growing at ~5%
                                 CAGR. Tata Chemicals dedicates 100% of its
                                 R&D expenditure to green chemistry.
@@ -153,7 +179,7 @@ const A360Degree = () => {
                                 AI solutions, up from 70% in 2023. These
                                 solutions span production (31%), inventory
                                 management (28%) and customer
-                                service (28%), demonstrating AI’s role in
+                                service (28%), demonstrating AI's role in
                                 optimising operations.
                                 <br />
                                 <br />
@@ -267,7 +293,7 @@ const A360Degree = () => {
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="bg-white/70 p-4 rounded-xl border border-gray-200/50">
                             <p className="text-gray-700">
-                                The chemical industry’s focus on resilience
+                                The chemical industry's focus on resilience
                                 has evolved, with cost management
                                 remaining crucial, especially in areas with
                                 higher energy prices. Many companies are
@@ -321,89 +347,15 @@ const A360Degree = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
-            {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="relative container mx-auto px-6 py-20">
-                    <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}
-                        >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            A 360-degree View of
-                            Operating Landscape
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#ed1a3b] to-[#ff4757] mx-auto rounded-full"></div>
-                        <div className='text-center mt-5'>
-                            <p className='text-2xl text-[#432c87]'>Our operating environment is increasingly becoming more complex posing varied challenges and
-                                opportunities. Having Manufacturing operations across four continents increase exposure to global
-                                geopolitical developments and economic cyclicality. Being a chemicals manufacturing company, the
-                                business is influenced by stringent environmental regulations and heightened social sensitivities.</p>
-                            <p className='text-xl mt-5'>
-                                We are conscious of the influence of these mega trends and events on our business and have structured approaches
-                                like materiality assessment, risk and mitigation frameworks among others to identify and assess these trends.
-                            </p>
-                        </div>
-
-                        {/* Smooth scroll navigation */}
-                        <div className="flex justify-center mt-12 space-x-4 flex-wrap gap-4">
-                            <button
-                                onClick={() => {
-                                    setActiveTab('digital-transformation');
-                                    scrollToSection('message-section');
-                                }}
-                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'digital-transformation'
-                                    ? 'bg-[#1368b4] text-white shadow-lg'
-                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
-                                    }`}
-                            >
-                                Embracing AI and Digital Transformation
-                            </button>
-                            <button
-                                onClick={() => {
-                                    setActiveTab('supply-chain');
-                                    scrollToSection('message-section');
-                                }}
-                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'supply-chain'
-                                    ? 'bg-[#1368b4] text-white shadow-lg'
-                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
-                                    }`}
-                            >
-                                Supply Chain Resilience
-                            </button>
-                            <button
-                                onClick={() => {
-                                    setActiveTab('green-chemistry');
-                                    scrollToSection('message-section');
-                                }}
-                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'green-chemistry'
-                                    ? 'bg-[#1368b4] text-white shadow-lg'
-                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
-                                    }`}
-                            >
-                                Shift towards Low Carbon Technologies and Green Chemistry
-                            </button>
-                            <button
-                                onClick={() => {
-                                    setActiveTab('innovation');
-                                    scrollToSection('message-section');
-                                }}
-                                className={`px-6 py-3 backdrop-blur-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${activeTab === 'innovation'
-                                    ? 'bg-[#1368b4] text-white shadow-lg'
-                                    : 'bg-white/20 text-[#1368b4] hover:bg-white/30'
-                                    }`}
-                            >
-                                Operational Efficiencies and Asset Realisation
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {/* Top Section */}
+            <TopSection
+                title="A 360-degree View of Operating Landscape"
+                description="Our operating environment is increasingly becoming more complex posing varied challenges and opportunities. Having Manufacturing operations across four continents increase exposure to global geopolitical developments and economic cyclicality. Being a chemicals manufacturing company, the business is influenced by stringent environmental regulations and heightened social sensitivities. We are conscious of the influence of these mega trends and events on our business and have structured approaches like materiality assessment, risk and mitigation frameworks among others to identify and assess these trends."
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabClick={scrollToSection}
+                isVisible={isVisible}
+            />
 
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">

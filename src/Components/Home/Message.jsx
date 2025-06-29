@@ -60,7 +60,7 @@ const Message = () => {
     return (
         <div 
             ref={containerRef}
-            className='relative margina h-screen flex items-center bg-slate-900'
+            className='relative margina h-scree flex py-10 items-center bg-slate-900'
         >
             {/* Subtle background pattern */}
             <div className="absolute inset-0 overflow-hidden">

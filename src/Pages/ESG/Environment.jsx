@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import TopSection from '../../Components/TopSection';
+import { Recycle, Droplets, Cog, Fish } from 'lucide-react';
 
 const Environment = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState({});
   const [currentSlide, setCurrentSlide] = useState(0);
-   const [activeTab, setActiveTab] = useState('');
+  const [activeTab, setActiveTab] = useState('');
 
   useEffect(() => {
     const observerOptions = {
@@ -37,29 +38,29 @@ const Environment = () => {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-     const tabs = [
-        {
-            id: 'targets-initiatives',
-            title: 'Tata Chemicals Environment Targets and Initiatives',
-            label: 'Tata Chemicals Environment Targets and Initiatives'
-        },
-        {
-            id: 'driving',
-            title: 'Driving Net Zero',
-            label: 'Driving Net Zero'
-        }
-    ];
+  const tabs = [
+    {
+      id: 'targets-initiatives',
+      title: 'Tata Chemicals Environment Targets and Initiatives',
+      label: 'Tata Chemicals Environment Targets and Initiatives'
+    },
+    {
+      id: 'driving',
+      title: 'Driving Net Zero',
+      label: 'Driving Net Zero'
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
       {/* Hero Section */}
-                     <TopSection
-                                  title="Technology"
-                                  tabs={tabs}
-                                  activeTab={activeTab}
-                                  onTabClick={scrollToSection}
-                                  isVisible={isVisible}
-                              />
+      <TopSection
+        title="Environment"
+        tabs={tabs}
+        activeTab={activeTab}
+        onTabClick={scrollToSection}
+        isVisible={isVisible}
+      />
 
 
       {/* Main Content with Background Image */}
@@ -105,7 +106,7 @@ const Environment = () => {
             data-animate
           >
             <div className={`transition-all duration-1000 transform ${isVisible['targets-initiatives'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1368b4] mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-white w-fit mx-auto px-8 rounded-2xl backdrop-blur-2xl pt-2 pb-1 bg-[#1368b4] mb-12 text-center">
                 Tata Chemicals Environment Targets and Initiatives
               </h2>
 
@@ -296,10 +297,232 @@ const Environment = () => {
               </div>
             </div>
             <div className='my-6' id='driving'>
-              <img src="./envc1.webp" alt="" />
+              {/* <img src="./envc1.webp" alt="" /> */}
+              <div className="mx-auto bg-white">
+                {/* Header Section with Background */}
+                <div className='mb-6'>
+                  <img src="./ESG/Environment/net-zero.webp" alt="" />
+                </div>
+
+                {/* Subtitle */}
+                <p className="text-gray-700 text-xl mb-8 px-4">
+                  Tata Chemicals is advancing the Tata Group's 'Driving Net Zero' ambition through multiple initiatives
+                </p>
+
+                {/* Three Column Content */}
+                <div className="gap-8 px-4">
+                  {/* Energy Efficiency Improvements */}
+                  <div className="space-y-4">
+                    <div>
+                      <h2 className="text-2xl font-bold text-teal-600 mb-2">Energy Efficiency Improvements</h2>
+                      <div className="w-16 h-1 bg-orange-400 mb-"></div>
+                    </div>
+
+                    <div className="space-y-2 text-gray-700 text-lg leading-relaxed mb-6">
+                      <p>
+                        Upgraded the evaporators at the Mithapur vacuum salt plant, which reduced specific steam consumption by approximately 18%. This upgrade has lowered annual CO₂ emissions by an estimated 198,820 tonnes. We also installed Variable Frequency Drives (VFDs) and Variable Speed Drives (VSDs) across the facility, further reducing emissions by about 85,000 tonnes of CO₂ equivalent each year.
+                      </p>
+
+                      <p>
+                        Installing Electric Calciner technology in Kenya that will reduce the carbon footprint, by replacing HFO with renewable power.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Renewable Energy Investments */}
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <h2 className="text-2xl font-bold text-teal-600 mb-2">Renewable Energy Investments</h2>
+                      <div className="w-16 h-1 bg-orange-400 mb-"></div>
+                    </div>
+
+                    <div className="space-y-2 text-gray-700 text-lg leading-relaxed">
+                      <p>
+                        Commissioning a 2 MW solar power plant at Mithapur township, expected to avoid approximately 1,100 tonnes of CO₂e emissions annually.
+                      </p>
+
+                      <p>
+                        Installing 5 MW solar plant in Kenya to maximise the renewable energy.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Transition to Low-Emission Fuels */}
+                  <div className="space-y-4">
+                    <div>
+                      <h2 className="text-2xl font-bold text-teal-600 mb-2">Transition to Low-Emission Fuels</h2>
+                      <div className="w-16 h-1 bg-orange-400 mb-"></div>
+                    </div>
+
+                    <div className="space-y-2 text-gray-700 text-lg leading-relaxed">
+                      <p>
+                        Conducted trials in India for the use of biomass in current boilers in FY2024-25. The Company plans to do some more trials in FY2025-26 using different types of biomass to scale it up for replacing the coal. Work is in progress to establish a sustainable biomass supply chain.
+                      </p>
+
+                      <p>
+                        Piloting to replace coke with biochar in Mithapur.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className='my-6'>
-              <img src="./envc2.webp" className='w-full' alt="" />
+              {/* <img src="./envc2.webp" className='w-full' alt="" /> */}
+              <div className=" mx-auto ">
+                {/* Circular Economy Section */}
+                <div className="bg-white rounded-lg shadow-lg mb-8 overflow-hidden">
+                  <div className="bg-blue-900 text-white p-6">
+                    <h1 className="text-2xl font-bold mb-2">Pioneering Circular Economy</h1>
+                    <p className="text-blue-100 text-lg">
+                      Advancing the Group's circular economy goals through targeted actions across waste, water
+                      and resource management
+                    </p>
+                  </div>
+
+                  <div className="flex">
+                    {/* Left Content */}
+                    <div className="flex-1 p-6">
+                      {/* Waste Management */}
+                      <div className="mb-8">
+                        <div className="flex items-center mb-4">
+                          <div className="rounded-lg mr-4">
+                            {/* <Recycle className="w-6 h-6 text-blue-600" /> */}
+                            <img src="./ESG/Environment/icon1_no_bg.png" className='w-16 h-16' alt="" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg">Waste Management</h3>
+                            <div className="w-8 h-1 bg-red-500 mt-1"></div>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                          Implemented a comprehensive waste management strategy to minimise waste generation, maximise recycling
+                          and reuse and ensure the safe disposal of waste. Our approach emphasises on-site segregation of waste, enabling
+                          responsible management practices such as 100% recycling of plastic waste, reutilisation of fly ash and safe disposal
+                          across all locations.
+                        </p>
+                      </div>
+
+                      {/* Water Stewardship */}
+                      <div className="mb-8">
+                        <div className="flex items-center mb-4">
+                          <div className="rounded-lg mr-4">
+                            <img src="./ESG/Environment/icon2_no_bg.png" className='w-16 h-16' alt="" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg">Water Stewardship</h3>
+                            <div className="w-8 h-1 bg-red-500 mt-1"></div>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                          Implemented comprehensive measures to reduce water usage, ensuring that all our water sources are metered
+                          and monitored regularly. At Tata Chemicals, we have set stringent annual targets to lower our water consumption
+                          and review progress periodically.
+                        </p>
+                        <p className="text-gray-700 text-lg leading-relaxed mt-3">
+                          To maintain high standards, we utilise advanced treatment systems that ensure discharged water meets
+                          regulatory norms.
+                        </p>
+                      </div>
+
+                      {/* Resource Optimisation */}
+                      <div>
+                        <div className="flex items-center mb-4">
+                          <div className="rounded-lg mr-4">
+                            <img src="./ESG/Environment/icon3_no_bg.png" className='w-16 h-16' alt="" />
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-lg">Resource Optimisation</h3>
+                            <div className="w-8 h-1 bg-red-500 mt-1"></div>
+                          </div>
+                        </div>
+                        <p className="text-gray-700 text-lg leading-relaxed mb-3">
+                          Utilised undersized limestone in cement production process at Mithapur, this reduces the requirement of fresh
+                          limestone in the process.
+                        </p>
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                          In US plant, recovered sodium carbonate decahydrate (DECA) is being used in processing plants as a source
+                          of soda ash liquor makeup. Thereby reducing the consumption of trona.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Right Content - ZLD Card */}
+                    <div className="w-80 bg-blue-900 text-white p-6">
+                      <h3 className="text-xl font-bold mb-4">A step towards Zero Liquid Discharge (ZLD)</h3>
+                      <div className="bg-white/10 rounded-lg mb-4">
+                        <img
+                          src="./ESG/Environment/zld.webp"
+                          alt="Industrial facility"
+                          className="w-full object-cover rounded"
+                        />
+                      </div>
+                      <p className="text-blue-100 text-lg leading-relaxed">
+                        In FY 2025, Rallis operations at Dahej SEZ, continued to develop the capability for Zero Liquid discharge.
+                        The treated water is utilised across various industrial activities, such as in utilities, recycling of condensate water in the
+                        production and gardening purposes, with an average of 84% of total treated being recycled.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Biodiversity Section */}
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <div className="px-6 mt-6">
+                    <h2 className="text-2xl font-bold text-[#1368b4]">Biodiversity</h2>
+                  </div>
+
+                  <div className="flex">
+                    {/* Left Content */}
+                    <div className="flex-1 p-6">
+                      <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                        As a part of our commitment to biodiversity, we have initiated a three-season biodiversity impact assessment at
+                        Mithapur. This initiative aligns with Tata Chemicals' overriding efforts to promote ecological balance and preserve the rich
+                        natural heritage of the region.
+                      </p>
+
+                      <div className="flex items-start">
+                        <div className="mr-6">
+                          <h4 className="font-bold text-gray-800 mb-2">Conserving marine life: Saved 979 sharks at Gujarat coast</h4>
+                          <div className="w- h-24rounded-lg flex items-center justify-center">
+                            <img src="./ESG/Environment/shark_no_bg.webp" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className='md:w-1/2 flex'>
+                      <div className="flex flex-col h-full bg-[#003f84] text-white rounded-br-[50px] p-4 sm:p-6 md:p-4 w-full">
+                        <div className="bg-gradient-to-r from-[#1368b4] to-transparent px-4 rounded-t-md mb-5">
+                          <div className="bg-[#ed1a3b] text-white text-sm font-semibold inline-block px-3 py-1 mb-3">
+                            Case Study
+                          </div>
+                          <h3 className="font-semibold text-2xl sm:text-3xl">
+                            At Tata Chemicals Europe, Conserving <br />
+                            and Enriching Biodiversity is a Priority
+                          </h3>
+                        </div>
+
+                        <div className="bg-white text-black rounded-br-4xl mt-0 flex-grow flex flex-col">
+                          <div className='p-6'>
+                            <p className="w-full mb-4 text-[#007bb4] text-xl font-semibold leading-7">
+                              The Biodiversity Restoration Project at Cledford Lagoons represents a transformation of the British Salt site. It has been used for industrial purposes for over a century. This initiative aims to convert the area into a wildlife reserve, increasing biodiversity habitats and creating publicly accessible green space.
+                            </p>
+                            <p className="w-full mb-4 text-xl font-medium leading-7">
+                              It also supports local housing developments by creating Biodiversity Net Gain (BNG) units, helping developers meet the UK's 10% biodiversity increase requirement.
+                            </p>
+                            <p className="w-full text-xl font-medium leading-7">
+                              In partnership with Green Earth Development Group (GEDG), the site is being restored, using surplus soil from construction projects, avoiding landfill and protecting local water sources. Feedback from the community has been implemented to foster local ownership and £1 per soil delivery is donated to a Community Fund to support local causes. The project commits to managing the site for 30 years, ensuring rare habitats thrive.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, ChevronDown, ChevronUp, Download } from 'lucide-react';
-import { FaLinkedin, FaXTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa6'
+import { FaLinkedin, FaXTwitter, FaYoutube, FaGlobe } from 'react-icons/fa6'
 import { Link } from 'react-router-dom';
 const Footer = () => {
   const [openAccordion, setOpenAccordion] = useState(null);
@@ -62,7 +62,7 @@ const financialStatements = [
             <div className="flex items-center space-x-4">
               <a href="https://www.tatachemicals.com/" className="block">
                 <img
-                  src="/tata-chemicals-blue.svg"
+                  src="./tata-chemicals-blue.svg"
                   alt="Tata Chemicals Logo"
                   className="h-7 object-contain filter brightness-0 invert"
                 />
@@ -96,11 +96,11 @@ const financialStatements = [
                   <FaYoutube className="w-5 h-5" />
                 </a>
                 <a
-                  href="mailto:contact@tatachemicals.com"
+                  href="https://www.tatachemicals.com/"
                   className="p-2 bg-neutral-700 hover:bg-blue-500 rounded-lg transition-colors duration-200"
                   aria-label="Email"
                 >
-                  <FaEnvelope className="w-5 h-5" />
+                  <FaGlobe className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -227,7 +227,7 @@ const financialStatements = [
                 className="inline-flex items-center space-x-1 hover:text-neutral-300 transition-colors duration-200"
               >
                 <img
-                  src="/k&a logo.svg"
+                  src="./k&a logo.svg"
                   alt="K&A Developer Logo"
                   className="w-4 h-4 object-contain"
                 />

@@ -41,8 +41,13 @@ const RiskManagemant = () => {
      const tabs = [
         {
             id: 'framework',
-            title: 'Risk MAnagement Framework',
-            label: 'Risk MAnagement Framework'
+            title: 'Risk Management Framework',
+            label: 'Risk Management Framework'
+        },
+        {
+            id: 'mitigation',
+            title: 'Mitigation Strategies',
+            label: 'Mitigation Strategies'
         }
     ];
 
@@ -190,7 +195,9 @@ const RiskManagemant = () => {
                                     </div>
                                 </div>
                             </div>
+                            <div id='mitigation'>
                             <MitigationStrategies/>
+                            </div>
                         </div>
                     </div>
                 </div>

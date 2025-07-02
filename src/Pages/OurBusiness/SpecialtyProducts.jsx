@@ -40,7 +40,7 @@ const SpecialtyProducts = () => {
     };
     const tabs = [
         { label: 'Agri-business', id: 'agri' },
-        { label: 'Specialty Silica', id: 'ss' },
+        { label: 'Specialty Silica', id: 'specialty-silica' },
         { label: 'Prebiotics', id: 'prebiotics' },
       ];
 
@@ -106,12 +106,12 @@ const SpecialtyProducts = () => {
                 <div
                     id="agri"
                     data-animate
-                    className={`scroll-mt-30 transition-all duration-1000 delay-200 transform ${isVisible['agri-business'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`scroll-mt-30 transition-all duration-1000 delay-200 transform ${isVisible['agri'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
                         <div className="flex items-center mb-8">
-                            <HeadingWRedCorner title='Agri-business' />
+                            <HeadingWRedCorner title='Agri Business' />
                         </div>
 
                         <p className='text-xl mb-5 text-[#4d4d4f]'>Rallis India Limited, our subsidiary, operates in the agricultural inputs sector with over 77 years of experience. We offer products and services
@@ -234,7 +234,7 @@ const SpecialtyProducts = () => {
 
                 {/* Specialty Silica Section */}
                 <div
-                    id="ss"
+                    id="specialty-silica"
                     data-animate
                     className={`scroll-mt-30 transition-all duration-1000 delay-300 transform ${isVisible['specialty-silica'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import HeadingWRedCorner from '../../Components/HeadingWRedCorner';
+import TopSection from '../../Components/TopSection';
 
 const BasicChemistry = () => {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState({});
     const [reveal, setReveal] = useState(false)
-    const [activeTab, setActiveTab] = useState('value');
+    const [activeTab, setActiveTab] = useState('');
     const scrollToSection = (id) => {
         setActiveTab(id);
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -65,74 +66,44 @@ const BasicChemistry = () => {
             Process Efficiency`
         ]
     ];
+    const tabs = [
+        {
+            id: 'value',
+            title: 'Value Proposition',
+            label: 'Value Proposition'
+        },
+        {
+            id: 'india-ops',
+            title: 'India',
+            label: 'India'
+        },
+        {
+            id: 'us-ops',
+            title: 'US',
+            label: 'US'
+        },
+        {
+            id: 'uk-ops',
+            title: 'UK',
+            label: 'UK'
+        },
+        {
+            id: 'africa-ops',
+            title: 'Kenya',
+            label: 'Kenya'
+        }
+    ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
-            {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-                />
-                <div className="relative overflow-hidden bg-gray-100">
-                    {/* Reveal Layer */}
-                    <div
-                        className={`absolute inset-0 bg-white transition-transform duration-[1200ms] ease-in-out z-10 ${reveal ? 'translate-y-full' : 'translate-y-0'
-                            }`}
-                    />
-
-                    {/* Content */}
-                    <div className="relative z-20 container mx-auto px-6 py-24">
-                        <div
-                            id="hero-title"
-                            data-animate
-                            className={`transition-all duration-1000 transform ${isVisible['hero-title']
-                                ? 'translate-y-0 opacity-100'
-                                : 'translate-y-10 opacity-0'
-                                }`}
-                        >
-                            <h1 className="text-4xl md:text-6xl lg:text-6xl font-extrabold text-center text-[#1b5587] tracking-tight mb-4">
-                                Basic Chemistry Business
-                            </h1>
-
-                            <div className="mx-auto w-20 h-[2px] bg-red-600 mb-4 rounded-sm" />
-
-                            <p className="text-center max-w-3xl mx-auto text-lg md:text-xl text-neutral-700 leading-relaxed">
-                                Tata Chemicals’ Basic Chemistry Business focuses on the production of essential inorganic chemicals such as soda ash, sodium bicarbonate, and salt — used across glass, detergents, food, and industrial sectors.
-                            </p>
-                        </div>
-
-                        {/* In-page Navigation */}
-                        <div className="w-full mt-14">
-                            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3 w-full max-w-5xl mx-auto">
-                                {[
-                                    { label: 'Value Proposition', id: 'value' },
-                                    { label: 'India', id: 'india-ops' },
-                                    { label: 'Case Study', id: 'case-study' },
-                                    { label: 'US', id: 'us-ops' },
-                                    { label: 'UK', id: 'uk-ops' },
-                                    { label: 'Kenya', id: 'africa-ops' },
-                                ].map(({ label, id }) => (
-                                    <button
-                                        key={id}
-                                        onClick={() => scrollToSection(id)}
-                                        className={`py-3 rounded-2xl w-full text-sm sm:text-base cursor-pointer font-medium border transition-all duration-300
-          ${activeTab === id
-                                                ? 'bg-[#1b5587] text-white shadow-md'
-                                                : 'bg-white text-[#1b5587] border-neutral-300 hover:bg-neutral-100'
-                                            }
-        `}
-                                    >
-                                        {label}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
+            <TopSection
+                title="Basic Chemistry Business"
+                subtitle='Tata Chemicals’ Basic Chemistry Business focuses on the production of essential inorganic chemicals such as soda ash, sodium bicarbonate, and salt — used across glass, detergents, food, and industrial sectors.'
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabClick={scrollToSection}
+                isVisible={isVisible}
+            />
             {/* Main Content */}
             <div className="container mx-auto px-6 space-y-20 mt-10 pb-10">
                 {/* Value Proposition Section */}

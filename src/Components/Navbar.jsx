@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Menu, X, ExternalLink } from "lucide-react";
-import { FaLinkedin, FaXTwitter, FaYoutube, FaEnvelope } from 'react-icons/fa6'
+import { FaLinkedin, FaXTwitter, FaYoutube, FaGlobe  } from 'react-icons/fa6'
 import { Link } from "react-router-dom";
 const navItems = [
     {
@@ -142,7 +142,7 @@ export default function Navbar() {
                             <div className="flex-shrink-0">
                                 <Link to="/" className="flex items-center">
                                     <img
-                                        src="/tata-chemicals-blue.svg"
+                                        src="./tata-chemicals-blue.svg"
                                         alt="Tata Chemicals"
                                         className="h-4 w-auto"
                                     />
@@ -191,10 +191,10 @@ export default function Navbar() {
                                     </a>
 
                                     <a
-                                        href="mailto:contact@tatachemicals.com"
+                                        href="https://www.tatachemicals.com/"
                                         className="text-gray-500 hover:text-[#1467b3] transition-all duration-200 hover:scale-110"
                                     >
-                                        <FaEnvelope className="h-6 w-6" />
+                                        <FaGlobe  className="h-5 w-5" />
                                     </a>
                                 </div>
                             </div>
@@ -227,7 +227,7 @@ export default function Navbar() {
                             }`}>
                             <Link to="/" className="flex items-center">
                                 <img
-                                    src="/tata-chemicals-blue.svg"
+                                    src="./tata-chemicals-blue.svg"
                                     alt="Tata Chemicals"
                                     className="h-4 w-auto"
                                 />
@@ -251,7 +251,7 @@ export default function Navbar() {
                                     <div key={index} className="relative">
                                         <button
                                             onClick={() => handleSubmenuToggle(index)}
-                                            className={`flex items-center px-3 py-4 text-sm font-medium transition-all duration-200 ${activeSubmenu === index
+                                            className={`flex cursor-pointer items-center px-3 py-4 text-sm font-medium transition-all duration-200 ${activeSubmenu === index
                                                     ? 'text-blue-600 border-b-2 border-blue-600'
                                                     : 'text-gray-700 hover:text-[#1467b3]'
                                                 }`}
@@ -272,7 +272,7 @@ export default function Navbar() {
                                                                 href={subItem.href}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
-                                                                className="flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-white/50 hover:text-[#1467b3] transition-all duration-200 rounded-md mx-2"
+                                                                className="flex cursor-pointer items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-white/50 hover:text-[#1467b3] transition-all duration-200 rounded-md mx-2"
                                                             >
                                                                 {subItem.label}
                                                             </a>
@@ -335,7 +335,7 @@ export default function Navbar() {
                                                         href={subItem.href}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="flex items-center justify-between px-6 py-2 text-sm text-gray-600 hover:text-[#1467b3] hover:bg-white/40 transition-all duration-200 rounded-md mx-2"
+                                                        className="flex items-center cursor-pointer justify-between px-6 py-2 text-sm text-gray-600 hover:text-[#1467b3] hover:bg-white/40 transition-all duration-200 rounded-md mx-2"
                                                         onClick={() => setMobileOpen(false)}
                                                     >
                                                         {subItem.label}
@@ -374,9 +374,9 @@ export default function Navbar() {
                                     className="text-gray-500 hover:text-red-600 transition-all duration-200 hover:scale-110">
                                     <FaYoutube className="h-6 w-6" />
                                 </a>
-                                <a href="mailto:contact@tatachemicals.com"
+                                <a href="https://www.tatachemicals.com/"
                                     className="text-gray-500 hover:text-[#1467b3] transition-all duration-200 hover:scale-110">
-                                    <FaEnvelope className="h-6 w-6" />
+                                    <FaGlobe className="h-6 w-6" />
                                 </a>
                             </div>
                         </div>

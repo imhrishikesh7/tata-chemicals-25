@@ -44,19 +44,14 @@ const Materiality = () => {
             label: 'The Assessment Covers'
         },
         {
-            id: 'supply-chain',
-            title: 'Supply Chain Resilience',
-            label: 'Supply Chain Resilience'
+            id: 'materiality-matrix',
+            title: 'Materiality Matrix',
+            label: 'Materiality Matrix'
         },
         {
-            id: 'green-chemistry',
-            title: 'Shift towards Low Carbon Technologies and Green Chemistry',
-            label: 'Shift towards Low Carbon Technologies and Green Chemistry'
-        },
-        {
-            id: 'innovation',
-            title: 'Operational Efficiencies and Asset Realisation',
-            label: 'Operational Efficiencies and Asset Realisation'
+            id: 'material-topics',
+            title: 'Material Topics',
+            label: 'Material Topics'
         }
     ];
     return (
@@ -65,7 +60,7 @@ const Materiality = () => {
                 <TopSection
                             title="Materiality Assessment"
                             description="Double Materiality enables to identify ESG issues that impact financial outcomes and arise from business operations through an Impact-Risk-Opportunity (IRO) lens to prioritise what matters most."
-                            // tabs={tabs}
+                            tabs={tabs}
                             activeTab={activeTab}
                             onTabClick={scrollToSection}
                             isVisible={isVisible}
@@ -78,8 +73,7 @@ const Materiality = () => {
                 <div
                     id="The-Assessment-Covers"
                     data-animate
-                    className={`transition-all duration-1000 delay-100 transform ${isVisible[''] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                        }`}
+                    className={`transition-all duration-1000 delay-100 transform `}
                 >
                     <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-white/20">
                         <div>
@@ -109,11 +103,13 @@ const Materiality = () => {
                                 Institutional investors, customers, employees, suppliers in India, UK, Africa and US and with local communities in India whose inputs were
                                 incorporated into the prioritisation of ESG issues using the Impact-Risk-Opportunity (IRO) framework.
                             </p>
-                            <h1 className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
+                            {/* <h1 className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
                                 Materiality Matrix
-                            </h1>
-                            <img src="ValueCreationApproach/Materiality/35-Page-IMG.webp" alt="" />
-                            <h1 className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
+                            </h1> */}
+                            <div className='my-6' id='materiality-matrix'>
+                            <img src="ValueCreationApproach/Materiality/35-Page-IMG.webp"  alt="" />
+                            </div>
+                            <h1 id='material-topics' className="text-3xl m-semi-bold text-[#1368b4] mb-10 mt-10 text-center">
                             Material Topics
                             </h1>
                             <img src="ValueCreationApproach/Materiality/3a668b86-d7cc-4da0-afda-1a3e04018a80.webp" alt="" />

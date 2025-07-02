@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import BODSlider from '../../Components/BODSlider';
+import TopSection from '../../Components/TopSection';
 
 const BOD = () => {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState({});
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [activeTab, setActiveTab] = useState('');
 
     const bodImages = [
-        '/home/b1.webp',
-        '/home/b2.webp',
-        '/home/b3.webp',
-        '/home/b4.webp',
-        '/home/b5.webp',
-        '/home/b6.webp',
-        '/home/b7.webp',
-        '/home/b8.webp',
+        './home/b1.webp',
+        './home/b2.webp',
+        './home/b3.webp',
+        './home/b4.webp',
+        './home/b5.webp',
+        './home/b6.webp',
+        './home/b7.webp',
+        './home/b8.webp',
     ];
 
     const committees = [
@@ -131,50 +133,33 @@ const BOD = () => {
         }
     };
 
+    const tabs = [
+        {
+            id: 'bod',
+            title: 'Directors',
+            label: 'Directors'
+        },
+        {
+            id: 'senior-management',
+            title: 'Senior Management Personnel',
+            label: 'Senior Management Personnel'
+        },
+        {
+            id: 'financial-performance',
+            title: 'Financial Performance',
+            label: 'Financial Performance'
+        }
+    ];
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
-            {/* Hero Section */}
-            <div className="relative overflow-hidden">
-                <div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"
-                    style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-                />
-                <div className="relative container mx-auto px-6 py-16">
-                    <div
-                        id="hero-title"
-                        data-animate
-                        className={`transition-all duration-1000 transform ${isVisible['hero-title'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                            }`}
-                    >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center bg-gradient-to-r from-[#1368b4] to-[#0f4c75] bg-clip-text text-transparent mb-6">
-                            Board of Directors
-                        </h1>
-                        <div className="w-32 h-1 bg-gradient-to-r from-[#2ca9a1] to-[#40b2a2] mx-auto rounded-full mb-8"></div>
 
-                        {/* Quick Navigation */}
-                        <div className="flex justify-center flex-wrap gap-4">
-                            <button
-                                onClick={() => scrollToSection('bod')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Directors
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('committees')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Management
-                            </button>
-                            <button
-                                onClick={() => scrollToSection('financial-performance')}
-                                className="px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full text-[#1368b4] font-semibold hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
-                            >
-                                Financials
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <TopSection
+                title="Board of Directors"
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabClick={scrollToSection}
+                isVisible={isVisible}
+            />
 
             <div id='bod' className="container mx-auto px-6 space-y-20 mt-10 scroll-mt-30">
 
@@ -274,7 +259,7 @@ const BOD = () => {
                 <div
                     id="senior-management"
                     data-animate
-                    className={`transition-all duration-1000 delay-600 transform ${isVisible['senior-management'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`transition-all mt-20 duration-1000 delay-600 transform ${isVisible['senior-management'] ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         }`}
                 >
                     <div className="relative">

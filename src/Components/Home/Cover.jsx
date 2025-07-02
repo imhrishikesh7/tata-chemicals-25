@@ -27,7 +27,7 @@ const Cover = () => {
       {/* Background Video */}
       <video
         className="w-full h-full object-cover"
-        src="/home/All.webm"
+        src="./home/All.webm"
         autoPlay
         loop
         muted

@@ -4,7 +4,7 @@ import TopSection from '../../Components/TopSection';
 const HumanResources = () => {
     const [scrollY, setScrollY] = useState(0);
     const [isVisible, setIsVisible] = useState({});
-       const [activeTab, setActiveTab] = useState('');
+    const [activeTab, setActiveTab] = useState('');
 
     useEffect(() => {
         const observerOptions = {
@@ -36,7 +36,7 @@ const HumanResources = () => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
-         const tabs = [
+    const tabs = [
         {
             id: 'creating',
             title: 'Creating an Empowering Work Environment',
@@ -57,15 +57,15 @@ const HumanResources = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 scroll-smooth">
             {/* Hero Section */}
-                                 <TopSection
-                                              title="Human Resources"
-                                              subtitle="A future-ready workplace is pivotal to the chemistry of sustainable growth, enabling Tata Chemicals to navigate the challenges and capitalise on the opportunities of the evolving business landscape."
-                                              description="Tata Chemicals is committed to creating an empowering work environment, building capabilities for today and tomorrow thereby strengthening Employee Value Proposition (EVP) to drive value for all stakeholders."
-                                              tabs={tabs}
-                                              activeTab={activeTab}
-                                              onTabClick={scrollToSection}
-                                              isVisible={isVisible}
-                                          />
+            <TopSection
+                title="Human Resources"
+                subtitle="A future-ready workplace is pivotal to the chemistry of sustainable growth, enabling Tata Chemicals to navigate the challenges and capitalise on the opportunities of the evolving business landscape."
+                description="Tata Chemicals is committed to creating an empowering work environment, building capabilities for today and tomorrow thereby strengthening Employee Value Proposition (EVP) to drive value for all stakeholders."
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabClick={scrollToSection}
+                isVisible={isVisible}
+            />
 
 
             {/* Main Content */}
@@ -230,17 +230,72 @@ const HumanResources = () => {
                             home and community amenities such as
                             schools, healthcare and recreation.
                         </p>
-                        <div className='flex md:flex-row flex-col gap-4 mb-4'>
-                            <div className='md:w-1/2'>
-                                <img src="./ESG/hr/47-Box-IMG.webp" className='' alt="" />
+                        <div className='flex md:flex-row flex-col gap-4 mb-4 items-stretch'>
+                            {/* First Card */}
+                            <div className='md:w-1/2 flex'>
+                                <div className="flex flex-col h-full bg-[#003f84] text-white rounded-br-[50px] p-4 sm:p-6 md:p-4 w-full">
+                                    <div className="bg-gradient-to-r from-[#1368b4] to-transparent px-4 rounded-t-md mb-5">
+                                        <div className="bg-[#ed1a3b] text-white text-sm font-semibold inline-block px-3 py-1 mb-3">
+                                            Case Study
+                                        </div>
+                                        <h3 className="font-semibold text-2xl sm:text-3xl">
+                                            Tata Chemicals Europe: <br />
+                                            Restructuring and Growth Plans
+                                        </h3>
+                                    </div>
+
+                                    <div className="bg-white text-black rounded-br-4xl mt-0 flex-grow flex flex-col divide-y divide-gray-300">
+                                        <div className="w-full p-6 text-[#0057a0] text-xl font-medium leading-7">
+                                            In 2024, Tata Chemicals Europe (TCE) announced a significant restructuring
+                                            to shift its focus on high-grade specialty products, investing £60 million
+                                            in a state-of-the-art sodium bicarbonate plant in Northwich. This facility
+                                            will triple the high-grade production capacity, supporting sustainability
+                                            efforts by using captured CO2 to produce Ecokarb. The new facility
+                                            aims to start full operations by early 2028.
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className='md:w-1/2'>
-                                <img src="./ESG/hr/47-Box2-IMG.webp" className='' alt="" />
+
+                            {/* Second Card */}
+                            <div className='md:w-1/2 flex'>
+                                <div className="flex flex-col h-full bg-[#003f84] text-white rounded-br-[50px] p-4 sm:p-6 md:p-4 w-full">
+                                    <div className="bg-gradient-to-r from-[#1368b4] to-transparent px-4 rounded-t-md mb-5">
+                                        <div className="bg-[#ed1a3b] text-white text-sm font-semibold inline-block px-3 py-1 mb-3">
+                                            Case Study
+                                        </div>
+                                        <h3 className="font-semibold text-2xl sm:text-3xl">
+                                            Advancing our DEI Journey
+                                        </h3>
+                                    </div>
+
+                                    <div className="bg-white text-black rounded-br-4xl mt-0 flex-grow flex flex-col md:flex-row justify-between divide-gray-300">
+                                        <div className="w-full md:w-2/3 p-6 text-[#0057a0] text-base sm:text-lg font-normal leading-7">
+                                            <p className="text-[#0057a0] font-medium mb-4">
+                                                Last year, we took significant steps to strengthen diversity, equity and inclusion (DEI):
+                                            </p>
+                                            <ul className="list-disc list-inside space-y-3 text-black">
+                                                <li>Introducing unconscious bias training across all functions.</li>
+                                                <li>Conducting AON Voice of Women Survey and Focus Group Discussions led by CHRO.</li>
+                                                <li>Celebrating the Annual DEI Month with several initiatives to create awareness on inclusion and culminating in a vibrant International Women’s Day event.</li>
+                                            </ul>
+                                        </div>
+                                        <div className="w-full md:w-1/3 p-6 flex flex-col items-start justify-center">
+                                            <h1 className="text-[2.5rem] font-extrabold text-[#522a8f] leading-none mb-2">50%</h1>
+                                            <hr className="border-t border-gray-400 w-10 mb-2" />
+                                            <p className="text-black text-base sm:text-lg leading-6">
+                                                Women representation among Graduate Engineers hired from Campus
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <img src="./ESG/hr/47-IMG.webp" alt="" />
-                        </div>
+
+
+                    </div>
+                    <div>
+                        <img src="./ESG/hr/47-IMG.webp" alt="" />
                     </div>
                 </div>
             </div>

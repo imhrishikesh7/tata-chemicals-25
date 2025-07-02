@@ -72,7 +72,7 @@ const Gratitude = () => {
         <div className="max-w-5xl w-full bg-white rounded-3xl overflow-hidden shadow-lg border border-neutral-200">
           <div className="md:flex">
             <div className="md:w-5/12 bg-neutral-50 flex items-center justify-center py-10 md:py-16 px-6 md:px-12">
-              <img src="/home/founder.webp" className="max-w-full h-auto object-contain" alt="Founder" />
+              <img src="./home/founder.webp" className="max-w-full h-auto object-contain" alt="Founder" />
             </div>
             <div className="md:w-7/12 py-10 md:py-16 px-6 md:px-12">
               <div className="h-full flex flex-col justify-center space-y-8">
@@ -100,7 +100,7 @@ const Gratitude = () => {
         <div className="max-w-5xl w-full bg-white rounded-3xl overflow-hidden shadow-lg border border-neutral-200">
           <div className="md:flex">
             <div className="md:w-5/12 bg-neutral-50 flex items-center justify-center py-10 md:py-16 px-6 md:px-12">
-              <img src="/home/rnt.webp" className="max-w-full h-auto object-contain" alt="Mr. Tata" />
+              <img src="./home/rnt.webp" className="max-w-full h-auto object-contain" alt="Mr. Tata" />
             </div>
             <div className="md:w-7/12 py-10 md:py-16 px-6 md:px-12">
               <div className="h-full flex flex-col justify-center space-y-8">

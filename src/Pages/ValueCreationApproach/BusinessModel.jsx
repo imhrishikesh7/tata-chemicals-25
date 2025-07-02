@@ -165,7 +165,7 @@ const BusinessModel = () => {
         {
             iconPath: './business-model/F.webp',
             title: 'Financial Capital',
-            color: 'white',
+            color: 'bg-[#edeff8]',
             content: [
                 'Net Debt: **₹5,515 crore**',
                 'Capital Employed: **₹29,573 crore**',
@@ -183,7 +183,7 @@ const BusinessModel = () => {
         {
             iconPath: './business-model/M.webp',
             title: 'Manufactured Capital',
-            color: 'white',
+            color: 'bg-[#f1f8f6]',
             content: [
                 '**15** manufacturing sites across **5 countries**',
                 'Capex incurred  **₹2,005 crore**',
@@ -205,7 +205,7 @@ const BusinessModel = () => {
         {
             iconPath: './business-model/I.webp',
             title: 'Intellectual Capital',
-            color: '',
+            color: 'bg-[#fdf0ea]',
             content: [
                 'Expertise in green chemistry, silica applications, fermentation-based prebiotics',
                 'Process know-how for integrated and energyefficient operations',
@@ -221,7 +221,7 @@ const BusinessModel = () => {
         {
             iconPath: './business-model/H.webp',
             title: 'Human Capital',
-            color: 'white',
+            color: 'bg-[#f3f0f4]',
             content: [
                 'Employees **4,789**',
                 'Training **2.7 days/employee**',
@@ -236,7 +236,7 @@ const BusinessModel = () => {
         {
             iconPath: './business-model/S.webp',
             title: 'Social and Relationship Capital',
-            color: 'white',
+            color: 'bg-[#ecf8fe]',
             content: [
                 'B2B customer partnerships for tailored product development',
                 'CSR Spend: **₹22.54 crore**',
@@ -254,7 +254,7 @@ const BusinessModel = () => {
         {
             iconPath: './business-model/N.webp',
             title: 'Natural Capital',
-            color: 'white',
+            color: 'bg-[#f5f5ea]',
             content: [
                 'Consistent focus on reducing carbon footprint, circularity initiatives and biodiversity protection.',
                 'Trona Consumption: **47,33,022 MT**',
@@ -288,14 +288,14 @@ const BusinessModel = () => {
                 {/* Dashboard Section */}
 
 
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-4  mx-auto mb-16">
                     {/* Left Sidebar - Input Tabs */}
-                    <div className="lg:col-span-1">
+                    <div className="lg:col-span-1 bg-[#ececec]/50 rounded-2xl p-4">
                         <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
                             <div className="w-1 h-6"></div>
                             Input Capitals
                         </h2>
-                        <div className="space-y-2">
+                        <div className="space-y-6">
                             {inputCapitals.map((capital, index) => (
                                 <button
                                     key={index}
@@ -303,7 +303,7 @@ const BusinessModel = () => {
                                     className={`w-full text-left p-4 border bg-white cursor-pointer border-gray-200 shadow-lg rounded-lg transition-all duration-300 transform hover:scale-102`}
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className={`p-2 rounded-lg border border-gray-200 shadow-lg bg-gradient-to-r ${capital.color} ${activeIndex === index ? 'scale-110 shadow-lg' : ''
+                                        <div className={`p-2 rounded-lg border border-gray-200 shadow-lg bg-gradient-to-r bg-white ${activeIndex === index ? 'scale-110 shadow-lg' : ''
                                             } transition-all duration-300`}>
                                             <img
                                                 src={capital.iconPath}
@@ -316,7 +316,7 @@ const BusinessModel = () => {
                                                 }}
                                             />
                                         </div>
-                                        <span className="font-semibold text-gray-800 text-sm">{capital.title}</span>
+                                        <span className="font-semibold text-gray-800 text-base">{capital.title}</span>
                                     </div>
                                 </button>
                             ))}
@@ -324,11 +324,11 @@ const BusinessModel = () => {
                     </div>
 
                     {/* Right Content Area */}
-                    <div className="lg:col-span-3 space-y-6">
+                    <div className="lg:col-span-3 space-y-4 bg-[#ececec]/50 p-4 rounded-2xl">
                         {/* Input Details */}
                         <div ref={contentRef} className="rounded-xl bg-white shadow-lg border border-gray-200 p-6">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className={`p-3 rounded-lg bg-gradient-to-r ${activeCapital.color} shadow-lg transform transition-all duration-300 hover:scale-110`}>
+                                <div className={`p-3 rounded-lg bg-gradient-to-r bg-white shadow-lg transform transition-all duration-300 hover:scale-110`}>
                                     <img
                                         src={activeCapital.iconPath}
                                         alt={activeCapital.title}
@@ -351,7 +351,7 @@ const BusinessModel = () => {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {/* Outputs with Custom Icons */}
                             <div ref={outputsRef} className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
                                 <div className="flex items-center gap-3 mb-6">
@@ -435,131 +435,131 @@ const BusinessModel = () => {
                     </div>
 
                     <div className="">
-                        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-                            <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                        <div className="bg-gray-50 rounded-xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
+                            <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                                 Approach
                             </h3>
                             <div className="space-y- flex md:flex-row flex-col justify-between flex-wrap items-stretch gap-">
-                                    <div className="border border-gray-300 shadow-lg md:w-[32%] it ems-start gap-3 p-2 rounded-lg transition-all duration-300 hover:bg-indigo-50">
-                                        {/* <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 transition-all duration-300"></div> */}
-                                        <h3 className='mb-3 text-[#1368b4] font-bold text-xl'>Efficient and Integrated Operations</h3>
-                                        <p className='mb-3 '>
-                                            Low-cost feedstock access (brine, trona, solar salt)
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Low-cost feedstock access (brine, trona, solar salt)
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Integrated manufacturing (e.g. Mithapur)
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Industry 4.0 and automation
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Lean logistics and warehousing efficiency
-                                        </p>
-                                        <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
-                                        <p className='mb-3 '>
-                                            Digitised process control
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Global capacity optimisation
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Operational risk and safety management
-                                        </p>
-                                           <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
-                                        <p className='mb-3 '>
-                                           Operational reliability and cost leadership
-                                        </p>
-                                    </div>
-                                    <div className="border border-gray-300 shadow-lg md:w-[32%] it ems-start gap-3 p-2 rounded-lg transition-all duration-300 hover:bg-indigo-50">
-                                        {/* <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 transition-all duration-300"></div> */}
-                                        <h3 className='mb-3 text-[#1368b4] font-bold text-xl'>Customer-Centric Approach</h3>
-                                        <p className='mb-3 '>
-                                            Segmented approach for B2B and B2F
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Product development aligned with enduse requirements
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Technical support and VoC systems
-                                        </p>
-                                        <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
-                                        <p className='mb-3 '>
-                                            Just-in-Time delivery
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Customised solutions for key customers
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Customer feedback loops
-                                        </p>
-                                        <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
+                                <div className="border bg-white text-lg border-gray-300 shadow-lg md:w-[32%] it ems-start gap-3 p-6 rounded-lg transition-all duration-300 hover:bg-indigo-50">
+                                    {/* <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 transition-all duration-300"></div> */}
+                                    <h3 className='mb-3 text-[#1368b4] font-bold text-xl'>Efficient and Integrated Operations</h3>
+                                    <p className='mb-3 '>
+                                        Low-cost feedstock access (brine, trona, solar salt)
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Low-cost feedstock access (brine, trona, solar salt)
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Integrated manufacturing (e.g. Mithapur)
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Industry 4.0 and automation
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Lean logistics and warehousing efficiency
+                                    </p>
+                                    <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
+                                    <p className='mb-3 '>
+                                        Digitised process control
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Global capacity optimisation
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Operational risk and safety management
+                                    </p>
+                                    <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
+                                    <p className='mb-3 '>
+                                        Operational reliability and cost leadership
+                                    </p>
+                                </div>
+                                <div className="border bg-white border-gray-300 shadow-lg md:w-[32%] it ems-start gap-3 text-lg p-6 rounded-lg transition-all duration-300 hover:bg-indigo-50">
+                                    {/* <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 transition-all duration-300"></div> */}
+                                    <h3 className='mb-3 text-[#1368b4] font-bold text-xl'>Customer-Centric Approach</h3>
+                                    <p className='mb-3 '>
+                                        Segmented approach for B2B and B2F
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Product development aligned with enduse requirements
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Technical support and VoC systems
+                                    </p>
+                                    <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
+                                    <p className='mb-3 '>
+                                        Just-in-Time delivery
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Customised solutions for key customers
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Customer feedback loops
+                                    </p>
+                                    <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
 
-                                        <p className='mb-3 '>
-                                            Strong client retention and valueadded services
-                                        </p>
-                                    </div>
-                                    <div className="border shadow-lg border-gray-300 md:w-[32%] it ems-start gap-3 p-2 rounded-lg transition-all duration-300 hover:bg-indigo-50">
-                                        {/* <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 transition-all duration-300"></div> */}
-                                        <h3 className='mb-3 text-[#1368b4] font-bold text-xl'>Sustainability as a Core Driver</h3>
-                                        <p className='mb-3 '>
-                                            Portfolio aligned with sustainability trends
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Strive for reducing carbon, water and energy intensity
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Circular use of CO₂ and sodium
-                                        </p>
-                                        <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
-                                        <p className='mb-3 '>
-                                            Scope 3 emissions reduction (smart logistics)
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Renewable energy use
-                                        </p>
-                                        <p className='mb-3 '>
-                                            Access to green financing and responsible sourcing
-                                        </p>
-                                        <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
-                                        <p className='mb-3 '>
-                                            Regulatory alignment and environmental licence to operate
-                                        </p>
-                                    </div>
+                                    <p className='mb-3 '>
+                                        Strong client retention and valueadded services
+                                    </p>
+                                </div>
+                                <div className="border bg-white shadow-lg border-gray-300 md:w-[32%] it ems-start gap-3 text-lg p-6 rounded-lg transition-all duration-300 hover:bg-indigo-50">
+                                    {/* <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0 transition-all duration-300"></div> */}
+                                    <h3 className='mb-3 text-[#1368b4] font-bold text-xl'>Sustainability as a Core Driver</h3>
+                                    <p className='mb-3 '>
+                                        Portfolio aligned with sustainability trends
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Strive for reducing carbon, water and energy intensity
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Circular use of CO₂ and sodium
+                                    </p>
+                                    <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
+                                    <p className='mb-3 '>
+                                        Scope 3 emissions reduction (smart logistics)
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Renewable energy use
+                                    </p>
+                                    <p className='mb-3 '>
+                                        Access to green financing and responsible sourcing
+                                    </p>
+                                    <div className='w-full h-[1px] bg-gray-300 mb-3'></div>
+                                    <p className='mb-3 '>
+                                        Regulatory alignment and environmental licence to operate
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        <div className="bg-white rounded-xl shadow-md border border-gray-100 p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2">
-                            <h3 className="text-xl font-bold mb-4 flex items-center gap-3">
+                        <div className="bg-gray-50 rounded-xl shadow-md border border-gray-100 p-6 mt-4 hover:shadow-lg transition-all duration-300">
+                            <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                                 Enablers
                             </h3>
-                            <div className="space-y-4 md:flex gap-3 ">
-                                    <div className='p-4 md:w-[20%] h-[200px] rounded-lg shadow-lg '>
-                                        <div className='h-20 w-20 mb-2 mx-auto'>
+                            <div className="space-y-4  md:flex gap-3 ">
+                                <div className='p-4 md:w-[25%] border-l flex flex-col bg-white justify-center border-r border-rose-600 h-[200px] rounded-lg shadow-lg '>
+                                    <div className='h-20 w-20 mb-2 mx-auto'>
                                         <img src="./business-model/T.webp" className='h-full w-full object-contain' alt="" />
-                                        </div>
-                                        <p className='text-2xl text-center'>Technology (R&D)</p>
                                     </div>
-                                    <div className='p-4 md:w-[20%] h-[200px] rounded-lg shadow-lg '>
-                                        <div className='h-20 w-20 mb-2 mx-auto'>
+                                    <p className='text-2xl text-center'>Technology (R&D)</p>
+                                </div>
+                                <div className='p-4 md:w-[25%] h-[200px] flex flex-col bg-white justify-center border-l border-r border-rose-600 rounded-lg shadow-lg '>
+                                    <div className='h-20 w-20 mb-2 mx-auto'>
                                         <img src="./business-model/D.webp" className='h-full w-full object-contain' alt="" />
-                                        </div>
-                                        <p className='text-2xl text-center'>Digitalisation</p>
                                     </div>
-                                    <div className='p-4 md:w-[20%] h-[200px] rounded-lg shadow-lg '>
-                                        <div className='h-24 w-24 mb-2 mx-auto'>
+                                    <p className='text-2xl text-center'>Digitalisation</p>
+                                </div>
+                                <div className='p-4 md:w-[25%] h-[200px] border-l bg-white flex flex-col justify-center border-r border-rose-600 rounded-lg shadow-lg '>
+                                    <div className='h-24 w-24 mb-2 mx-auto'>
                                         <img src="./business-model/P.webp" className='h-full w-full object-contain' alt="" />
-                                        </div>
-                                        <p className='text-2xl text-center'>People</p>
                                     </div>
-                                    <div className='p-4 md:w-[20%] h-[200px] rounded-lg shadow-lg '>
-                                        <div className='h-20 w-10 mb-2 mx-auto'>
+                                    <p className='text-2xl text-center'>People</p>
+                                </div>
+                                <div className='p-4 md:w-[25%] h-[200px] border-l bg-white flex flex-col justify-center border-r border-rose-600 rounded-lg shadow-lg '>
+                                    <div className='h-20 w-24 mb-2 mx-auto'>
                                         <img src="./business-model/Partners.webp" className='h-full w-full object-contain' alt="" />
-                                        </div>
-                                        <p className='text-2xl text-center'>Partners</p>
                                     </div>
+                                    <p className='text-2xl text-center'>Partners</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -567,80 +567,80 @@ const BusinessModel = () => {
 
                 {/* Stakeholder Outputs Section */}
                 <section className="bg-gray-50 rounded-2xl shadow-lg p-8 transition-all duration-500 hover:shadow-xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1368b4]">
                         Stakeholder Outputs
                     </h2>
                     <div className="max-w-6xl mx-auto px-4 py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {/* Customers */}
-        <div className="bg-[#f9f9f9] border border-gray-200 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-blue-900 mb-3">Customers</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>High-quality and consistent supply of soda ash, bicarbonate, salt, silica and agri-products</li>
-            <li>Customised solutions through product development collaborations</li>
-            <li>Just-in-time delivery and responsive technical support</li>
-            <li>Lower carbon footprint products supporting customer ESG goals</li>
-          </ul>
-        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            {/* Customers */}
+                            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+                                <h2 className="text-xl font-bold text-[#1368b4] mb-3">Customers</h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-800">
+                                    <li>High-quality and consistent supply of soda ash, bicarbonate, salt, silica and agri-products</li>
+                                    <li>Customised solutions through product development collaborations</li>
+                                    <li>Just-in-time delivery and responsive technical support</li>
+                                    <li>Lower carbon footprint products supporting customer ESG goals</li>
+                                </ul>
+                            </div>
 
-        {/* Farmers */}
-        <div className="bg-[#f9f9f9] border border-gray-200 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-blue-900 mb-3">Farmers</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>Full suite of agri solutions including seeds, crop protection and farm advisory</li>
-            <li>Farm mechanisation and weather-linked services</li>
-            <li>Wide access through on-ground dealer and retailer network in 80% of Indian districts</li>
-          </ul>
-        </div>
+                            {/* Farmers */}
+                            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+                                <h2 className="text-xl font-bold text-[#1368b4] mb-3">Farmers</h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-800">
+                                    <li>Full suite of agri solutions including seeds, crop protection and farm advisory</li>
+                                    <li>Farm mechanisation and weather-linked services</li>
+                                    <li>Wide access through on-ground dealer and retailer network in 80% of Indian districts</li>
+                                </ul>
+                            </div>
 
-        {/* Employees */}
-        <div className="bg-[#f9f9f9] border border-gray-200 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-blue-900 mb-3">Employees</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>Safe and engaging work environment</li>
-            <li>Upskilling opportunities in digital and operational domains</li>
-            <li>Stable employment with zero labour unrest</li>
-          </ul>
-        </div>
+                            {/* Employees */}
+                            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+                                <h2 className="text-xl font-bold text-[#1368b4] mb-3">Employees</h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-800">
+                                    <li>Safe and engaging work environment</li>
+                                    <li>Upskilling opportunities in digital and operational domains</li>
+                                    <li>Stable employment with zero labour unrest</li>
+                                </ul>
+                            </div>
 
-        {/* Communities */}
-        <div className="bg-[#f9f9f9] border border-gray-200 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-blue-900 mb-3">Communities</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>Local employment and skill-building</li>
-            <li>CSR initiatives in education, health and infrastructure</li>
-            <li>Environmental preservation through responsible resource use</li>
-          </ul>
-        </div>
+                            {/* Communities */}
+                            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+                                <h2 className="text-xl font-bold text-[#1368b4] mb-3">Communities</h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-800">
+                                    <li>Local employment and skill-building</li>
+                                    <li>CSR initiatives in education, health and infrastructure</li>
+                                    <li>Environmental preservation through responsible resource use</li>
+                                </ul>
+                            </div>
 
-        {/* Investors */}
-        <div className="bg-[#f9f9f9] border border-gray-200 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-blue-900 mb-3">Investors</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>Steady financial returns and business resilience</li>
-            <li>Exposure to sustainable, high-margin growth segments</li>
-          </ul>
-        </div>
+                            {/* Investors */}
+                            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+                                <h2 className="text-xl font-bold text-[#1368b4] mb-3">Investors</h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-800">
+                                    <li>Steady financial returns and business resilience</li>
+                                    <li>Exposure to sustainable, high-margin growth segments</li>
+                                </ul>
+                            </div>
 
-        {/* Suppliers and Partners */}
-        <div className="bg-[#f9f9f9] border border-gray-200 rounded-2xl shadow-sm p-6">
-          <h2 className="text-xl font-semibold text-blue-900 mb-3">Suppliers and Partners</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>Stable sourcing relationships</li>
-            <li>Shared sustainability and logistics improvements</li>
-            <li>Collaboration on responsible procurement and transport</li>
-          </ul>
-        </div>
+                            {/* Suppliers and Partners */}
+                            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
+                                <h2 className="text-xl font-bold text-[#1368b4] mb-3">Suppliers and Partners</h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-800">
+                                    <li>Stable sourcing relationships</li>
+                                    <li>Shared sustainability and logistics improvements</li>
+                                    <li>Collaboration on responsible procurement and transport</li>
+                                </ul>
+                            </div>
 
-        {/* Regulators */}
-        <div className="bg-[#f9f9f9] border border-gray-200 rounded-2xl shadow-sm p-6 sm:col-span-2">
-          <h2 className="text-xl font-semibold text-blue-900 mb-3">Regulators</h2>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>Compliance with environmental laws</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+                            {/* Regulators */}
+                            <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 sm:col-span-2">
+                                <h2 className="text-xl font-bold text-[#1368b4] mb-3">Regulators</h2>
+                                <ul className="list-disc list-inside space-y-2 text-gray-800">
+                                    <li>Compliance with environmental laws</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
 

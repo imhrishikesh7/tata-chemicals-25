@@ -6,14 +6,14 @@ import Title from '../Title';
 
 // Image list
 const bodImages = [
-    '/home/b1.webp',
-    '/home/b2.webp',
-    '/home/b3.webp',
-    '/home/b4.webp',
-    '/home/b5.webp',
-    '/home/b6.webp',
-    '/home/b7.webp',
-    '/home/b8.webp',
+    './home/b1.webp',
+    './home/b2.webp',
+    './home/b3.webp',
+    './home/b4.webp',
+    './home/b5.webp',
+    './home/b6.webp',
+    './home/b7.webp',
+    './home/b8.webp',
 ];
 
 // Bottom Arrow Components

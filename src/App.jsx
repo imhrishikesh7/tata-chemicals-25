@@ -1,6 +1,6 @@
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
@@ -74,7 +74,7 @@ function MainContent() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/24-25'>
       <LenisScroll>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col">

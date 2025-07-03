@@ -296,30 +296,30 @@ const BusinessModel = () => {
                             Input Capitals
                         </h2>
                         <div className="space-y-6">
-                            {inputCapitals.map((capital, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => handleTabClick(index)}
-                                    className={`w-full text-left p-4 border bg-white cursor-pointer border-gray-200 shadow-lg rounded-lg transition-all duration-300 transform hover:scale-102`}
-                                >
-                                    <div className="flex items-center gap-3">
-                                        <div className={`p-2 rounded-lg border border-gray-200 shadow-lg bg-gradient-to-r bg-white ${activeIndex === index ? 'scale-110 shadow-lg' : ''
-                                            } transition-all duration-300`}>
-                                            <img
-                                                src={capital.iconPath}
-                                                alt={capital.title}
-                                                className="w-5 h-5 object-contain"
-                                                onError={(e) => {
-                                                    // Fallback to a simple colored square if image fails
-                                                    e.target.style.display = 'none';
-                                                    e.target.parentElement.innerHTML = '<div class="w-4 h-4 bg-white/30 rounded"></div>';
-                                                }}
-                                            />
-                                        </div>
-                                        <span className="font-semibold text-gray-800 text-base">{capital.title}</span>
-                                    </div>
-                                </button>
-                            ))}
+                           {inputCapitals.map((capital, index) => (
+    <button
+        key={index}
+        onClick={() => handleTabClick(index)}
+        className={`w-full text-left p-4 border cursor-pointer border-gray-200 shadow-lg rounded-lg transition-all duration-300 transform hover:scale-102 
+            ${activeIndex === index ? 'bg-blue-100' : 'bg-white'}`}
+    >
+        <div className="flex items-center gap-3">
+            <div className={`p-2 rounded-lg border border-gray-200 shadow-lg bg-gradient-to-r ${activeIndex === index ? 'scale-110 shadow-xl bg-white' : 'bg-white'} transition-all duration-300`}>
+                <img
+                    src={capital.iconPath}
+                    alt={capital.title}
+                    className="w-5 h-5 object-contain"
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.parentElement.innerHTML = '<div class="w-4 h-4 bg-white/30 rounded"></div>';
+                    }}
+                />
+            </div>
+            <span className="font-semibold text-gray-800 text-base">{capital.title}</span>
+        </div>
+    </button>
+))}
+
                         </div>
                     </div>
 
